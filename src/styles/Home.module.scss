@@ -1,5 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 @import "./colors.module.scss";
 
+.quickSand {
+    font-family: 'Quicksand', sans-serif;
+}
 
 
+.nav {
+    background-color: $third;
 
+    .svg {
+        background-color: $blue_normal;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

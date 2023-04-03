@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
-const inter = Inter({ subsets: ["latin"] });
 
-import {Camera} from "../../public/SVG";
+import { Camera, FacebookMessanger, User } from "../../public/SVG";
+import { MaleUser } from "../../public/SVG";
+import LandingPage from "../Components/LandingPage";
 
 export default function Home() {
   return (
@@ -16,10 +16,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.name}>
+      <nav className={`${styles.nav} + h-[60px] flex items-center justify-between px-[4%]`}>
+        <h1 className={`${styles.quickSand} + text-[30px] font-bold leading-[40px]`}>Sialo</h1>
 
-      <Camera />
-      </div>
+        <section className={`flex gap-[18px]`}>
+
+          <div className={`${styles.svg} + w-[32px] h-[32px] cursor-pointer grid place-items-center rounded-full`}>
+            <FacebookMessanger />
+          </div>
+
+          <div className={`${styles.svg} + w-[32px] h-[32px] cursor-pointer grid place-items-center rounded-full`}>
+            <MaleUser />
+          </div>
+
+        </section>
+      </nav>
+
+
+      <LandingPage />
+
+
+
     </>
   );
 }
