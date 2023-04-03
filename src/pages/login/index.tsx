@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './login.module.scss';
+import Link from 'next/link';
 
 const Login = () => {
   return (
@@ -30,7 +31,9 @@ const Login = () => {
 
           <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`}>Log in</button>
 
-          <p className={`mt-[24px] body_Large text-right`}>Dont have an account?<a className={`${styles.register} + body_LargeBold cursor-pointer`}> Register</a></p>
+          <p className={`mt-[24px] body_Large text-right`}>Dont have an account?
+          <Link href="/register" legacyBehavior><a className={`${styles.register} + body_LargeBold cursor-pointer`}> Register</a></Link>
+          </p>
         </article>
       </section>
     </>

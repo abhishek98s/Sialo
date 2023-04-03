@@ -2,11 +2,12 @@ import React from 'react'
 import styles from './register.module.scss';
 import register_illustration from '../../../public/images/register.png'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Register = () => {
     return (
         <section className={`${styles.register} + flex items-center max-w-[100%] justify-between mx-[4%] max-lg:flex-col`}>
-            
+
             <article className={`${styles.slogen} + w-[582px] flex flex-col max-lg:mt-[64px] max-lg:w-[100%] max-lg:text-center`}>
                 <h2 className={`text-[50px] font-bold max-lg:block hidden`}>Sialo</h2>
                 <h2 className={`${styles.quickSand} + max-w-[100%] text-[60px] leading-[120%] font-bold max-lg:text-[20px] max-lg:font-medium`}>Connect with the World and Share Your Story</h2>
@@ -62,7 +63,9 @@ const Register = () => {
 
                     <button className={`body_LargeBold w-[100%] rounded-[10px] h-[51px] mt-[24px]`}>Submit</button>
 
-                    <p className={`mt-[24px] body_Large text-right`}>Already have an account?<a className={`${styles.login} + body_LargeBold cursor-pointer`}> Login        </a></p>
+                    <p className={`mt-[24px] body_Large text-right`}>Already have an account?
+
+                        <Link href="/login" legacyBehavior><a className={`${styles.login} + body_LargeBold cursor-pointer`}> Register</a></Link></p>
                 </section>
             </article>
         </section>
