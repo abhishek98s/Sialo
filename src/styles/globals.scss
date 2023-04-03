@@ -1,0 +1,66 @@
+@import "./colors.module.scss";
+
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    // border: 1px solid green;
+}
+
+
+body {
+    background-color: $bg;
+}
+
+.heading_Large {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.titleLarge {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 120%;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 20px;
+    }
+}
+
+
+.body_LargeBold {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 15px;
+    }
+}
+
+.body_Large {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 15px;
+    }
+}

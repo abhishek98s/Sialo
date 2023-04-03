@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import "../../styles/colors.module.scss";
+
+.quickSand {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+
+.register {
+
+    .slogen {
+        h2 {
+            color: $violet_Light;
+        }
+    }
+
+    .headline {
+        h3 {
+            color: $violet_Light;
+        }
+
+        p {
+            color: $violet_Light;
+        }
+    }
+
+
+    .register_inputs {
+        background-color: $secondary;
+        border: 3px solid $third;
+
+        label {
+            color: $violet_Light;
+        }
+
+        input {
+            border: 2px solid $third;
+
+            &::placeholder {
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 120%;
+            }
+
+            &:focus {
+                outline: 2px solid $fourth;
+            }
+        }
+
+        button {
+            background-color: $fourth;
+        }
+
+        .login {
+            color: $fourth;
+        }
+    }
+
+    .headline {
+        border-bottom: 3px solid $third;
+    }
+}
