@@ -1,0 +1,61 @@
+@import '../../../styles/colors.module.scss';
+
+.sidebar {
+    background-color: $secondary;
+
+    form {
+        input {
+            border: 2px solid $third;
+            border-right: none;
+            border-radius: 10px 0px 0px 10px;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 120%;
+
+            &::placeholder {
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 120%;
+            }
+
+            &:focus{
+                border: 2px solid $fourth;
+                outline: none;
+            }
+        }
+
+        button {
+            border: 2px solid $third;
+            border-left: none;
+            border-radius: 0px 10px 10px 0px;
+            background-color: $third;
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+
+    ul {
+        @layer li {
+            li {
+                cursor: pointer;
+
+                &:hover {
+                    @apply bg-[#34353E] rounded-[10px]
+                }
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
