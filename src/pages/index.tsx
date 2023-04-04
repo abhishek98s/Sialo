@@ -2,10 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.scss";
 
-import { Camera, FacebookMessanger, User } from "../../public/SVG";
-import { MaleUser } from "../../public/SVG";
 import LandingPage from "../Components/LandingPage";
-
+import { Camera, FacebookMessanger, MaleUser, User } from "../../public/SVG";
 export default function Home() {
   return (
     <>
@@ -21,14 +19,14 @@ export default function Home() {
 
         <section className={`flex gap-[18px]`}>
 
+
+          <div className={`${styles.svg} + w-[32px] h-[32px] cursor-pointer grid place-items-center rounded-full`}>
+            <User />
+          </div>
+
           <div className={`${styles.svg} + w-[32px] h-[32px] cursor-pointer grid place-items-center rounded-full`}>
             <FacebookMessanger />
           </div>
-
-          <div className={`${styles.svg} + w-[32px] h-[32px] cursor-pointer grid place-items-center rounded-full`}>
-            <MaleUser />
-          </div>
-
         </section>
       </nav>
 

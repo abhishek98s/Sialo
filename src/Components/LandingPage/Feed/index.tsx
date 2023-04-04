@@ -7,11 +7,20 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Stories from './Stories';
+import Post from './Post';
+import NewsFeed from './NewsFeed';
 
 const Feeds = () => {
     return (
         <>
-            <Stories />
+            <section className={`py-[24px] w-[53vw]`}>
+
+                <Stories />
+                
+                <Post />
+
+                <NewsFeed />
+            </section>
         </>
     )
 }

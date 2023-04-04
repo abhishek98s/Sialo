@@ -1,0 +1,49 @@
+@import '../../../../styles/colors.module.scss';
+
+
+
+.post_box {
+    background-color: $secondary;
+    border: 2px solid $third;
+
+    .storys {
+        .story {
+            background-color: $blue_normal;
+
+            div {
+                background-color: $violet_Light;
+            }
+        }
+    }
+
+    .input {
+        border: 2px solid $third;
+        outline: none;
+
+        &:focus {
+            border: 2px solid $fourth;
+        }
+
+        &::placeholder {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 120%;
+        }
+    }
+
+    .svg{
+        cursor: pointer;
+        svg{
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .bottom{
+        button{
+            border: 2px solid $third;
+        }
+    }
+}

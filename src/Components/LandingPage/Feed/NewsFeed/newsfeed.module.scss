@@ -1,0 +1,16 @@
+@import '../../../../styles/colors.module.scss';
+
+.newsFeed_box {
+    border: 2px solid $third;
+    background-color: $secondary;
+
+    .storys {
+        .story {
+            background-color: $blue_normal;
+
+            div {
+                background-color: $violet_Light;
+            }
+        }
+    }
+}

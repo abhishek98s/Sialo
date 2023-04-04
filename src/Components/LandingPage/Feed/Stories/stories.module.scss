@@ -1,0 +1,11 @@
+@import '../../../../styles/colors.module.scss';
+
+
+.storys {
+    .story {
+        background-color: $violet_normal;
+        div{
+            background-color: $violet_Light;
+        }
+    }
+}
