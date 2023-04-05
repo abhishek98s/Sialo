@@ -3,8 +3,9 @@ import { Event, Home, Logout, Market, Search } from '../../../../public/SVG'
 import styles from './sidebar.module.scss'
 
 const Sidebar = () => {
+    
     return (
-        <section className={`${styles.sidebar} + w-[265px] h-[100vh] flex flex-col px-[14px] pb-[24px] pt-[56px] sticky left-0 top-0 z-[40]`}>
+        <section className={`${styles.sidebar} + max-lg:hidden min-w-[265px] w-[300px] h-[100vh] flex flex-col px-[14px] pb-[24px] pt-[56px] sticky left-0 top-0 z-[40]`}>
 
             <form className={`w-[100%] h-[45px] flex justify-center items-center mt-[24px]`}>
                 <input className={`bg-transparent w-[100%] h-[100%] px-[16px] py-[21px]`} placeholder='Search People' />

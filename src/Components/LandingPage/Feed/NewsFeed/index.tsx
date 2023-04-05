@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./newsfeed.module.scss"
 import Image from 'next/image'
 import mainImg from '../../../../../public/images/main bg.jpg'
-import { Heart } from '../../../../../public/SVG'
+import { Comments, Heart } from '../../../../../public/SVG'
 
 const NewsFeed = () => {
     return (
@@ -32,9 +32,10 @@ const NewsFeed = () => {
             <section className={`${styles.like_comment} + flex items-center gap-[16px] h-[37px] `}>
                 <div className={`${styles.svg} `}><Heart /></div>
 
-                <article className={`flex gap-[8px] max-w-[100%] grow h-[100%] `}>
-                    <input className={`bg-transparent grow max-w-[10220px] py-[11px] px-[21px] rounded-[10px]`} placeholder='Have something to say?' />
-                    <button className={`body_Medium ml-auto px-[24px] py-[10px] h-[100%] rounded-[5px] `}>Post</button>
+                <article className={`flex gap-[8px] w-[100%]  h-[100%] `}>
+                    <input className={`bg-transparent grow max-w-[100%]  pl-[11px] px-[21px] rounded-[10px]`} placeholder='Have something to say?' />
+                    <button className={`body_Medium ml-auto px-[24px] py-[10px] h-[100%] rounded-[5px] max-sm:hidden `}>Post</button>
+                    <button className={`${styles.svg} + body_Medium ml-auto h-[100%] rounded-[5px] hidden max-sm:block  `}><Comments /></button>
                 </article>
             </section>
 

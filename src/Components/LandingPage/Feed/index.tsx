@@ -13,7 +13,7 @@ import NewsFeed from './NewsFeed';
 const Feeds = () => {
     return (
         <>
-            <section className={`py-[24px] w-[53vw]`}>
+            <section className={`py-[24px] max-w-[800px] min-w-[300px] m-auto `}>
 
                 <Stories />
                 
