@@ -299,30 +299,13 @@ const Menu = () => {
 
 const Plus = () => {
   return (
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-    >
-      <rect width="40" height="40" fill="url(#pattern0)" />
+    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+      <rect x="0.5" width="20" height="20" fill="url(#patternasdas0)" />
       <defs>
-        <pattern
-          id="pattern0"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use xlinkHref="#image0_8_157" transform="scale(0.0111111)" />
+        <pattern id="patternasdas0" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_116_140" transform="scale(0.0104167)" />
         </pattern>
-        <image
-          id="image0_8_157"
-          width="90"
-          height="90"
-          xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1UlEQVR4nO3byUoDURSE4do5D+/g9HgOIILDQvDpVNxonBLwEYygy1DScHUhIumm23v75P/gbMzm3KIWEU4kAAAAALNgQdJ87iWiWpd0IelFktOMJJ1LWsu9XBQ7PwL+OVXg27mX7LtlScM/Qv6aJ0lLuZfts6MpQv6aw9zL9tlNjaCvcy/bZx81gn7PvWyfueagIYL+J6bRBB2KaTRBh2IaTdChmEYTdCim0QQdimk0QYdiGk3QoZhGE3QoptEEHYppNEGHYhpN0J2q7tsO0lXQW4PGueczTm/f7/LWr7rYvC/gsS5kBpI2u7jqJGT9esXa6n32WQENcqFz2mbQowIe5EKnut9uxZykSQEPcqEzSRkRtHoStKb8ecOszlAtOi3gQS50jtv+ejco4FEubB4lrapl1ZdzwtZ3yLeSNtSRRUl7kq7Sv6OesRlLupS0m7IIwzUHDRH0PzGNJuhQTKMJOhTTaIIOxTSaoEMxjSboUEyjCToU02iCDsU0mqBDMY0m6FBMowk6FNNogg5lXKPRr7mX7bPrGkFXF0Ro6KBG0NWZFhpamvKw8i7aLVwOW5Ie/gj5vsurzlmzIukkXddP0jynv1WfoQNzbf5mBAAAAICK9QkSkO5NnQjE8wAAAABJRU5ErkJggg=="
-        />
+        <image id="image0_116_140" width="96" height="96" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAy0lEQVR4nO3TwW0DQAzEwOu/aaYEP+V4ZyoQROx7AAAAAPCl+uD6vp+XAAJMywIEmJYFCDAtCxBgWhYgwLQsQIBpWYAA07IAAaZlAQJMywIEmJYFCDAtCxBgWhYgwLQsQIBpWYAA01pfwKcHrHsC3BLgmADHBDgmwDEBjglw7P261h9wLQEEmJYFCDAtCxBgWhYgwLQsQIBpWYAA07IAAaZlAQJMywIEmJYFCDAtCxBgWhYgwLQsQIBpWYAA07IAAaZlAQAAAAC8/+kPBIPv8eqkg3IAAAAASUVORK5CYII=" />
       </defs>
     </svg>
   );

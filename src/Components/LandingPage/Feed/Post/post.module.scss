@@ -33,17 +33,25 @@
         }
     }
 
-    .svg{
+    .svg {
         cursor: pointer;
-        svg{
+
+        svg {
             width: 24px;
             height: 24px;
         }
     }
 
-    .bottom{
-        button{
+    .bottom {
+        button {
+            background-color: $third;
+            transition: .4s;
             border: 2px solid $third;
+            
+            &:hover {
+                border: 2px solid $third;
+                background-color: transparent;
+            }
         }
     }
 }

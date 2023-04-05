@@ -46,7 +46,7 @@ const Post = () => {
 
 
 
-        <button className={`body_Medium px-[24px] py-[10px] h-[100%] rounded-[5px] `}>Post</button>
+        <button className={`body_Medium_Bold px-[24px] py-[10px] h-[100%] rounded-[5px] `}>Post</button>
       </section>
     </form>
   )
