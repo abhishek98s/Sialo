@@ -62,14 +62,14 @@ const Event = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_28_367)">
+      <g clip-path="url(#clip0_28_3672)">
         <path
           d="M28.3333 20H20V28.3333H28.3333V20ZM26.6667 1.66667V5.00001H13.3333V1.66667H10V5.00001H8.33333C6.48333 5.00001 5.01667 6.5 5.01667 8.33334L5 31.6667C5 33.5 6.48333 35 8.33333 35H31.6667C33.5 35 35 33.5 35 31.6667V8.33334C35 6.5 33.5 5.00001 31.6667 5.00001H30V1.66667H26.6667ZM31.6667 31.6667H8.33333V13.3333H31.6667V31.6667Z"
           fill="white"
         />
       </g>
       <defs>
-        <clipPath id="clip0_28_367">
+        <clipPath id="clip0_28_3672">
           <rect width="40" height="40" fill="white" />
         </clipPath>
       </defs>
@@ -221,10 +221,10 @@ const MaleUser = () => {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <rect width="40" height="40" fill="url(#pattern0)" />
+      <rect width="40" height="40" fill="url(#patternrr0)" />
       <defs>
         <pattern
-          id="pattern0"
+          id="patternrr0"
           patternContentUnits="objectBoundingBox"
           width="1"
           height="1"
@@ -244,30 +244,27 @@ const MaleUser = () => {
 
 const Market = () => {
   return (
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-    >
-      <rect width="40" height="40" fill="url(#pattern770)" />
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+      <rect width="40" height="40" fill="url(#pattern880)" />
       <defs>
-        <pattern
-          id="pattern770"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
+        <pattern id="pattern880" patternContentUnits="objectBoundingBox" width="1" height="1">
           <use xlinkHref="#image0_28_362" transform="scale(0.0104167)" />
         </pattern>
-        <image
-          id="image0_28_362"
-          width="96"
-          height="96"
-          xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQElEQVR4nO3awQ3CUAwEUdcDTaZJRDnLnUtA8JmPdl4DdrAYKVJmJEmSJEmSpBel3NBSbmgpN7SUG1rKDS3lhpZyQ0u5kSRJkqRfSnKlX4Q2cCEPcNBPv4GDPMCNfvoN3Kkf3/yQGTI/cIbMD5gh8wNnyPzAGTI/YIbMD5wh8wNnyPyAGTI/cIbMD5wh8wNmyPzAGTI/cIbMD5gh8wNnyPzAGTI/YIbMD5wh8wNnyPzAGfpsvsYDsDwAzAPAPADMA8A8AMwD/PsB3n0v+PrAJ+3z8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPn/774QGfv7V8z3ACQ+wmAc44QFg4z/AAyyVzc1i9HwPQB9AkiRJkiRJ868e+pgSMHOCEzAAAAAASUVORK5CYII="
-        />
+        <image id="image0_28_362" width="96" height="96" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQElEQVR4nO3awQ3CUAwEUdcDTaZJRDnLnUtA8JmPdl4DdrAYKVJmJEmSJEmSpBel3NBSbmgpN7SUG1rKDS3lhpZyQ0u5kSRJkqRfSnKlX4Q2cCEPcNBPv4GDPMCNfvoN3Kkf3/yQGTI/cIbMD5gh8wNnyPzAGTI/YIbMD5wh8wNnyPyAGTI/cIbMD5wh8wNmyPzAGTI/cIbMD5gh8wNnyPzAGTI/YIbMD5wh8wNnyPzAGfpsvsYDsDwAzAPAPADMA8A8AMwD/PsB3n0v+PrAJ+3z8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPn/774QGfv7V8z3ACQ+wmAc44QFg4z/AAyyVzc1i9HwPQB9AkiRJkiRJ868e+pgSMHOCEzAAAAAASUVORK5CYII=" />
+      </defs>
+    </svg>
+  );
+};
+
+const Market2 = () => {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+      <rect width="40" height="40" fill="url(#pattern8890)" />
+      <defs>
+        <pattern id="pattern8890" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_28_362" transform="scale(0.0104167)" />
+        </pattern>
+        <image id="image0_28_362" width="96" height="96" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQElEQVR4nO3awQ3CUAwEUdcDTaZJRDnLnUtA8JmPdl4DdrAYKVJmJEmSJEmSpBel3NBSbmgpN7SUG1rKDS3lhpZyQ0u5kSRJkqRfSnKlX4Q2cCEPcNBPv4GDPMCNfvoN3Kkf3/yQGTI/cIbMD5gh8wNnyPzAGTI/YIbMD5wh8wNnyPyAGTI/cIbMD5wh8wNmyPzAGTI/cIbMD5gh8wNnyPzAGTI/YIbMD5wh8wNnyPzAGfpsvsYDsDwAzAPAPADMA8A8AMwD/PsB3n0v+PrAJ+3z8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPh9fIOXz8QVSPn/774QGfv7V8z3ACQ+wmAc44QFg4z/AAyyVzc1i9HwPQB9AkiRJkiRJ868e+pgSMHOCEzAAAAAASUVORK5CYII=" />
       </defs>
     </svg>
   );
@@ -369,10 +366,10 @@ const User = () => {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <rect width="40" height="40" fill="url(#pattern0)" />
+      <rect width="40" height="40" fill="url(#patternff0)" />
       <defs>
         <pattern
-          id="pattern0"
+          id="patternff0"
           patternContentUnits="objectBoundingBox"
           width="1"
           height="1"
@@ -432,6 +429,7 @@ export {
   Logout,
   MaleUser,
   Market,
+  Market2,
   Menu,
   Plus,
   Search,
