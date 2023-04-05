@@ -1,0 +1,24 @@
+@import '../../../styles/colors.module.scss';
+
+.friend_list {
+    border: 2px solid $third;
+    background: $secondary;
+
+    .heading {
+        background: $third;
+    }
+
+    .friend {
+        &:hover{
+            background: $third;
+        }
+
+        .story {
+            background-color: $blue_normal;
+
+            div {
+                background-color: $violet_Light;
+            }
+        }
+    }
+}

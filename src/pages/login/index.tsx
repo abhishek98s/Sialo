@@ -1,8 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './login.module.scss';
 import Link from 'next/link';
 
+
+// import { isEmail } from 'validator';
+
 const Login = () => {
+  const [values, setValues] = useState({
+    email: "",
+    password: ""
+  });
+
+  const [erroes, setErrors] = useState({
+    email: "",
+    password: ""
+  });
+
+
+  const inputHandler = (e:any) => {
+    let val = e.target.value;
+
+
+    switch (e.target.name) {
+      case "email":
+        if(!val){
+          setErrors((error) => ({...error, email: "Email is required"}))
+        }
+        break;
+    
+      default:
+        break;
+    }
+  }
+
+
+
+
   return (
     <>
       <section className={`${styles.login_box} + h-[100vh] max-w-[100%] flex justify-center items-center mx-auto px-[4%] max-lg:mx-[4%]`}>
@@ -20,6 +53,7 @@ const Login = () => {
             <div className={`flex flex-col gap-[8px]`}>
               <label className={`titleLarge`}>Email *</label>
               <input placeholder="exapmle@gmail.com" className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} />
+              <span className={`${styles.error}`}></span>
             </div>
 
             <div className={`flex flex-col gap-[8px]`}>

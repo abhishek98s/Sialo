@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Story from './Story'
 import styles from './stories.module.scss'
 
@@ -6,23 +6,72 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Stories = () => {
+// const Stories = () => {
 
-    var settings = {
-        dots: false,
-        arrows: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        variableWidth: true,
-        centerPadding: '0px',
-    };
+//     var settings = {
+//         // dots: false,
+//         // arrows: false,
+//         // infinite: false,
+//         // speed: 500,
+//         // // slidesToShow: 3,
+//         // slidesToScroll: 1
+//         // variableWidth: true,
+//         // centerPadding: '0px',,
 
-    return (
-        <section className={`mt-[56px w-[53vw] mt-[56px]`}>
+//         dots: true,
+//         infinite: true,
+//         variableWidth: true,
+//         variableHeight: true,
+//         speed: 500,
+//         slidesToShow: 3,
+//         slidesToScroll: 3
+//     };
 
-            <section className={`w-[100%] flex gap-[16px] mt-[24px] overflow-hidden mx-[-5px]`}>
+export default class Stories extends Component {
+    render() {
+        const settings = {
+            dots: false,
+            arrows: false,
+
+            // swipeToSlide: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 6,
+            slidesToScroll: 2,
+            variableWidth: true,
+            centerPadding: "5px",
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: false,
+                        dots: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        initialSlide: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        };
+
+        return (
+            <section className={`mt-[56px w-[53vw] mt-[56px]`}>
+
+                {/* <section className={`w-[100%] flex gap-[16px] mt-[24px] overflow-hidden mx-[-5px]`}> */}
                 <Slider {...settings}>
 
 
@@ -52,25 +101,10 @@ const Stories = () => {
                     <Story />
                     <Story />
                     <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
                 </Slider>
+                {/* </section> */}
+
             </section>
-
-        </section>
-    )
+        )
+    }
 }
-
-export default Stories
