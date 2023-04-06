@@ -20,6 +20,7 @@ const Feeds = () => {
                 <Post />
 
                 <NewsFeed />
+                <NewsFeed />
             </section>
         </>
     )

@@ -1,6 +1,15 @@
 @import '../../styles/colors.module.scss';
 
 .mobile_nav{
-    background-color: $secondary;
-    border: 5px solid $third;
+    background-color: $bg;
+    border-top: 3px solid $third;
+    border-bottom: none;
+
+    ul{
+        li{
+            svg{
+                width: 30px;
+            }
+        }
+    }
 }
