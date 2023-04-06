@@ -62,12 +62,8 @@ const Register = () => {
 
 
     const sumbit = () => {
-        //erroes empty
-        //vale not empty
-
         let isEmptyValues = Object.values(value).every((value) => value === '');
         let isEmptyErrors = Object.values(error).every((error) => error === '');
-        // let isEveryErrorsEmpty = Object.values(error).some((error) => error !== '') 
 
         if (!isEmptyErrors) {
             toast("Please fill the field correctly", {

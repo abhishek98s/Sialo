@@ -76,14 +76,11 @@ const Login = () => {
             <div className={`flex flex-col gap-[8px]`}>
               <label className={`titleLarge`}>Email *</label>
               <input placeholder="exapmle@gmail.com" className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} name='email' onChange={inputHandler} />
-              {/* <span className={`${styles.error}`}>{error.email}</span> */}
             </div>
 
             <div className={`flex flex-col gap-[8px]`}>
               <label className={`titleLarge`}>Password *</label>
               <input placeholder="Password" className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} name='password' onChange={inputHandler} />
-              {/* <span className={`${styles.error}`}>{error.password}</span> */}
-
             </div>
 
           </div>
