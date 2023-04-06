@@ -68,7 +68,7 @@ const Register = () => {
         if (!isEmptyErrors) {
             toast("Please fill the field correctly", {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -81,7 +81,7 @@ const Register = () => {
         if (isEmptyValues) {
             toast("Please fill out all the field", {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -93,7 +93,7 @@ const Register = () => {
 
         toast("Logged In", {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
