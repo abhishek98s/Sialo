@@ -11,7 +11,7 @@ const Login = () => {
     password: ""
   });
 
-  const [erroes, setErrors] = useState({
+  const [errors, setErrors] = useState({
     email: "",
     password: ""
   });

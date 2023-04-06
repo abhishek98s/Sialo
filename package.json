@@ -21,6 +21,7 @@
     "react-id-swiper": "^4.0.0",
     "react-multi-carousel": "^2.8.3",
     "react-slick": "^0.29.0",
+    "react-toastify": "^9.1.2",
     "sass": "^1.60.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^9.2.0",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
+    "@types/validator": "^13.7.14",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "postcss-flexbugs-fixes": "^5.0.2",

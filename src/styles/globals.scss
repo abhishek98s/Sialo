@@ -40,7 +40,7 @@ body {
 .titleLarge {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 120%;
 
     @media screen and (max-width: 1024px) {
@@ -114,4 +114,36 @@ body {
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
+}
+
+
+
+// Tostify code
+
+.Toastify__toast-body {
+    background-color: none;
+}
+
+
+.Toastify__toast-theme--dark {
+    background: $secondary;
+    border: 2px solid none;
+}
+
+.Toastify__toast{
+    min-height: 10px !important;
+}
+
+.Toastify__toast-body{
+    font-size: 14px;
+}
+
+.Toastify__close-button {
+    background-color: transparent !important;
+}
+
+.Toastify__progress-bar{
+    height: 2px !important;
+    background: $fourth !important;
+
 }

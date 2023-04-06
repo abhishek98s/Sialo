@@ -52,6 +52,11 @@
 
         button {
             background-color: $fourth;
+            transition: .3s;
+            
+            &:hover{
+                background-color: $fourth_hover;
+            }
         }
 
         .login {
@@ -62,4 +67,10 @@
     .headline {
         border-bottom: 3px solid $third;
     }
+}
+
+
+.error{
+    color: #FF7B72;
+    font-size: 15px;
 }
