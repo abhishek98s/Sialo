@@ -4,6 +4,7 @@ import register_illustration from '../../../public/images/register.png'
 import Image from 'next/image';
 import Link from 'next/link';
 import validator from 'validator';
+import { useRouter } from 'next/router';
 
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -24,6 +25,9 @@ const Register = () => {
         email: "",
         password: ""
     })
+
+    const router = useRouter();
+
 
     const inputHandler = (e: any) => {
         let val = e.target.value;
@@ -91,7 +95,7 @@ const Register = () => {
             })
         }
 
-        toast("Logged In", {
+        toast("Registered", {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -101,6 +105,8 @@ const Register = () => {
             progress: undefined,
             theme: "dark",
         })
+
+        router.push('/login');
 
     }
 

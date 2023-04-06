@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './login.module.scss';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,36 +10,17 @@ import 'react-toastify/dist/ReactToastify.css';
 // import { isEmail } from 'validator';
 
 const Login = () => {
+
   const [value, setValue] = useState({
     email: "",
     password: ""
   });
-
-  // const [error, setError] = useState({
-  //   email: "",
-  //   password: ""
-  // });
-
+  
+  const router = useRouter();
 
   const inputHandler = (e: any) => {
     let val = e.target.value;
     setValue((value) => ({ ...value, [e.target.name]: val }))
-
-
-    // switch (e.target.name) {
-    //   case "email":
-    //     if (!val) {
-    //       setError((errors) => ({ ...errors, email: "Email is required" }))
-    //     } else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(val))) {
-    //       setError((errors) => ({ ...errors, email: "Email is invalid" }))
-    //     } else {
-    //       setError((errors) => ({ ...errors, email: "" }))
-    //     }
-    //     break;
-
-    //   default:
-    //     break;
-    // }
   }
 
 
@@ -56,7 +38,21 @@ const Login = () => {
         progress: undefined,
         theme: "dark",
       })
+      return
     }
+
+    toast("Logged in", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    })
+
+    router.push('/');
 
   }
 
