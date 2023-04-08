@@ -172,7 +172,7 @@ const Register = () => {
 
                     <p className={`mt-[24px] body_Large text-right`}>Already have an account?
 
-                        <Link href="/login" legacyBehavior><a className={`${styles.login} + body_LargeBold cursor-pointer`}> Register</a></Link></p>
+                        <Link href="/login" legacyBehavior><a className={`${styles.login} + body_LargeBold cursor-pointer`}> Login</a></Link></p>
                 </section>
             </article>
         </section>
