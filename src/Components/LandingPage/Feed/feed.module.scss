@@ -1,0 +1,59 @@
+@import '../../../styles/colors.module.scss';
+
+.newsFeed_box {
+    border: 2px solid $third;
+    background-color: $secondary;
+
+    .storys {
+        .story {
+            background-color: $blue_normal;
+
+            div {
+                background-color: $violet_Light;
+            }
+        }
+    }
+
+    .svg {
+        svg {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    .like_comment {
+        input {
+            border: 2px solid $third;
+            outline: none;
+
+            &::placeholder {
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 120%;
+            }
+
+            &:focus{
+                border: 2px solid $fourth;
+            }
+        }
+        
+        
+        button{
+            border: 2px solid $third;
+
+            @media screen and (max-width: 639px) {
+                border: none;
+            }
+        }
+    }
+
+    .comment{
+        background-color: $third;
+    }
+}
+
+.grey_light_hover{
+    color: $Grey_light_hover;
+}
