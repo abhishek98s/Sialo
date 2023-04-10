@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './login.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import axios from 'axios'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,12 +11,45 @@ import 'react-toastify/dist/ReactToastify.css';
 // import { isEmail } from 'validator';
 
 const Login = () => {
+  const [data, setData] = useState({
+    img: ''
+  });
+
+  // useEffect(() => {
+
+  //   const makeAPICall = async () => {
+  //     try {
+  //       // const response = await fetch('http://localhost:8080/api/contacts', { mode: 'cors' });
+  //       // const data = await response.json();
+  //       // setData(data.data )
+
+  //       fetch('http://localhost:8080/api/contacts')
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           var base64Flag = 'data:image/jpeg;base64,';
+            
+  //           var imageStr = arrayBufferToBase64(data.data[1].img.data.data);
+  //           setData({ img: base64Flag + imageStr })
+  //         })
+
+  //     }
+  //     catch (e) {
+  //       console.log(e)
+  //     }
+  //   }
+  //   makeAPICall();
+
+  //   console.log(data.img)
+
+  // }, [])
+
+
 
   const [value, setValue] = useState({
     email: "",
     password: ""
   });
-  
+
   const router = useRouter();
 
   const inputHandler = (e: any) => {
@@ -56,12 +90,17 @@ const Login = () => {
 
   }
 
-
+  const arrayBufferToBase64 = (buffer: any) => {
+    var binary = '';
+    var bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => binary += String.fromCharCode(b));
+    return window.btoa(binary);
+  };
 
   return (
     <>
       <section className={`${styles.login_box} + h-[100vh] max-w-[100%] flex justify-center items-center mx-auto px-[4%] max-lg:mx-[4%]`}>
-
+      
         <article className={`flex flex-col gap-[16px] max-lg:text-center max-lg:gap-[16px]`}>
           <h2 className={`${styles.quickSand} + text-[60px] leading-[40px] font-bold max-lg:text-[50px]`}>Sialo</h2>
           <p className={`${styles.quickSand} + ${styles.subHeadLine} text-[32px] leading-[40px] font-medium max-w-[537px] max-lg:text-[28px] max-lg:leading-6`}>Experience a New Way of Connecting</p>
