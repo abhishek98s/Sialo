@@ -1,5 +1,6 @@
 import User from "../model/User.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken'
 import fs from 'fs'
 import path from 'path'
 
@@ -16,9 +17,11 @@ export const register = async (req, res) => {
             img
         } = req.body
 
-        let passwordHash = await bcrypt.hash(password, 10)
 
-        let user = await new User({
+        const salt = await bcrypt.genSalt(10);
+        const passwordHash = await bcrypt.hash(password, salt);
+
+        let newUser = await new User({
             firstName: firstName,
             lastName: lastName,
             phoneNo: phoneNo,
@@ -31,15 +34,34 @@ export const register = async (req, res) => {
             }
         })
 
-        const savedUser = await user.save();
+        const savedUser = await newUser.save();
 
-        console.log(savedUser)
+        res.status(201).json(savedUser)
 
-        res.json({
-            message: "sucess"
-        })
     } catch (err) {
         console.log(err)
         res.json(err)
+    }
+}
+
+
+
+
+export const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email: email });
+        if (!user) return res.status(400).json({ msg: "User doesnot exist." })
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(400).json({ msg: "Invalid crediantials." });
+
+        const token = jwt.sign({ id: user.firstName }, process.env.JWT_SECRET);
+        user.img = null;
+        user.password = null;
+        res.status(200).json({ token, user });
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
 }
