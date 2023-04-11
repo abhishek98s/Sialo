@@ -52,10 +52,9 @@ const Post = () => {
 
       { imgs && 
 
-      <div className='relative'>
-
-        <Image src={imgs!} className={`w-[70px] h-[70px] mt-[16px] rounded-[15px] object-cover opacity-90`} width={500} height={500} alt='asd' />
-        
+      <div className='relative w-[max-content]'>
+        <Image src={imgs!} className={`w-[70px] h-[70px] mt-[16px] rounded-[15px] object-cover opacity-70`} width={500} height={500} alt='asd' />
+        <span onClick={() => setImg(null!)} className=' absolute cursor-pointer top-[3px] right-[4px] w-[20px] h-[20px] text-center pt-[3px] text-[10px] rounded-full text-white bg-black'>X</span>
       </div>
       }
 
