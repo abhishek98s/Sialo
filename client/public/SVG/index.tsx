@@ -132,7 +132,7 @@ const Home = () => {
   );
 };
 
-const Image = () => {
+const ImageIcon = () => {
   return (
     <svg
       width="40"
@@ -424,7 +424,7 @@ export {
   Event,
   FacebookMessanger,
   Home,
-  Image,
+  ImageIcon,
   Location,
   Logout,
   MaleUser,
