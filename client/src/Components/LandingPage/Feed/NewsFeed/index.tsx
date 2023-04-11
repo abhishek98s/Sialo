@@ -4,9 +4,12 @@ import Image from 'next/image'
 import mainImg from '../../../../../public/images/main bg.jpg'
 import { Comments, Heart } from '../../../../../public/SVG'
 
-const NewsFeed = () => {
+const NewsFeed = ({ ...data }: any): JSX.Element => {
+    console.log(data)
+    var base64Flag = 'data:image/jpeg;base64,';
+
     return (
-        <section className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>
+        <section key={data._id} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>
 
             <article className={`flex gap-[16px] items-center`}>
 
@@ -25,9 +28,12 @@ const NewsFeed = () => {
 
             </article>
 
-            <p className={`body_Large `}>Nature's view, a stunning display of color and beauty that can rejuvenate your soul</p>
+            <p className={`body_Large `}>{data.caption}</p>
 
-            <Image className={`max-w-[100%] h-[330px] mt-[8px] object-cover`} src={mainImg} alt='post' />
+
+            <div className='w-  mt-[8px]'>
+                <Image className={`w-[100%] h-[100%] object-center `} src={base64Flag + data.img} alt='post' width={400} height={30} />
+            </div>
 
             <section className={`${styles.like_comment} + flex items-center gap-[16px] h-[37px] `}>
                 <div className={`${styles.svg} `}><Heart /></div>
