@@ -27,7 +27,7 @@ const Feeds = () => {
 
 
         const api = async () => {
-            const response = await fetch("http://192.168.1.67:8000/api/post");
+            const response = await fetch("https://sialo-backend.onrender.com/api/post");
             const jsonData = await response.json();
 
             const newarr = await jsonData.data.map((items: any) => (
@@ -55,7 +55,7 @@ const Feeds = () => {
                     //     <Image className={`w-[100%] object-cover`} src={base64Flag + data.img} alt='post' width={400} height={330} />
                     // </div>
 
-                    <section className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>
+                    <section key={data._id} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>
 
                         <article className={`flex gap-[16px] items-center`}>
 
