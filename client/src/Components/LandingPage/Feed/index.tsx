@@ -12,7 +12,8 @@ import Stories from './Stories';
 import Post from './Post';
 import NewsFeed from './NewsFeed';
 import Image from 'next/image';
-import { Comments, Heart } from '../../../../public/SVG';
+import { Comments, Heart, Plus } from '../../../../public/SVG';
+import Loading from './Loading2';
 
 const Feeds = () => {
     const [postData, setPostData] = useState([]);
@@ -52,11 +53,14 @@ const Feeds = () => {
                 <Post />
 
                 <NewsFeed />
-               
+
                 {postData && postData.map((data: any) => (
                     <NewsFeed key={data._id} {...data} />
 
                 ))}
+
+
+                {!postData.length && <Loading />}
             </section>
         </>
     )

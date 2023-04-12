@@ -6,27 +6,6 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// const Stories = () => {
-
-//     var settings = {
-//         // dots: false,
-//         // arrows: false,
-//         // infinite: false,
-//         // speed: 500,
-//         // // slidesToShow: 3,
-//         // slidesToScroll: 1
-//         // variableWidth: true,
-//         // centerPadding: '0px',,
-
-//         dots: true,
-//         infinite: true,
-//         variableWidth: true,
-//         variableHeight: true,
-//         speed: 500,
-//         slidesToShow: 3,
-//         slidesToScroll: 3
-//     };
-
 export default class Stories extends Component {
     render() {
         const settings = {
