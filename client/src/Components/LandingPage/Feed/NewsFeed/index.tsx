@@ -9,7 +9,7 @@ const NewsFeed = ({ ...data }: any): JSX.Element => {
     var base64Flag = 'data:image/jpeg;base64,';
 
     return (
-        <section key={data._id} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>
+        <section key={data._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>
 
             <article className={`flex gap-[16px] items-center`}>
 
@@ -28,11 +28,11 @@ const NewsFeed = ({ ...data }: any): JSX.Element => {
 
             </article>
 
-            <p className={`body_Large `}>{data.caption}</p>
+            <p className={`body_Large `}>{(data.caption) || 'Nature is beautiful!'}</p>
 
 
             <div className='w-  mt-[8px]'>
-                <Image className={`w-[100%] h-[100%] object-center `} src={base64Flag + data.img} alt='post' width={400} height={30} />
+                <Image className={`w-[100%] h-[100%] object-center `} src={!(data.img) ? mainImg : base64Flag + data.img} alt='post' width={400} height={30} />
             </div>
 
             <section className={`${styles.like_comment} + flex items-center gap-[16px] h-[37px] `}>
