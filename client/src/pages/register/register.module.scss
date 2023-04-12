@@ -34,7 +34,7 @@
             color: $violet_Light;
         }
 
-        input {
+        input, .label {
             border: 2px solid $third;
 
             &::placeholder {
@@ -66,6 +66,16 @@
 
     .headline {
         border-bottom: 3px solid $third;
+    }
+
+    .storys {
+        .story {
+            background-color: $third;
+
+            div {
+                background-color: #7b7b7b;
+            }
+        }
     }
 }
 
