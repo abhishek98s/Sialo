@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import validator from 'validator';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -13,6 +14,7 @@ import { AddImage, Plus, User } from '../../../public/SVG';
 
 const Register = () => {
     const [imgs, setImg] = useState();
+    const [file, setFile] = useState(null);
 
     const [error, setError] = useState({
         email: "",
@@ -27,6 +29,8 @@ const Register = () => {
         email: "",
         password: ""
     })
+
+    const { firstName, lastName, phoneNo, gender, email, password } = value;
 
     const router = useRouter();
 
@@ -59,6 +63,7 @@ const Register = () => {
                 break;
 
             case "image":
+                setFile(e.target.files[0])
 
                 let file = e.target.files[0];
                 if (!file) {
@@ -83,7 +88,8 @@ const Register = () => {
 
 
 
-    const sumbit = () => {
+    const submit = async (e: any) => {
+        e.preventDefault();
         let isEmptyValues = Object.values(value).every((value) => value === '');
         let isEmptyErrors = Object.values(error).every((error) => error === '');
 
@@ -114,23 +120,51 @@ const Register = () => {
             return
         }
 
-        toast("Registered", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        })
+
+        if (isEmptyErrors && !isEmptyValues) {
+
+
+
+            const formData = new FormData();
+            formData.append("firstName", firstName)
+            formData.append("lastName", lastName!)
+            formData.append("phoneNo", phoneNo!)
+            formData.append("gender", gender!)
+            formData.append("email", email!)
+            formData.append("password", password!)
+
+            formData.append("image", file!)
+
+            try {
+                const response = await axios({
+                    method: "post",
+                    url: "https://sialo-backend.onrender.com/api/register",
+                    data: formData,
+                    headers: { "Content-Type": "multipart/form-data" },
+                });
+
+                
+                toast("Registered", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
 
         // router.push('/login');
 
     }
 
     return (
-        <section className={`${styles.register} + flex items-center  max-w-[100%] h-[max-content] justify-between mx-[4%] max-lg:flex-col my-[64px]`}>
+        <form onSubmit={submit} className={`${styles.register} + flex items-center  max-w-[100%] h-[max-content] justify-between mx-[4%] max-lg:flex-col my-[64px]`}>
 
             <article className={`${styles.slogen} +  w-[582px] flex flex-col max-lg:mt-[64px] max-lg:w-[100%] max-lg:text-center`}>
                 <h2 className={`text-[50px] font-bold max-lg:block hidden`}>Sialo</h2>
@@ -201,7 +235,7 @@ const Register = () => {
                     </div>}
 
 
-                    <button className={`body_LargeBold w-[100%] rounded-[10px] h-[51px] mt-[24px]`} onClick={sumbit}>Submit</button>
+                    <button className={`body_LargeBold w-[100%] rounded-[10px] h-[51px] mt-[24px]`} type='submit'>Submit</button>
 
                     <p className={`mt-[24px] body_Large text-right`}>Already have an account?
 
@@ -222,7 +256,7 @@ const Register = () => {
             </article>
 
 
-        </section>
+        </form>
     )
 }
 
