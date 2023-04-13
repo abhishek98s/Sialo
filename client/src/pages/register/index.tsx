@@ -11,10 +11,12 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AddImage, Plus, User } from '../../../public/SVG';
+import Loading from './Loading';
 
 const Register = () => {
     const [imgs, setImg] = useState();
     const [file, setFile] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const [error, setError] = useState({
         email: "",
@@ -124,7 +126,7 @@ const Register = () => {
         if (isEmptyErrors && !isEmptyValues) {
 
 
-
+            setLoading(true);
             const formData = new FormData();
             formData.append("firstName", firstName)
             formData.append("lastName", lastName!)
@@ -143,7 +145,12 @@ const Register = () => {
                     headers: { "Content-Type": "multipart/form-data" },
                 });
 
-                
+                if (response) {
+                    setLoading(false);
+                }
+                router.push('/login');
+
+
                 toast("Registered", {
                     position: "top-right",
                     autoClose: 3000,
@@ -159,7 +166,6 @@ const Register = () => {
             }
         }
 
-        // router.push('/login');
 
     }
 
@@ -235,7 +241,10 @@ const Register = () => {
                     </div>}
 
 
-                    <button className={`body_LargeBold w-[100%] rounded-[10px] h-[51px] mt-[24px]`} type='submit'>Submit</button>
+                    <button className={`body_LargeBold w-[100%] rounded-[10px] h-[51px] mt-[24px]`} type='submit'>
+                        {!loading && "Submit"}
+                        {loading && <Loading />}
+                    </button>
 
                     <p className={`mt-[24px] body_Large text-right`}>Already have an account?
 
