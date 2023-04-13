@@ -1,0 +1,14 @@
+@import '../../styles/colors.module.scss';
+
+
+.nav {
+    background-color: $third;
+
+    .svg {
+        background-color: $blue_normal;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
