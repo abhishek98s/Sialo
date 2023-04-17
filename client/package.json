@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "@types/node": "18.15.11",
     "@types/react": "18.0.31",
     "@types/react-dom": "18.0.11",
@@ -21,6 +22,7 @@
     "react-dom": "18.2.0",
     "react-id-swiper": "^4.0.0",
     "react-multi-carousel": "^2.8.3",
+    "react-redux": "^8.0.5",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.1.2",
     "sass": "^1.60.0",
