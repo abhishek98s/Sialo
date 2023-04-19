@@ -23,7 +23,12 @@ const PORT = process.env.PORT;
 
 // Configuring the database
 try {
-    mongoose.connect(process.env.MONGO_URI, console.log("DB connected sucessfully"));
+    mongoose.connect(process.env.MONGO_URI, () => {
+        console.log("DB connected sucessfully");
+
+        app.listen(PORT, console.log(`Server running and listning on PORT:${PORT}`))
+    })
+
 } catch (error) {
     console.log(error)
 }
@@ -33,5 +38,3 @@ import postRoute from './routes/Post.js';
 
 app.use('/api', userRoute);
 app.use('/api', postRoute);
-
-app.listen(PORT, console.log(`Server running and listning on PORT:${PORT}`))
