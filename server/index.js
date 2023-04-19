@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
     next();
 })
 
-const PORT = process.env.PORT || 8800;
+const PORT = process.env.PORT || 3000;
 
 // Configuring the database
 const connectDB = async () => {
