@@ -36,7 +36,7 @@ const Feeds = () => {
             const newarr = await jsonData.data.map((items: any) => (
                 {
                     caption: items.caption,
-                    img: items.img.data.data.toString("base64")
+                    img: arrayBufferToBase64(items.img.data.data)
                 }))
 
             await setPostData(newarr)
