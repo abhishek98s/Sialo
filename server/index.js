@@ -19,18 +19,17 @@ app.use(function (req, res, next) {
     next();
 })
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8800;
 
 // Configuring the database
-try {
-    mongoose.connect(process.env.MONGO_URI, () => {
-        console.log("DB connected sucessfully");
+const connectDB = async () => {
+    try {
+        const conn = await mongoose.connect(process.env.MONGO_URI);
 
-        app.listen(PORT, console.log(`Server running and listning on PORT:${PORT}`))
-    })
-
-} catch (error) {
-    console.log(error)
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 import userRoute from './routes/User.js';
@@ -38,3 +37,8 @@ import postRoute from './routes/Post.js';
 
 app.use('/api', userRoute);
 app.use('/api', postRoute);
+
+connectDB().then(() => {
+    app.listen(PORT, console.log(`Server running and listning on PORT:${PORT}`))
+
+})
