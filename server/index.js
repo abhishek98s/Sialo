@@ -35,6 +35,10 @@ const connectDB = async () => {
 import userRoute from './routes/User.js';
 import postRoute from './routes/Post.js';
 
+app.get('/', (req, res) => {
+    res.send("sialo social media app")
+})
+
 app.use('/api', userRoute);
 app.use('/api', postRoute);
 
