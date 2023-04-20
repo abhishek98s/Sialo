@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start" : "node server.js",
-    "dev": "npx nodemon index"
+    "dev": "npx nodemon index",
+    "build": "npm i"
   },
   "keywords": [],
   "author": "",
