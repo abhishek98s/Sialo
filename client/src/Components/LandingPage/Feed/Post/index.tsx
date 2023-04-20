@@ -104,6 +104,8 @@ const Post = () => {
         })
 
         setImg(null!);
+        setValue((value) => ({ ...value, caption: "" }))
+
         return;
       } else {
         toast("Posted failed", {
