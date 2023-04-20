@@ -28,9 +28,15 @@ const connectDB = async () => {
 
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
-        console.log(error)
+        console.log(error);
+        process.exit(1);;
     }
 }
+
+//Routes go here
+app.all('*', (req, res) => {
+    res.json({ "every thing": "is awesome" })
+})
 
 import userRoute from './routes/User.js';
 import postRoute from './routes/Post.js';
