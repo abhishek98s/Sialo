@@ -102,6 +102,8 @@ const Post = () => {
           progress: undefined,
           theme: "dark",
         })
+
+        setImg(null!);
         return;
       } else {
         toast("Posted failed", {
