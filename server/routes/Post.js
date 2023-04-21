@@ -1,6 +1,6 @@
 import express from 'express'
-import upload from '../uploads/upload.js';
-
+// import upload from '../uploads/upload.js';
+import upload from '../utils/multer.js';
 // Controllers
 import { createPost, getPost } from '../controller/Post.js'
 

@@ -7,16 +7,15 @@ export const postSchema = mongoose.Schema(
             required: true
         },
         img: {
-            data: Buffer,
-            contentType: String
+            type: String,
         },
         comments: {
             type: Array,
             default: []
         }
-    },{
-        timestamps: true
-    })
+    }, {
+    timestamps: true
+})
 
 const Post = mongoose.model("Post", postSchema);
 

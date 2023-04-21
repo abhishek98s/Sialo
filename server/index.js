@@ -43,6 +43,6 @@ app.use('/api', userRoute);
 app.use('/api', postRoute);
 
 connectDB().then(() => {
-    app.listen(process.env.PORT || 3000, console.log(`Server running and listning on PORT:${PORT}`))
+    app.listen(PORT, console.log(`Server running and listning on PORT:${PORT}`))
 
 })
