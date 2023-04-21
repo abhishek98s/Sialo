@@ -34,7 +34,7 @@ export const createPost = async (req, res) => {
             caption: caption,
             img: uploadCloudinary.secure_url
         })
-        console.log(post)
+        
         await post.save();
         let posts = await Post.find({});
         res.status(200).json({ data: posts })
