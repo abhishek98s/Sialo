@@ -32,3 +32,16 @@ module.exports = {
 		includePaths: [path.join(__dirname, 'styles')]
 	}
 }
+
+module.exports = {
+	images: {
+	  remotePatterns: [
+		{
+		  protocol: 'https',
+		  hostname: 'res.cloudinary.com',
+		  port: '',
+		  pathname: '/**/**',
+		},
+	  ],
+	},
+  }

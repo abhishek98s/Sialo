@@ -18,32 +18,18 @@ import Loading from './Loading2';
 const Feeds = () => {
     const [postData, setPostData] = useState([]);
 
-    var base64Flag = 'data:image/jpeg;base64,';
-
     useEffect(() => {
-        const arrayBufferToBase64 = (buffer: any) => {
-            var binary = '';
-            var bytes = [].slice.call(new Uint8Array(buffer));
-            bytes.forEach((b) => binary += String.fromCharCode(b));
-            return window.btoa(binary);
-        };
-
 
         const api = async () => {
             const response = await fetch("https://sialo-backend.onrender.com/api/post");
             const jsonData = await response.json();
 
-            const newarr = await jsonData.data.map((items: any) => (
-                {
-                    caption: items.caption,
-                    img: arrayBufferToBase64(items.img.data.data)
-                }))
-
-            await setPostData(newarr)
+            await setPostData(jsonData.data)
         }
 
         api();
     }, [])
+
     return (
         <>
             <section className={`py-[24px] max-w-[800px] min-w-[300px] m-auto `}>

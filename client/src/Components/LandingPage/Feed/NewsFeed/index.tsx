@@ -32,7 +32,7 @@ const NewsFeed = ({ ...data }: any): JSX.Element => {
 
 
             <div className='w-  mt-[8px]'>
-                <Image className={`w-[100%] h-[100%] object-center `} src={!(data.img) ? mainImg : base64Flag + data.img} alt='post' width={400} height={30} />
+                <Image className={`w-[100%] h-[100%] object-center `} src={!(data.img) ? mainImg : data.img} alt='post' width={400} height={30} />
             </div>
 
             <section className={`${styles.like_comment} + flex items-center gap-[16px] h-[37px] `}>
