@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
 import fs from 'fs'
 import path from 'path'
+import cloudinary from '../utils/cloudinary.js'
 
 export const register = async (req, res) => {
     try {
@@ -21,6 +22,9 @@ export const register = async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const passwordHash = await bcrypt.hash(password, salt);
 
+        const uploadCloudinary = await cloudinary.uploader.upload(req.file.path);
+
+
         let newUser = await new User({
             firstName: firstName,
             lastName: lastName,
@@ -28,10 +32,7 @@ export const register = async (req, res) => {
             gender: gender,
             email: email,
             password: passwordHash,
-            img: {
-                data: fs.readFileSync(path.join('./uploads/' + req.file.filename)),
-                contentType: 'image/png',
-            }
+            img: uploadCloudinary.secure_url
         })
 
         const savedUser = await newUser.save();
