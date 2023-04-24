@@ -82,7 +82,7 @@ const Post = () => {
     try {
       const response = await axios({
         method: "post",
-        url: "https://sialo-backend.onrender.com/api/post",
+        url: "https://sialo-backend.vercel.app/api/post",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });

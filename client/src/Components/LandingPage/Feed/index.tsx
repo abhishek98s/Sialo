@@ -21,7 +21,7 @@ const Feeds = () => {
     useEffect(() => {
 
         const api = async () => {
-            const response = await fetch("https://sialo-backend.onrender.com/api/post");
+            const response = await fetch("https://sialo-backend.vercel.app/api/post");
             const jsonData = await response.json();
 
             await setPostData(jsonData.data)
