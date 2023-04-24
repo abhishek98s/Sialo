@@ -5,10 +5,10 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "npx nodemon index",
+    "start": "node server.js",
+    "dev": "npx nodemon server",
     "build": "npm i",
-    "main": "./index.js"
+    "main": "./server.js"
   },
   "keywords": [],
   "author": "",
