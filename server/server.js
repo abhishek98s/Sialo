@@ -36,7 +36,7 @@ import userRoute from './routes/User.js';
 import postRoute from './routes/Post.js';
 
 app.get('/', (req, res) => {
-    res.send.json({
+    res.status(200).json({
         message: "sialo social media app"
     });
 })
