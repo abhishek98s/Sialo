@@ -5,8 +5,6 @@ import mainImg from '../../../../../public/images/main bg.jpg'
 import { Comments, Heart } from '../../../../../public/SVG'
 
 const NewsFeed = ({ ...data }: any): JSX.Element => {
-    console.log(data)
-    var base64Flag = 'data:image/jpeg;base64,';
 
     return (
         <section key={data._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>

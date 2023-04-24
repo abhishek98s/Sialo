@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface CounterState {
-    posts: any
+  posts: any
 }
 
 const initialState: CounterState = {
@@ -14,13 +14,18 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
 
-    pushPosts: (state, action: PayloadAction<any>) => {
-      state.posts = action.payload
+    setPosts: (state, action: PayloadAction<any>) => {
+      state.posts = action.payload.posts
+    },
+
+    addPosts: (state, action: PayloadAction<any>) => {
+      let updatedPosts = [...state.posts, action.payload.post];
+      state.posts = updatedPosts;
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { pushPosts } = counterSlice.actions
+export const { setPosts, addPosts } = counterSlice.actions
 
 export default counterSlice.reducer

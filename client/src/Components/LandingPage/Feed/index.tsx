@@ -14,20 +14,22 @@ import NewsFeed from './NewsFeed';
 import Image from 'next/image';
 import { Comments, Heart, Plus } from '../../../../public/SVG';
 import Loading from './Loading2';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPosts } from '@/redux/counter/postSlice';
 
 const Feeds = () => {
-    const [postData, setPostData] = useState([]);
+    const dispatch = useDispatch();
+    const userPosts = useSelector((state: any) => state.posts.posts);
 
     useEffect(() => {
 
-        const api = async () => {
+        const getUserPosts = async () => {
             const response = await fetch("https://sialo-backend.vercel.app/api/post");
             const jsonData = await response.json();
-
-            await setPostData(jsonData.data)
+            dispatch(setPosts({ posts: jsonData.data }));
         }
-
-        api();
+        
+        getUserPosts();
     }, [])
 
     return (
@@ -40,13 +42,12 @@ const Feeds = () => {
 
                 <NewsFeed />
 
-                {postData && postData.map((data: any) => (
-                    <NewsFeed key={data._id} {...data} />
-
+                {userPosts && userPosts.map((data: any, index:number) => (
+                    <NewsFeed key={index} {...data} />
                 ))}
 
 
-                {!postData.length && <Loading />}
+                {!userPosts.length && <Loading />}
             </section>
         </>
     )

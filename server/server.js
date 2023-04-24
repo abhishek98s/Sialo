@@ -28,7 +28,7 @@ const connectDB = async () => {
 
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
@@ -36,7 +36,9 @@ import userRoute from './routes/User.js';
 import postRoute from './routes/Post.js';
 
 app.get('/', (req, res) => {
-    res.send("sialo social media app")
+    res.send.json({
+        message: "sialo social media app"
+    });
 })
 
 app.use('/api', userRoute);

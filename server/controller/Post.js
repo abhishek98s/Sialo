@@ -34,10 +34,10 @@ export const createPost = async (req, res) => {
             caption: caption,
             img: uploadCloudinary.secure_url
         })
-        
-        await post.save();
-        let posts = await Post.find({});
-        res.status(200).json({ data: posts })
+
+        let userPost = await post.save();
+
+        res.status(200).json({ data: userPost })
 
     } catch (err) {
         console.log(err)

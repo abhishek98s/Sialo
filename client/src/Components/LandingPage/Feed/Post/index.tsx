@@ -2,62 +2,77 @@ import React, { useState } from 'react'
 import styles from './post.module.scss'
 import Image from 'next/image'
 import { Attach_File, Camera, ImageIcon, Location } from '../../../../../public/SVG'
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '@/pages/register/Loading';
+import { useDispatch, useSelector } from 'react-redux';
+import { addPosts } from '@/redux/counter/postSlice';
 import axios from 'axios';
 
 const Post = () => {
-  const [imgs, setImg] = useState();
+  const dispatch = useDispatch();
   const [value, setValue] = useState({
     caption: "",
+    imgs: "",
+    thumbnail: "",
+    imgFile: "",
+    loading: ""
   })
 
-  const [imgFile, setImgFile] = useState();
+  const { caption, imgs, thumbnail, imgFile, loading } = value;
 
+  function inputHandler(e: any) {
+    switch (e.target.name) {
+      case "imgFile":
+        let file = e.target.files[0];
 
-  const { caption } = value;
+        //if no file 
+        if (!file) {
+          return;
+        }
 
-  const [loading, setLoading] = useState(false);
+        //if there is file
+        if (file.type && !file.type.startsWith('image/')) {
+          console.log('File is not an image.', file.type, file);
+          return;
+        }
 
+        // setting yhr file
+        setValue((value) => ({ ...value, [e.target.name]: file }));
 
+        // setting the thubnail img
+        const reader = new FileReader();
 
-  function file(e: any) {
-    let file = e.target.files[0];
+        reader.addEventListener('load', (e: any) => {
+          setValue((value) => ({ ...value, thumbnail: e.target.result }));
+        });
 
-    if (!file) {
-      return;
+        reader.readAsDataURL(file);
+        break;
+
+      case "caption":
+        let val = e.target.value;
+        setValue((value) => ({ ...value, [e.target.name]: val }))
+        break;
+
+      default:
+        break;
     }
-    if (file.type && !file.type.startsWith('image/')) {
-      console.log('File is not an image.', file.type, file);
-      return;
-    }
 
-    setImgFile(e.target.files[0]);
-
-    const reader = new FileReader();
-    reader.addEventListener('load', (e: any) => {
-      // console.log(e.target.result);
-      setImg(e.target.result)
-    });
-    reader.readAsDataURL(file);
   }
 
 
-  const captionHandler = (e: any) => {
-    let val = e.target.value;
-    setValue((value) => ({ ...value, [e.target.name]: val }))
-  }
+  // const captionHandler = (e: any) => {
+  //   let val = e.target.value;
+  //   setValue((value) => ({ ...value, [e.target.name]: val }))
+  // }
 
 
 
   const submit = async (e: any) => {
     e.preventDefault();
-    let isEmptyValues = Object.values(value).every((value) => value === '');
-    console.log(imgFile)
 
-    if (isEmptyValues || !imgFile) {
+    if (!caption || !imgFile) {
       toast("Please add the caption and image to post", {
         position: "top-right",
         autoClose: 3000,
@@ -71,8 +86,8 @@ const Post = () => {
       return
     }
 
-
-    setLoading(true);
+    setValue((value: any) => ({ ...value, loading: true }));
+    // setLoading(true);
     const formData = new FormData();
     formData.append("caption", caption);
     formData.append("image", imgFile!)
@@ -80,17 +95,16 @@ const Post = () => {
 
 
     try {
-      const response = await axios({
-        method: "post",
-        url: "https://sialo-backend.vercel.app/api/post",
-        data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
+      const response = await fetch("https://sialo-backend.vercel.app/api/post", {
+        method: "POST",
+        body: formData,
       });
+      const posts = await response.json();
+
 
       if (response) {
-        setLoading(false);
-
-
+        setValue((value: any) => ({ ...value, loading: false }));
+        dispatch(addPosts({ post: posts.data }));
 
         toast("Posted successfully", {
           position: "top-right",
@@ -103,7 +117,7 @@ const Post = () => {
           theme: "dark",
         })
 
-        setImg(null!);
+        setValue((value: any) => ({ ...value, thumbnail: null }));
         setValue((value) => ({ ...value, caption: "" }))
 
         return;
@@ -122,10 +136,6 @@ const Post = () => {
     } catch (err) {
       console.log(err)
     }
-
-
-
-
   }
 
   return (
@@ -142,17 +152,20 @@ const Post = () => {
           </div>
         </section>
 
-        <input className={` ${styles.input} + grow rounded-[15px] px-[16px] py-[21px] bg-transparent h-[46px]`} placeholder='Mind writing something' name='caption' onChange={captionHandler} />
+        <input className={` ${styles.input} + grow rounded-[15px] px-[16px] py-[21px] bg-transparent h-[46px]`} placeholder='Mind writing something' name='caption' onChange={inputHandler} />
 
       </article>
 
 
 
-      {imgs &&
+      {thumbnail &&
 
         <div className='relative w-[max-content]'>
-          <Image src={imgs!} className={`w-[70px] h-[70px] mt-[16px] rounded-[15px] object-cover opacity-70`} width={500} height={500} alt='asd' />
-          <span onClick={() => setImg(null!)} className=' absolute cursor-pointer top-[3px] right-[4px] w-[20px] h-[20px] text-center pt-[3px] text-[10px] rounded-full text-white bg-black'>X</span>
+          <Image src={thumbnail!} className={`w-[70px] h-[70px] mt-[16px] rounded-[15px] object-cover opacity-70`} width={500} height={500} alt='asd' />
+          <span
+            onClick={() => setValue((value: any) => ({ ...value, thumbnail: null }))}
+            className=' absolute cursor-pointer top-[3px] right-[4px] w-[20px] h-[20px] text-center pt-[3px] text-[10px] rounded-full text-white bg-black'>X
+          </span>
         </div>
       }
 
@@ -190,7 +203,7 @@ const Post = () => {
 
         </article>
 
-        <input className={`hidden`} type='file' id='thumbImg' onChange={file} accept=".jpg, .jpeg, .png" />
+        <input className={`hidden`} type='file' id='thumbImg' onChange={inputHandler} name="imgFile" accept=".jpg, .jpeg, .png" />
 
 
 
