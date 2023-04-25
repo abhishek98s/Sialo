@@ -29,7 +29,7 @@ const NewsFeed = ({ ...data }: any): JSX.Element => {
             <p className={`body_Large `}>{(data.caption) || 'Nature is beautiful!'}</p>
 
 
-            <div className='w-  mt-[8px]'>
+            <div className='w-  mt-[-5px]'>
                 <Image className={`w-[100%] h-[100%] object-center `} src={!(data.img) ? mainImg : data.img} alt='post' width={400} height={30} />
             </div>
 

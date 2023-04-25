@@ -8,40 +8,40 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-// import { isEmail } from 'validator';
+import { isEmail } from 'validator';
 
 const Login = () => {
   const [data, setData] = useState({
     img: ''
   });
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   const makeAPICall = async () => {
-  //     try {
-  //       // const response = await fetch('http://localhost:8080/api/contacts', { mode: 'cors' });
-  //       // const data = await response.json();
-  //       // setData(data.data )
+    const makeAPICall = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/contacts', { mode: 'cors' });
+        const data = await response.json();
+        setData(data.data )
 
-  //       fetch('http://localhost:8080/api/contacts')
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           var base64Flag = 'data:image/jpeg;base64,';
+        fetch('http://localhost:8080/api/contacts')
+          .then((res) => res.json())
+          .then((data) => {
+            var base64Flag = 'data:image/jpeg;base64,';
             
-  //           var imageStr = arrayBufferToBase64(data.data[1].img.data.data);
-  //           setData({ img: base64Flag + imageStr })
-  //         })
+            var imageStr = arrayBufferToBase64(data.data[1].img.data.data);
+            setData({ img: base64Flag + imageStr })
+          })
 
-  //     }
-  //     catch (e) {
-  //       console.log(e)
-  //     }
-  //   }
-  //   makeAPICall();
+      }
+      catch (e) {
+        console.log(e)
+      }
+    }
+    makeAPICall();
 
-  //   console.log(data.img)
+    console.log(data.img)
 
-  // }, [])
+  }, [])
 
 
 
