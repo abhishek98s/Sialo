@@ -6,11 +6,13 @@ import axios from 'axios'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../register/Loading';
 
 
 // import { isEmail } from 'validator';
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
 
   const [value, setValue] = useState({
     email: "",
@@ -43,16 +45,20 @@ const Login = () => {
       return;
     }
 
+
     try {
+      setLoading(true)
       const credentials = {
         email: email,
         password: password
       }
 
       const response = await axios.post('https://sialo-backend.vercel.app/api/login', credentials)
-        // .then(response => console.log(response.data));
+      // .then(response => console.log(response.data));
 
       if (response.data.token) {
+        setLoading(false)
+        
         toast("Logged in", {
           position: "top-right",
           autoClose: 3000,
@@ -68,6 +74,8 @@ const Login = () => {
       }
 
     } catch (err) {
+      setLoading(false)
+
       toast.error("Invalid crediantials.", {
         position: "top-right",
         autoClose: 3000,
@@ -111,7 +119,10 @@ const Login = () => {
 
           </div>
 
-          <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`} onClick={submit}>Log in</button>
+          <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`} onClick={submit}>
+            {!loading && "Log in"}
+            {loading && <Loading />}
+          </button>
 
           <p className={`mt-[24px] body_Large text-right`}>Dont have an account?
             <Link href="/register" legacyBehavior><a className={`${styles.register} + body_LargeBold cursor-pointer`}> Register</a></Link>
