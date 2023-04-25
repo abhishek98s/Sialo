@@ -62,12 +62,6 @@ const Post = () => {
   }
 
 
-  // const captionHandler = (e: any) => {
-  //   let val = e.target.value;
-  //   setValue((value) => ({ ...value, [e.target.name]: val }))
-  // }
-
-
 
   const submit = async (e: any) => {
     e.preventDefault();

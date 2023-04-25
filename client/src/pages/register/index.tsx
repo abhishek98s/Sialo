@@ -179,7 +179,7 @@ const Register = () => {
             </article>
 
 
-            <article className={`${styles.register_inputs} + relative self-center  max-w-[32em] min-w-[25em] mt-[6%] px-[24px] pt-[80px] pb-[24px] rounded-[33px] border-[3px]`}>
+            <article className={`${styles.register_inputs} + relative self-center sm:mt-[80px]  max-w-[32em] min-w-[25em] mt-[6%] px-[24px] pt-[80px] pb-[24px] rounded-[33px] border-[3px]`}>
 
                 <section className={`${styles.headline} + pb-[16px]`}>
                     <h3 className={`heading_Large mb-[16px]`}>Create your Account</h3>
