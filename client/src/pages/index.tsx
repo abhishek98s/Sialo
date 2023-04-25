@@ -5,7 +5,12 @@ import styles from "@/styles/Home.module.scss";
 import LandingPage from "../Components/LandingPage";
 import { Camera, FacebookMessanger, MaleUser, User } from "../../public/SVG";
 import Navbar from "@/Components/Navbar";
+import { useSelector } from "react-redux";
+
 export default function Home() {
+  const lo = useSelector((state:any) => state.login)
+  console.log(lo)
+
   return (
     <>
       <Head>

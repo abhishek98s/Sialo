@@ -7,9 +7,8 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../register/Loading';
-
-
-// import { isEmail } from 'validator';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLogin } from '@/redux/counter/loginSlice';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -18,10 +17,10 @@ const Login = () => {
     email: "",
     password: ""
   });
-
   const { email, password } = value;
 
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const inputHandler = (e: any) => {
     let val = e.target.value;
@@ -58,7 +57,14 @@ const Login = () => {
 
       if (response.data.token) {
         setLoading(false)
-        
+
+        dispatch(
+          setLogin({
+            user: response.data.user,
+            token: response.data.token,
+          })
+        );
+
         toast("Logged in", {
           position: "top-right",
           autoClose: 3000,
