@@ -10,6 +10,7 @@ import { addPosts } from '@/redux/counter/postSlice';
 import axios from 'axios';
 
 const Post = () => {
+  const user = useSelector((state:any) => state.login.user)
   const dispatch = useDispatch();
   const [value, setValue] = useState({
     caption: "",
@@ -140,8 +141,8 @@ const Post = () => {
 
         <section className={`${styles.storys}`}>
           <div className={`${styles.story} + w-[40px] bg-slate-200 h-[40px] rounded-full grid place-items-center`}>
-            <div className={`w-[35px] h-[35px] rounded-full`}>
-
+            <div className={`w-[35px] h-[35px] rounded-full overflow-hidden`}>
+              <Image className={`w-[100%] h-[100%] object-cover `} src={user.img} alt='profileImg' width={500} height={500}/>
             </div>
           </div>
         </section>

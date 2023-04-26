@@ -5,20 +5,21 @@ import Navbar from "@/Components/Navbar";
 import { useSelector } from "react-redux";
 import { useRouter } from 'next/router';
 import Sialo from '@/Components/Sialo';
+import withAuth from '@/Auth';
 
 const Home = () => {
   const token = useSelector((state: any) => state.login.token);
   const userPosts = useSelector((state: any) => state.posts.posts);
   const router = useRouter();
 
-  useEffect(() => {
-    const auth = async () => {
-      if (!token || !userPosts) {
-        router.push('/login');
-      }
-    };
-    auth();
-  }, []);
+  // useEffect(() => {
+  //   const auth = async () => {
+  //     if (!token || !userPosts) {
+  //       router.push('/login');
+  //     }
+  //   };
+  //   auth();
+  // }, []);
 
   return (
     <>
@@ -39,4 +40,4 @@ const Home = () => {
 }
 
 
-export default Home;
+export default withAuth(Home);
