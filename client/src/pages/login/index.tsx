@@ -28,8 +28,8 @@ const Login = () => {
   }
 
 
-  const submit = async () => {
-
+  const submit = async (e: any) => {
+    e.preventDefault();
     if (!email || !password) {
       toast("Please enter the email and password", {
         position: "top-right",
@@ -110,7 +110,7 @@ const Login = () => {
         <ToastContainer />
 
 
-        <article className={`${styles.login} + max-w-[32.25em] min-w-[25em] px-[32px] py-[42px] rounded-[33px] border-[#34353E] border-[3px]`}>
+        <form onSubmit={submit} className={`${styles.login} + max-w-[32.25em] min-w-[25em] px-[32px] py-[42px] rounded-[33px] border-[#34353E] border-[3px]`}>
           <div className={`flex flex-col gap-[16px]`}>
 
             <div className={`flex flex-col gap-[8px]`}>
@@ -125,7 +125,7 @@ const Login = () => {
 
           </div>
 
-          <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`} onClick={submit}>
+          <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`} type='submit'>
             {!loading && "Log in"}
             {loading && <Loading />}
           </button>
@@ -133,7 +133,7 @@ const Login = () => {
           <p className={`mt-[24px] body_Large text-right`}>Dont have an account?
             <Link href="/register" legacyBehavior><a className={`${styles.register} + body_LargeBold cursor-pointer`}> Register</a></Link>
           </p>
-        </article>
+        </form>
       </section>
     </>
   )

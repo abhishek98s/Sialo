@@ -1,15 +1,24 @@
+import { useEffect } from 'react'
 import Head from "next/head";
-import Image from "next/image";
-import styles from "@/styles/Home.module.scss";
-
 import LandingPage from "../Components/LandingPage";
-import { Camera, FacebookMessanger, MaleUser, User } from "../../public/SVG";
 import Navbar from "@/Components/Navbar";
 import { useSelector } from "react-redux";
+import { useRouter } from 'next/router';
+import Sialo from '@/Components/Sialo';
 
-export default function Home() {
-  const lo = useSelector((state:any) => state.login)
-  console.log(lo)
+const Home = () => {
+  const token = useSelector((state: any) => state.login.token);
+  const userPosts = useSelector((state: any) => state.posts.posts);
+  const router = useRouter();
+
+  useEffect(() => {
+    const auth = async () => {
+      if (!token || !userPosts) {
+        router.push('/login');
+      }
+    };
+    auth();
+  }, []);
 
   return (
     <>
@@ -20,12 +29,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {(!token || !userPosts) && <Sialo />}
+
       <Navbar />
 
       <LandingPage />
-
-
-
     </>
   );
 }
+
+
+export default Home;
