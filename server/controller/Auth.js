@@ -58,7 +58,6 @@ export const login = async (req, res) => {
         if (!isMatch) return res.status(400).json({ msg: "Invalid crediantials." });
 
         const token = jwt.sign({ id: user.firstName }, process.env.JWT_SECRET);
-        user.img = null;
         user.password = null;
         res.status(200).json({ token, user });
 

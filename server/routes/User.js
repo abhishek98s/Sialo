@@ -3,12 +3,14 @@ import upload from '../utils/multer.js';
 
 // Controllers
 import { login, register } from '../controller/Auth.js'
+import { getUser } from '../controller/Users.js';
 
 let app = express();
 
 
 app.post('/register', upload.single('image'), register)
 app.post('/login', login);
+app.get('/user/:id', getUser);
 
 
 export default app
