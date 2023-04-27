@@ -8,7 +8,7 @@ import { Friendlist } from './Friendlist'
 const LandingPage = () => {
 
   return (
-    <main className={`flex gap-[32px] justify-between max-md:mx-[4%] lg:mr-[24px]`}>
+    <main className={`flex gap-[32px] justify-between max-md:mx-[2%] lg:mr-[24px]`}>
       <Sidebar />
 
       <Feeds />
