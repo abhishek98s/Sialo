@@ -23,14 +23,22 @@ export const getPost = async (req, res) => {
 export const createPost = async (req, res) => {
     try {
         const {
+            userId,
+            firstName,
+            lastName,
+            userPicturePath,
+
             caption,
-            img,
-            comments
         } = req.body
 
         const uploadCloudinary = await cloudinary.uploader.upload(req.file.path);
 
         let post = new Post({
+            userId: userId,
+            firstName: firstName,
+            lastName: lastName,
+            userPicturePath: userPicturePath,
+
             caption: caption,
             img: uploadCloudinary.secure_url
         })
