@@ -28,13 +28,13 @@ const Feeds = () => {
             const jsonData = await response.json();
             dispatch(setPosts({ posts: jsonData.data }));
         }
-        
+
         getUserPosts();
     }, [])
 
     return (
         <>
-            <section className={`py-[24px] max-w-[800px] min-w-[300px] m-auto `}>
+            <section className={`py-[24px] max-w-[800px] min-w-[300px] min-h-[100vh] m-auto `}>
 
                 <Stories />
 
@@ -42,9 +42,12 @@ const Feeds = () => {
 
                 <NewsFeed />
 
-                {userPosts && userPosts.map((data: any, index:number) => (
-                    <NewsFeed key={index} {...data} />
-                ))}
+                <article className={`min-h-[500px]`}>
+
+                    {userPosts && userPosts.map((data: any, index: number) => (
+                        <NewsFeed key={index} {...data} />
+                    ))}
+                </article>
 
 
                 {!userPosts.length && <Loading />}

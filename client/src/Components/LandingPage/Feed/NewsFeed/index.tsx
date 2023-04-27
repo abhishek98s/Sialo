@@ -13,14 +13,14 @@ const NewsFeed = ({ ...data }: any): JSX.Element => {
 
                 <section className={`${styles.storys} + mx-[5px]`}>
                     <div className={`${styles.story} + w-[40px] bg-slate-200 h-[40px] rounded-full grid place-items-center`}>
-                        <div className={`w-[35px] h-[35px] rounded-full`}>
-
+                        <div className={`w-[35px] h-[35px] rounded-full overflow-hidden`}>
+                            <Image src={data.userPicturePath || ""} alt="User Picture" width={100} height={100}/>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h4 className={`body_LargeBold`}>Brian Cir</h4>
+                    <h4 className={`body_LargeBold`}>{`${data.firstName || "Zoro"} ${data.lastName || ""}`}</h4>
                     <p className={`body_Medium grey_light_hover mt-[2px]`}>Brian Cir</p>
                 </section>
 
