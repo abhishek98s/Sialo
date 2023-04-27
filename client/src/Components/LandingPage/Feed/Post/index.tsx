@@ -10,7 +10,7 @@ import { addPosts } from '@/redux/counter/postSlice';
 import axios from 'axios';
 
 const Post = () => {
-  const user = useSelector((state:any) => state.login.user)
+  const user = useSelector((state: any) => state.login.user)
   const dispatch = useDispatch();
   const [value, setValue] = useState({
     caption: "",
@@ -82,12 +82,14 @@ const Post = () => {
     }
 
     setValue((value: any) => ({ ...value, loading: true }));
-    // setLoading(true);
+
     const formData = new FormData();
+    formData.append("userId", user._id!)
+    formData.append("firstName", user.firstName!)
+    formData.append("lastName", user.lastName!)
+    formData.append("userPicturePath", user.img!)
     formData.append("caption", caption);
     formData.append("image", imgFile!)
-
-
 
     try {
       const response = await fetch("https://sialo-backend.vercel.app/api/post", {
@@ -100,6 +102,8 @@ const Post = () => {
       if (response) {
         setValue((value: any) => ({ ...value, loading: false }));
         dispatch(addPosts({ post: posts.data }));
+
+        e.target.reset();
 
         toast("Posted successfully", {
           position: "top-right",
@@ -142,7 +146,7 @@ const Post = () => {
         <section className={`${styles.storys}`}>
           <div className={`${styles.story} + w-[40px] bg-slate-200 h-[40px] rounded-full grid place-items-center`}>
             <div className={`w-[35px] h-[35px] rounded-full overflow-hidden`}>
-              <Image className={`w-[100%] h-[100%] object-cover `} src={user.img} alt='profileImg' width={500} height={500}/>
+              <Image className={`w-[100%] h-[100%] object-cover `} src={user.img} alt='profileImg' width={500} height={500} />
             </div>
           </div>
         </section>
