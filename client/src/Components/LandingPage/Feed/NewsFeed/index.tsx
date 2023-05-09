@@ -3,6 +3,7 @@ import styles from "./newsfeed.module.scss"
 import Image from 'next/image'
 import mainImg from '../../../../../public/images/main bg.jpg'
 import { Comments, Heart } from '../../../../../public/SVG'
+import profilePic from '../../../../../public/images/profile.jpg'
 
 const NewsFeed = ({ ...data }: any): JSX.Element => {
 
@@ -14,7 +15,7 @@ const NewsFeed = ({ ...data }: any): JSX.Element => {
                 <section className={`${styles.storys} + mx-[5px]`}>
                     <div className={`${styles.story} + w-[40px] bg-slate-200 h-[40px] rounded-full grid place-items-center`}>
                         <div className={`w-[35px] h-[35px] rounded-full overflow-hidden`}>
-                            <Image src={data.userPicturePath || ""} alt="User Picture" width={100} height={100}/>
+                            <Image src={data.userPicturePath || profilePic} alt="User Picture" width={100} height={100}/>
                         </div>
                     </div>
                 </section>
