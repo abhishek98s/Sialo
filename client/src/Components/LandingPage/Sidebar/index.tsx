@@ -1,8 +1,14 @@
 import React from 'react'
 import { Event, Home, Logout, Market, Search } from '../../../../public/SVG'
 import styles from './sidebar.module.scss'
+import { useRouter } from 'next/router'
 
 const Sidebar = () => {
+    const router = useRouter()
+    const ClearSessionStorage = () => {
+        sessionStorage.clear();
+        router.push('/login')
+    }
     
     return (
         <section className={`${styles.sidebar} + max-lg:hidden min-w-[265px] w-[300px] h-[100vh] flex flex-col px-[14px] pb-[24px] pt-[56px] sticky left-0 top-0 z-[40]`}>
@@ -20,7 +26,7 @@ const Sidebar = () => {
                 </div>
 
                 <div>
-                    <li className={`flex gap-[16px] px-[15px] py-[10px]`}><Logout /> Logout</li>
+                    <li className={`flex gap-[16px] px-[15px] py-[10px]`} onClick={ClearSessionStorage}><Logout /> Logout</li>
                 </div>
             </ul>
 
