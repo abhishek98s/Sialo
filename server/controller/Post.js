@@ -2,6 +2,7 @@ import Post from '../model/Post.js'
 import fs from 'fs'
 import path from 'path'
 import cloudinary from '../utils/cloudinary.js'
+import User from '../model/User.js'
 
 
 // Get all the post
@@ -31,7 +32,7 @@ export const createPost = async (req, res) => {
             caption,
         } = req.body
 
-        const uploadCloudinary = await cloudinary.uploader.upload(req.file.path);
+        const uploadCloudinary = await cloudinary.uploader.upload(req.file.path, { folder: 'Sialo' });
 
         let post = new Post({
             userId: userId,
@@ -51,4 +52,33 @@ export const createPost = async (req, res) => {
         console.log(err)
         res.json({ message: err })
     }
+}
+
+
+export const addComment = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const {
+            userId,
+            firstName,
+            lastName,
+            userPicturePath,
+
+            comment,
+        } = req.body
+
+        const post = await Post.findOne({ _id: id })
+
+        post.comments = [{ userId, firstName, lastName, userImg: userPicturePath, comment: comment }]
+
+        let updatedPost = await Post.updateOne({ _id: id }, post)
+
+        res.status(200).json({ data: updatedPost })
+
+    } catch (err) {
+        console.log(err);
+        res.send({ msg: err })
+    }
+
 }
