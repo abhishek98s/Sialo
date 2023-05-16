@@ -68,11 +68,25 @@ export const addComment = async (req, res) => {
             comment,
         } = req.body
 
-        const post = await Post.findOne({ _id: id })
+        const post = await Post.findOne({ userId: id })
 
-        post.comments = [{ userId, firstName, lastName, userImg: userPicturePath, comment: comment }]
+        await post.comments.push(
+            {
+                userId: userId,
+                firstName: firstName,
+                lastName: lastName,
+                userImg: userPicturePath,
+                comment: comment
+            })
 
-        let updatedPost = await Post.updateOne({ _id: id }, post)
+        console.log(post.comments)
+
+        let updatedPost = await Post.updateOne({ userId: id },
+            {
+                $set: {
+                    comments: post.comments
+                }
+            })
 
         res.status(200).json({ data: updatedPost })
 
