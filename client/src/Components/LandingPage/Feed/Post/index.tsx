@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
-import styles from './post.module.scss'
 import Image from 'next/image'
-import { Attach_File, Camera, ImageIcon, Location } from '../../../../../public/SVG'
+import axios from 'axios';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import styles from './post.module.scss'
+
+import { Attach_File, Camera, ImageIcon, Location } from '../../../../../public/SVG'
 import Loading from '@/pages/register/Loading';
-import { useDispatch, useSelector } from 'react-redux';
 import { addPosts } from '@/redux/counter/postSlice';
-import axios from 'axios';
 
 const Post = () => {
   const user = useSelector((state: any) => state.login.user)

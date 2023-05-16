@@ -4,15 +4,20 @@ import Image from 'next/image'
 import axios from 'axios'
 
 import styles from "./newsfeed.module.scss"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import mainImg from '../../../../../public/images/main bg.jpg'
 import { Comments, Heart } from '../../../../../public/SVG'
 import profilePic from '../../../../../public/images/profile.jpg'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Comment from './Comment'
+
+import { addComment } from '@/redux/counter/postSlice';
 
 const NewsFeed = ({ ...postData }: any): JSX.Element => {
     const user = useSelector((state: any) => state.login.user)
+    const dispatch = useDispatch();
 
     const [value, setValue] = useState({
         comment: "",
@@ -24,9 +29,22 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
         let val = e.target.value;
         setValue((value: any) => ({ ...value, comment: val }))
     }
-
     const submit = async (e: any) => {
         e.preventDefault();
+
+        if (!value.comment) {
+            toast("Please add the something to comment", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
+            return
+        }
 
         let commentData = {
             userId: user._id,
@@ -36,17 +54,57 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
             comment: value.comment
         }
         try {
-            const response = await axios.patch(`http://localhost:8000/api/comment/${postData._id}`, commentData)
-                .then((data) => console.log(data.data));
+            const response = await axios.patch(`https://sialo-backend.vercel.app/api/comment/${postData._id}`, commentData)
+                .then((data) => {
+                    let commentPostData = data.data.data;
+                    let updatedComment = commentPostData.comments[commentPostData.comments.length - 1];
+
+                    console.log(commentPostData)
+                    console.log(commentPostData.comments.length)
+                    console.log(commentPostData.comments[commentPostData.comments.length - 1])
+
+                    dispatch(addComment({
+                        comment: {
+                            updatedComment,
+                            postId: commentPostData._id
+                        }
+                    }))
+                })
+
+
         } catch (err) {
-            console.log(err)
+            toast("Please Try Again", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
+            return
         }
 
+
+        // dispatch(addComment({
+        //     comment: {
+        //         updatedComment: {
+        //             comment: "okk",
+        //             firstName: "Abhishek",
+        //             lastName: "Shakya",
+        //             userId: "644a45c59f66a069d05517e2",
+        //             userImg: "https://res.cloudinary.com/dxsqdqnoe/image/upload/v1682589124/jj5vlzpjazxnaoafoz91.png",
+        //         },
+        //         postId: postData._id,
+        //     }
+        // }))
+        e.target.reset();
     }
 
     return (
         <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>
-
+            <ToastContainer />
             <article className={`flex gap-[16px] items-center`}>
 
                 <section className={`${styles.storys} + mx-[5px]`}>

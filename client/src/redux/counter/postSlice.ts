@@ -22,10 +22,28 @@ export const counterSlice = createSlice({
       let updatedPosts = [...state.posts, action.payload.post];
       state.posts = updatedPosts;
     },
+
+    addComment: (state, action: PayloadAction<any>) => {
+      let arr = state.posts.map((c: any) => {
+        if (c._id == action.payload.comment.postId) {
+          return {...c, comments: [...c.comments, action.payload.comment.updatedComment]}; 
+        }
+
+        return c
+      })
+
+      state.posts = arr
+
+      console.log(arr)
+
+      console.log(action.payload.comment.updatedComment, action.payload.comment.postId)
+      // let comment = [...state.posts.comments, action.payload.comment];
+      // state.posts.comments = comment;
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setPosts, addPosts } = counterSlice.actions
+export const { setPosts, addPosts, addComment } = counterSlice.actions
 
 export default counterSlice.reducer
