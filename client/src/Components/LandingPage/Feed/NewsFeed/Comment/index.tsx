@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React, { useState } from 'react'
 
 const Comment = ({ styles, comment }: any): JSX.Element => {
@@ -7,8 +8,8 @@ const Comment = ({ styles, comment }: any): JSX.Element => {
 
                 <section className={`${styles.storys} + mx-[5px]`}>
                     <div className={`${styles.story} + w-[34px] bg-slate-200 h-[34px] rounded-full grid place-items-center`}>
-                        <div className={`w-[30px] h-[30px] rounded-full`}>
-
+                        <div className={`w-[30px] h-[30px] rounded-full overflow-hidden`}>
+                            <Image src={comment.userImg} alt="sialo.vercel.app" width={100} height={100} />
                         </div>
                     </div>
                 </section>

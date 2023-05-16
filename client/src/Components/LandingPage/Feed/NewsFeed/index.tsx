@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
-import styles from "./newsfeed.module.scss"
 import Image from 'next/image'
+
+import axios from 'axios'
+
+import styles from "./newsfeed.module.scss"
+
 import mainImg from '../../../../../public/images/main bg.jpg'
 import { Comments, Heart } from '../../../../../public/SVG'
 import profilePic from '../../../../../public/images/profile.jpg'
@@ -19,14 +23,24 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
     const inputHandler = (e: any) => {
         let val = e.target.value;
         setValue((value: any) => ({ ...value, comment: val }))
-        console.log(value.comment)
     }
 
-
-    const submit = (e: any) => {
+    const submit = async (e: any) => {
         e.preventDefault();
-        
 
+        let commentData = {
+            userId: user._id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            userPicturePath: user.img,
+            comment: value.comment
+        }
+        try {
+            const response = await axios.patch(`http://localhost:8000/api/comment/${postData._id}`, commentData)
+                .then((data) => console.log(data.data));
+        } catch (err) {
+            console.log(err)
+        }
 
     }
 
@@ -61,7 +75,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
                 <div className={`${styles.svg} `}><Heart /></div>
 
                 <article className={`flex gap-[8px] w-[100%]  h-[100%] `}>
-                    <input className={`bg-transparent grow max-w-[100%]  pl-[11px] px-[21px] rounded-[10px]`} onChange={inputHandler} placeholder='Have something to say?' />
+                    <input className={`label_Medium bg-transparent grow max-w-[100%]  pl-[11px] px-[21px] rounded-[10px]`} onChange={inputHandler} placeholder='Have something to say?' />
                     <button type='submit' className={`body_Medium ml-auto px-[24px] py-[10px] h-[100%] rounded-[5px] max-sm:hidden `}>Post</button>
                     <button className={`${styles.svg} + body_Medium ml-auto h-[100%] rounded-[5px] hidden max-sm:block  `}><Comments /></button>
                 </article>
@@ -71,8 +85,8 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
             <section>
                 <h3 className={`body_LargeBold`}>Comments:</h3>
 
-                {postData.comments && postData.comments.map((comment: any) => (
-                    <Comment styles={styles} comment={comment} />
+                {postData.comments && postData.comments.map((comment: any, index: number) => (
+                    <Comment key={index} styles={styles} comment={comment} />
                 ))}
             </section>
 
