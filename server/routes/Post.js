@@ -10,6 +10,6 @@ let app = express();
 
 app.post('/post', upload.single('image'), createPost)
 app.get('/post', upload.single('image'), getPost)
-app.patch('/comment/:id', addComment)
+app.patch('/comment/:postId', addComment)
 
 export default app

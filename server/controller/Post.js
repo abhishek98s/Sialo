@@ -57,7 +57,7 @@ export const createPost = async (req, res) => {
 
 export const addComment = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { postId } = req.params;
 
         const {
             userId,
@@ -68,7 +68,10 @@ export const addComment = async (req, res) => {
             comment,
         } = req.body
 
-        const post = await Post.findOne({ userId: id })
+        const post = await Post.findOne({ _id: postId });
+
+        // post.comments = []
+        // await post.save()
 
         await post.comments.push(
             {
@@ -79,16 +82,15 @@ export const addComment = async (req, res) => {
                 comment: comment
             })
 
-        console.log(post.comments)
 
-        let updatedPost = await Post.updateOne({ userId: id },
+        await Post.updateOne({ _id: postId },
             {
                 $set: {
                     comments: post.comments
                 }
             })
 
-        res.status(200).json({ data: updatedPost })
+        res.status(200).json({ data: post })
 
     } catch (err) {
         console.log(err);
