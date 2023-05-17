@@ -40,7 +40,14 @@
         }
 
         button {
-            border: 2px solid $third;
+            background: $fourth;
+            transition: .3s;
+            &:hover{
+                transform: translate(0, -2px);
+                box-shadow: 0 1px 20px $fourth_hover;
+                scale: 1.01;
+            }
+
 
             @media screen and (max-width: 639px) {
                 border: none;

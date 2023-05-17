@@ -23,15 +23,15 @@ const Sidebar = () => {
                     <button className={`px-[10px] py-[9px] grid place-items-center`}><Search /></button>
                 </form>
 
-                <ul className={`mt-[16px] flex flex-col justify-between  grow`}>
-                    <div className={`space-y-[8px]`}>
-                        <li className={`flex gap-[16px] px-[15px] py-[10px]`}><Home /> Home</li>
-                        <li className={`flex gap-[16px] px-[15px] py-[10px]`}><Market /> Marketplace</li>
-                        <li className={`flex gap-[16px] px-[15px] py-[10px]`}><Event /> Event</li>
+                <ul className={`mt-[16px] flex flex-col body_Medium justify-between  grow`}>
+                    <div className={`space-y-[8px] `}>
+                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`}><Home /> Home</li>
+                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`}><Market /> Marketplace</li>
+                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`}><Event /> Event</li>
                     </div>
 
                     <div>
-                        <li className={`flex gap-[16px] px-[15px] py-[10px]`} onClick={ClearSessionStorage}><Logout /> Logout</li>
+                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`} onClick={ClearSessionStorage}><Logout /> Logout</li>
                     </div>
                 </ul>
 

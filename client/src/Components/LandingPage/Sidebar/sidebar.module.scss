@@ -1,4 +1,4 @@
-@import '../../../styles/colors.module.scss';
+@import "../../../styles/colors.module.scss";
 
 .sidebar {
     background-color: $secondary;
@@ -11,21 +11,21 @@
             border: 2px solid $third;
             border-right: none;
             border-radius: 10px 0px 0px 10px;
-            font-family: 'Open Sans';
+            font-family: "Open Sans";
             font-style: normal;
             font-weight: 400;
             font-size: 12px;
             line-height: 120%;
 
             &::placeholder {
-                font-family: 'Open Sans';
+                font-family: "Open Sans";
                 font-style: normal;
                 font-weight: 400;
                 font-size: 12px;
                 line-height: 120%;
             }
 
-            &:focus{
+            &:focus {
                 border: 2px solid $fourth;
                 outline: none;
             }
@@ -35,7 +35,13 @@
             border: 2px solid $third;
             border-left: none;
             border-radius: 0px 10px 10px 0px;
-            background-color: $third;
+            background-color: $fourth;
+            transition: 0.3s;
+
+            &:hover {
+                box-shadow: 0 1px 20px $fourth_hover;
+                scale: 1.01;
+            }
 
             svg {
                 width: 24px;
@@ -44,14 +50,13 @@
         }
     }
 
-
     ul {
         @layer li {
             li {
                 cursor: pointer;
 
                 &:hover {
-                    @apply bg-[#252627] rounded-[10px]
+                    @apply bg-[#252627] rounded-[10px];
                 }
 
                 svg {
@@ -63,14 +68,14 @@
     }
 }
 
-.mobile_nav{
+.mobile_nav {
     background-color: $bg;
     border-top: 3px solid $third;
     border-bottom: none;
 
-    ul{
-        li{
-            svg{
+    ul {
+        li {
+            svg {
                 width: 30px;
             }
         }

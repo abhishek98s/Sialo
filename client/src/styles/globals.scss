@@ -11,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
+    color: #d8d8d8;
     font-family: 'Open Sans', sans-serif;
     // border: 1px solid green;
 }
@@ -19,7 +19,7 @@
 
 body {
     background-color: $bg;
-}
+}z
 
 .heading_Large {
     font-family: 'Open Sans', sans-serif;
@@ -86,7 +86,8 @@ body {
 .body_Medium {
     font-family: 'Open Sans';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
+    letter-spacing: 1px;
     font-size: 14px;
     line-height: 120%;
 

@@ -154,7 +154,7 @@ const Post = () => {
           </div>
         </section>
 
-        <input className={` ${styles.input} + grow rounded-[15px] px-[16px] py-[21px] bg-transparent h-[46px]`} placeholder='Mind writing something' name='caption' onChange={inputHandler} />
+        <input className={` ${styles.input} + grow rounded-[15px] px-[16px] py-[10px] body_Medium bg-transparent h-[40px]`} placeholder='Mind writing something' name='caption' onChange={inputHandler} />
 
       </article>
 
