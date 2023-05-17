@@ -1,11 +1,11 @@
-@import '../../styles/colors.module.scss';
-
+@import "../../styles/colors.module.scss";
 
 .nav {
-    background-color: $third;
-
+    background: linear-gradient(#000000, #000000), $fourth;
+    box-shadow: 0 10px 30px $third;
+    
     .svg {
-        background-color: $blue_normal;
+        background-color: $fourth;
         svg {
             width: 20px;
             height: 20px;

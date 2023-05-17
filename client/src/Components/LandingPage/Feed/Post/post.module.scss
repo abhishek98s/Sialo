@@ -44,13 +44,12 @@
 
     .bottom {
         button {
-            background-color: $third;
+            background-color: $fourth;
             transition: .4s;
-            border: 2px solid $third;
+            border: 3px solid transparent;
             
             &:hover {
-                border: 2px solid $third;
-                background-color: transparent;
+               box-shadow: 0 5px 20px $fourth;
             }
         }
     }

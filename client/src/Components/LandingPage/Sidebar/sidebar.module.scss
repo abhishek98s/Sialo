@@ -2,6 +2,9 @@
 
 .sidebar {
     background-color: $secondary;
+    border-right: 2px solid #292929;
+    box-shadow: 0 2px 20px $third;
+    box-shadow: 5px 0 30px $third;
 
     form {
         input {
@@ -55,6 +58,20 @@
                     width: 24px;
                     height: 24px;
                 }
+            }
+        }
+    }
+}
+
+.mobile_nav{
+    background-color: $bg;
+    border-top: 3px solid $third;
+    border-bottom: none;
+
+    ul{
+        li{
+            svg{
+                width: 30px;
             }
         }
     }

@@ -177,26 +177,26 @@ const Post = () => {
 
         <article className={`flex gap-[16px] items-center`}>
 
-          <div className={`${styles.svg} + cursor-not-allowed w-[24px] h-[24px]`}>
+          <div className={`${styles.svg} + cursor-not-allowed w-[18px] h-[18px]`}>
             <div className='cursor-not-allowed'>
               <Camera />
             </div>
           </div>
 
-          <div className={`${styles.svg} + cursor-pointer w-[24px] h-[24px]`}>
+          <div className={`${styles.svg} + cursor-pointer w-[18px] h-[18px]`}>
             <label htmlFor='thumbImg' className='cursor-pointer'>
               <ImageIcon />
             </label>
           </div>
 
-          <div className={`${styles.svg} + w-[24px] h-[24px]`}>
+          <div className={`${styles.svg} + w-[18px] h-[18px]`}>
             <div className='cursor-not-allowed'>
 
               <Attach_File />
             </div>
           </div>
 
-          <div className={`${styles.svg} + w-[24px] h-[24px]`}>
+          <div className={`${styles.svg} + w-[18px] h-[18px]`}>
             <div className='cursor-not-allowed'>
 
               <Location />
@@ -209,7 +209,7 @@ const Post = () => {
 
 
 
-        <button type='submit' className={`body_Medium_Bold px-[24px] py-[10px] h-[42px] rounded-[5px] `}>
+        <button type='submit' className={`body_Medium grid place-items-center px-[15px] h-[30px] rounded-[5px] `}>
           {!loading && "Post"}
           {loading &&
 
