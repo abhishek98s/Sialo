@@ -10,9 +10,13 @@ const Sidebar = () => {
         router.push('/login')
     }
 
+    const { asPath, pathname } = useRouter();
+
+    let hideNavbar = asPath == "/register" || asPath == "/login" ? true : false;
+
     return (
         <>
-            <section className={`${styles.sidebar} + max-lg:hidden min-w-[300px] w-[300px] h-[100vh] flex flex-col px-[14px] pb-[24px] pt-[56px] sticky left-0 top-0 z-[40]`}>
+            <section className={`${styles.sidebar} ${hideNavbar ? "hidden" : "s"} + max-lg:hidden min-w-[300px] w-[300px] h-[100vh] flex flex-col px-[14px] pb-[24px] pt-[56px] sticky left-0 top-0 z-[40]`}>
 
                 <form className={`w-[100%] h-[45px] flex justify-center items-center mt-[24px]`}>
                     <input className={`bg-transparent w-[100%] h-[100%] px-[16px] py-[21px]`} placeholder='Search People' />

@@ -4,16 +4,18 @@ import styles from './landingpage.module.scss'
 import Sidebar from './Sidebar'
 import Feeds from './Feed'
 import { Friendlist } from './Friendlist'
+import LayoutSidebar from '../LayoutSidebar'
 
 const LandingPage = () => {
 
   return (
     <main className={`flex gap-[128px] max-w-[1600px] mx-auto justify-between max-md:mx-[2%] `}>
-      <Sidebar />
 
-      <Feeds />
+      <LayoutSidebar>
+        <Feeds />
+        <Friendlist />
+      </LayoutSidebar>
 
-      <Friendlist />
     </main>
   )
 }

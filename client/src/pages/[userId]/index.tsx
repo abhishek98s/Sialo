@@ -2,7 +2,8 @@ import React from 'react'
 
 const UserPost = () => {
   return (
-    <div>UserPost</div>
+    <section className={` w-[100%]`}>
+    </section>
   )
 }
 

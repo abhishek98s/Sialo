@@ -4,13 +4,13 @@ import Navbar from "./Navbar";
 
 
 
-const Layout = ({ children }: any) => {
+const LayoutSidebar = ({ children }: any) => {
     return (
         <>
-            <Navbar />
+            <Sidebar />
             {children}
         </>
     )
 }
 
-export default Layout;
+export default LayoutSidebar;
