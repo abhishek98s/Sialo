@@ -31,8 +31,8 @@ const Home = () => {
       </Head>
 
       {(!token || !userPosts) && <Sialo />}
-
-      <Navbar />
+{/* 
+      <Navbar /> */}
 
       <LandingPage />
     </>

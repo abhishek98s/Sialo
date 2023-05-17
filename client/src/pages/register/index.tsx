@@ -170,7 +170,7 @@ const Register = () => {
     }
 
     return (
-        <form onSubmit={submit} className={`${styles.register} + flex items-center  max-w-[100%] h-[max-content] justify-between mx-[4%] max-lg:flex-col my-[64px]`}>
+        <form onSubmit={submit} className={`${styles.register} + max-w-[1300px] mx-auto flex items-center h-[max-content] justify-between max-lg:flex-col my-[64px]`}>
 
             <article className={`${styles.slogen} +  w-[582px] flex flex-col max-lg:mt-[64px] max-lg:w-[100%] max-lg:text-center`}>
                 <h2 className={`text-[50px] font-bold max-lg:block hidden`}>Sialo</h2>

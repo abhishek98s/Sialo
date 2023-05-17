@@ -14,17 +14,8 @@ const LandingPage = () => {
       <Feeds />
 
       <Friendlist />
-
-      {/* <section className={`${styles.mobile_nav} + fixed bottom-0 left-[50%] translate-x-[-50%] h-[50px] w-[100%]  px-[24px] hidden max-lg:grid`}>
-        <ul className={`flex justify-around  items-center`}>
-          <li className={`h-[max-content] cursor-pointer`}><Home /> </li>
-          <li className={`h-[max-content cursor-pointer]`}><Market2 /> </li>
-          <li className={`h-[max-content] cursor-pointer`}><Event /> </li>
-          <li className={`h-[max-content] cursor-pointer`}><Logout /> </li>
-        </ul>
-      </section> */}
     </main>
   )
 }
 
-export default LandingPage
+export default LandingPage  
