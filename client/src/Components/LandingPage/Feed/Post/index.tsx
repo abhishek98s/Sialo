@@ -142,19 +142,19 @@ const Post = () => {
 
   return (
 
-    <form onSubmit={submit} className={`${styles.post_box} +  mt-[24px] rounded-[10px] p-[24px]`}>
+    <form onSubmit={submit} className={`${styles.post_box} + rounded-[10px] grow p-[24px]`}>
 
-      <article className={`flex gap-[16px]`}>
+      <article className={`flex gap-[16px] items-center`}>
 
         <section className={`${styles.storys}`}>
-          <div className={`${styles.story} + w-[40px] bg-slate-200 h-[40px] rounded-full grid place-items-center`}>
-            <div className={`w-[35px] h-[35px] rounded-full overflow-hidden`}>
+          <div className={`${styles.story} + w-[50px] h-[50px] rounded-full grid place-items-center`}>
+            <div className={`w-[43px] h-[43px] rounded-full overflow-hidden`}>
               <Image className={`w-[100%] h-[100%] object-cover `} src={user.img} alt='profileImg' width={500} height={500} />
             </div>
           </div>
         </section>
 
-        <input className={` ${styles.input} + grow rounded-[15px] px-[16px] py-[10px] body_Medium bg-transparent h-[40px]`} placeholder='Mind writing something' name='caption' onChange={inputHandler} />
+        <input className={` ${styles.input} + grow rounded-[15px] px-[16px] py-[10px] body_Medium bg-transparent h-[38px]`} placeholder='Mind writing something' name='caption' onChange={inputHandler} />
 
       </article>
 
@@ -178,36 +178,24 @@ const Post = () => {
         <article className={`flex gap-[16px] items-center`}>
 
           <div className={`${styles.svg} + cursor-not-allowed w-[18px] h-[18px]`}>
-            <div className='cursor-not-allowed'>
-              <Camera />
-            </div>
+            <div className='cursor-not-allowed'><Camera /></div>
           </div>
 
           <div className={`${styles.svg} + cursor-pointer w-[18px] h-[18px]`}>
-            <label htmlFor='thumbImg' className='cursor-pointer'>
-              <ImageIcon />
-            </label>
+            <label htmlFor='thumbImg' className='cursor-pointer'><ImageIcon /></label>
           </div>
 
           <div className={`${styles.svg} + w-[18px] h-[18px]`}>
-            <div className='cursor-not-allowed'>
-
-              <Attach_File />
-            </div>
+            <div className='cursor-not-allowed '><Attach_File /></div>
           </div>
 
           <div className={`${styles.svg} + w-[18px] h-[18px]`}>
-            <div className='cursor-not-allowed'>
-
-              <Location />
-            </div>
+            <div className='cursor-not-allowed'><Location /></div>
           </div>
 
         </article>
 
         <input className={`hidden`} type='file' id='thumbImg' onChange={inputHandler} name="imgFile" accept=".jpg, .jpeg, .png" />
-
-
 
         <button type='submit' className={`body_Medium grid place-items-center px-[15px] h-[30px] rounded-[5px] `}>
           {!loading && "Post"}

@@ -38,7 +38,7 @@ const Feeds = () => {
 
                 <Stories />
 
-                <Post />
+                <section className={`mt-[24px]`}><Post /></section>
 
                 <NewsFeed />
 

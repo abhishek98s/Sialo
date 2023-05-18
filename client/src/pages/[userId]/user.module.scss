@@ -8,4 +8,42 @@
     button {
         background: $fourth;
     }
+
+    .story {
+        background-color: $fourth;
+
+        div {
+            background-color: $secondary;
+        }
+    }
+
+    .navigation {
+        border-top: 2px solid $third;
+        padding: 18px 0 0 0;
+
+        li {
+            padding: 6px 8px;
+            position: relative;
+
+            &::after {
+                content: " ";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 3px;
+                background: $fourth;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.userInfoFeed {
+    border: 1px solid $third;
+
+    .Info{
+        div{
+            background: $third;
+        }
+    }
 }

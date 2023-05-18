@@ -433,6 +433,46 @@ const AddImage = () => {
   )
 }
 
+
+const Work = () => {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 4.21053H14V2.10526C14 0.936842 13.11 0 12 0H8C6.89 0 6 0.936842 6 2.10526V4.21053H2C0.89 4.21053 0.00999999 5.14737 0.00999999 6.31579L0 17.8947C0 19.0632 0.89 20 2 20H18C19.11 20 20 19.0632 20 17.8947V6.31579C20 5.14737 19.11 4.21053 18 4.21053ZM12 4.21053H8V2.10526H12V4.21053Z" fill="white" />
+    </svg>
+  )
+}
+
+
+const Email = () => {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+      <rect width="20" height="20" fill="url(#pattern0e)" />
+      <defs>
+        <pattern id="pattern0e" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_209_480" transform="scale(0.0104167)" />
+        </pattern>
+        <image id="image0_209_480" width="96" height="96" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADAklEQVR4nO2csWoVQRiFgwELQTsFA/EFImjlUygW6ivYWlqLFjYGCVrY+gIWt9Vem1xB7FXYB8iNt9LNkTUTGZZN1vnnn/1nZs8HC7e5M/+cMztn7s5yNzYIIYQQQgghhBBCCCGEEEI8AFwB8AzAEsBPkBM6LfYBPAVwOcmkAfAAwOpfl+Q0DgDcSyH+0aldkj5Haia4ZYczX3YnxC9Hbs0nMp5oGPBZ2DkB9jUMOKSSYlYaBtwB8E1ew2xpus1LtAHOhAsAngP4bT2qAmgBvAFwUUX8nhE3AXyyHmHGdD9Qb6kL3zPhHICHbptFjlkDeAxgM6n4PSO2ALx1BcyZBYBrkwk/YMRcQ7pRC9lYZhbSbbKQjWUGIb1MHrIDogatcZWG9Do0ZAFc7TJSLLzXkLSAWkJ6ETMBxcJ7DUbdggWHdBMasgBuAPjoNxIs+ECj0SFUWEi3EeP71W9MLLzX+Fkz5H5lIb0U3OG3z7rDgwUf6GCMGkJ6LQ3ZsYbFwnsdpRrAViYhnXQCiYX3OgyhpJBuNEJ2jGDBBzoNJfeQbqesTyy817mUHEN6qR2yYwQLPlBALDmE9DpVyI4hFt4rRAPLkF5YTgCx8F5BmkwZ0o0wZFWXwGDBB4oqLQTbnDYBYuG94lLRCGboWEhntw0OFnygwNQsFNZos5AdQyy8V+gUrAA8ChRwG8A7d20HfG/T9TXJ+65i4b2CqzlxgsHDQI2ip6Z1IXpJRXXjx+EaxRf91gGOQ/a71SBKNiDqvZtcnrbWYEDQLie384ZaDPivkM7xxK02AwZDOucz5xoNOOEHgLvu6j5nSc0GFAENMIYGGEMDjKEBxtAAY2iAMTTAGBpgDA0whgYYQwOMoQHG0ABjaIAxNKACA/iPWXIONAz4GlHA3PmiYcBL61EUzAsNA67neNhdAJ1mO9EGOBNeW4+mQPZUxHcGnAfwwXpEBfG+00zNAM+EV1yORpedPXXxe0bsANjtEp5b1L8cOi121dZ8QgghhBBCCCGEEEIIIYRs1MQfJGGfRB/DnCMAAAAASUVORK5CYII=" />
+      </defs>
+    </svg>
+  )
+}
+
+
+const Phone = () => {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+      <rect width="20" height="20" fill="url(#pattern0e1)" />
+      <defs>
+        <pattern id="pattern0e1" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image0_209_479" transform="scale(0.0104167)" />
+        </pattern>
+        <image id="image0_209_479" width="96" height="96" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADz0lEQVR4nO2cS6hNURjHVy5KIa8RVx4p7+dloESKGJBXImVC3IzuQAYmBpKxKK8MJOSVR94jkqQUVyIjJvJ+XqVw+Wm5i4F0z7f33evus/f5/+bnnG9/v7PX81vLOSGEEEIIIYQQQggh2gEYBhwFXpKez8BZYLiSnQBgHPCJ7GgBRkiCXcAFsueyBNgF+H9s1nwD6iTBJqCVOPSTAJuAL5EE1EuATcDHSAJGSoBNwItIAhokwCbgYSQB8yTAJuBGJAFrJcAm4HQkAVskwCZgZyQBByTAJmBjJAHNEmATsCySgB9Ab0mwLcbFYo4EVBbQDfgaScA2CbA1Q/cjCbgnATYBhyIJ+AkMkoTKAjYQj1USUFnAxIgCNkpAZQF1EVdFF0hAfksSj/woSwJsAhozTv4rYLSSbwQYkmHyXwPjlfyEAHczSP57YIqSnwJgcwbJb1DyU+Kr2jqQ/A9KfgYAt1Mmf6r++dkIWJci+dOU/IwAeiaollPyYwDsNSRfHW4sgFFhJbM9zkULQPyWcNHwFsxVriIBzDIIaFYVdESAawYJjTFjqGmAmcZ1n/55x1pa/GkXg4RjecdZWvySMvDdIGFF3rGWFmC3cVJWn3espcS38aGtr8RloEve8ZYSYDU2tuYda2kBrhoE/ASW5h1rKfFFVsA746n5cXnHW0p8oZWxKXqiqrh4Evy9EhYeAgNixVHrewbWw33NQJ+8Yy7rBM239RZu6LBGHAlLwkkYC3diNkdAd2ARsCn0U7VRlR0eOEmp4qAIMYwBHv9nOHwP2O5P6gC9XFkB9iWQ8DTLIaqvwDPO0ltDf7TfH6EF1gDzfSlN2AEcCvQFurqCVlefSCDB9x3LMvjdCcbkJ6E1TDiLdelUaIMvJXhQ30RsS7t2FM40vCEeLYW7fg3okVCC5wowMOHvTALeEp8zrmjQ9iYkaY4Iyxsrjd8/uZOS72lxRYS2PsFSW/Qvx9vb3vRV18a1qMxwRQZoSjBP+MO78Lm6HP/5f3FFB1ic8mJAP2ScHb6jIVTidTquDNA2zk57MdS5vJLvcSVbwDtMwXBlA1je2R1pR3BlBBgcxv9VjyszwELgGVWMKztAP2CXsfir03E1tsFzkSrD1RrAdOA8VYKrVYAZQUTSmbQEZIm/gxrYk2D/WQJi4LcU/W28wC0JqI6LRZqAm4bDhB3hRd7PWvUA9eHNOBlhzehI3s9XKIAuwFhgPXAw3P6S9kpOf4PYsLyfqfAAXUPZyqLQbO0ATgHXgQfA8/Dm/FkybwmjrzF5xy6EEEIIIYQQQgghXFXzC2jcdWNBP+P6AAAAAElFTkSuQmCC" />
+      </defs>
+    </svg>
+
+  )
+}
+
 export {
   AddImage,
   Attach_File,
@@ -452,5 +492,8 @@ export {
   Settings,
   User,
   Heart,
-  Comments
+  Comments,
+  Work,
+  Phone,
+  Email,
 };

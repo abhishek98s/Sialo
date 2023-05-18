@@ -5,27 +5,29 @@ import LayoutSidebar from '@/Components/LayoutSidebar'
 import bg from '../../../public/images/bg.jpg'
 
 import styles from './user.module.scss'
+import UserProfile from './UserProfile'
+import { Email, Phone, Work } from '../../../public/SVG'
+import Post from '@/Components/LandingPage/Feed/Post'
+import UserInfo from './UserInfo'
 
 const UserPost = () => {
   return (
     <LayoutSidebar>
       <section className={`pt-[60px]`}>
 
-        <figure className='max-w-[1400px] h-[250px] overflow-hidden rounded-t-[10px]'>
+        <figure className='z-[-1] max-w-[1400px] h-[250px] overflow-hidden rounded-t-[10px]'>
           <Image src={bg} className={`w-[100%]`} alt="sialo.vercel.app" width="400" height="400" />
         </figure>
 
-        <section className={`${styles.userInfo} w-[85%] py-[15px] px-[40px] h-[140px] border mx-auto translate-y-[-60px] rounded-[10px]`}>
-          <article className='flex w-[100%] justify-between'>
+        <UserProfile styles={styles} />
 
-            <section className='space-y-2'>
-              <h4 className={`body_LargeBold`}>Brian Jones</h4>
-              <p className={`label_Medium grey_light_hover mt-[2px]`}>Developer At Microsoft</p>
-            </section>
+        <section className={`w-[85%] mx-auto mt-[24px] flex items-start gap-[24px]`}>
 
-            <button className={`label_Medium px-[10px] py-[8px] h-[100%] rounded-[5px] max-sm:hidden `}>Add Friend</button>
+          <UserInfo styles={styles} />
 
-          </article>
+          <Post />
+
+          
         </section>
 
       </section>
