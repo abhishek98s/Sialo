@@ -20,7 +20,7 @@ const UserPost = () => {
       <section className={`pt-[60px]`}>
 
         <figure className='z-[-1] max-w-[1400px] h-[250px] overflow-hidden rounded-t-[10px]'>
-          <Image src={bg} className={`w-[100%]`} alt="sialo.vercel.app" width="400" height="400" />
+          <Image src={bg} className={`w-[100%] object-cover object-top`} alt="sialo.vercel.app" width="400" height="400" />
         </figure>
 
         <UserProfile styles={styles} />

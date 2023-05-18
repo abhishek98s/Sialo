@@ -175,22 +175,21 @@ const Post = () => {
 
       <section className={`${styles.bottom} + flex justify-between items-center mt-[16px]`}>
 
-        <article className={`flex gap-[16px] items-center`}>
+        <article className={`flex gap-[14px] items-center`}>
 
-          <div className={`${styles.svg} + cursor-not-allowed w-[18px] h-[18px]`}>
-            <div className='cursor-not-allowed'><Camera /></div>
+          <div className={`${styles.svg} + cursor-not-allowed w-[20px] h-[20px]`}>
+            <div className='cursor-not-allowed'><div className={`w-[20px] h-[20px]`}><Camera /></div></div>
+          </div>
+          <div className={`${styles.svg} + cursor-pointer w-[20px] h-[20px]`}>
+            <label htmlFor='thumbImg' className='cursor-pointer'><div className={`w-[20px] h-[20px]`}><ImageIcon /></div></label>
           </div>
 
-          <div className={`${styles.svg} + cursor-pointer w-[18px] h-[18px]`}>
-            <label htmlFor='thumbImg' className='cursor-pointer'><ImageIcon /></label>
+          <div className={`${styles.svg} + w-[20px] h-[20px]`}>
+            <div className='cursor-not-allowed '><div className={`w-[20px] h-[20px]`}><Attach_File /></div></div>
           </div>
 
-          <div className={`${styles.svg} + w-[18px] h-[18px]`}>
-            <div className='cursor-not-allowed '><Attach_File /></div>
-          </div>
-
-          <div className={`${styles.svg} + w-[18px] h-[18px]`}>
-            <div className='cursor-not-allowed'><Location /></div>
+          <div className={`${styles.svg} + w-[20px] h-[20px]`}>
+            <div className='cursor-not-allowed'><div className={`w-[20px] h-[20px]`}><Location /></div></div>
           </div>
 
         </article>

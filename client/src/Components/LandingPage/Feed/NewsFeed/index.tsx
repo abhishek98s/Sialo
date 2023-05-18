@@ -123,7 +123,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
             </div>
 
             <form onSubmit={submit} className={`${styles.like_comment} + flex items-center gap-[16px] h-[37px] `}>
-                <div className={`${styles.svg} `}><Heart /></div>
+                <div className={`${styles.svg} `}><div className={`w-[30px] h-[30px]`}><Heart /></div></div>
 
                 <article className={`flex gap-[8px] w-[100%]  h-[100%] `}>
                     <input className={`label_Medium bg-transparent grow max-w-[100%]  pl-[11px] px-[21px] rounded-[10px]`} onChange={inputHandler} placeholder='Have something to say?' />

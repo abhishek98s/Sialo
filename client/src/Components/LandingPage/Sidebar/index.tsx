@@ -20,7 +20,7 @@ const Sidebar = () => {
 
                 <form className={`w-[100%] h-[35px] flex justify-center items-center mt-[24px]`}>
                     <input className={`bg-transparent w-[100%] h-[100%] px-[16px] py-[px]`} placeholder='Search People' />
-                    <button className={`px-[10px] py-[px] h-[100%] grid place-items-center`}><Search /></button>
+                    <button className={`px-[10px] py-[px] h-[100%] grid place-items-center`}><div className={`w-[20px] h-[20px]`}><Search /></div></button>
                 </form>
 
                 <ul className={`mt-[16px] flex flex-col body_Medium justify-between  grow`}>

@@ -18,11 +18,11 @@ const Navbar = () => {
 
 
                 <div className={`${styles.svg} + w-[32px] h-[32px] cursor-pointer grid place-items-center rounded-full`}>
-                    <User />
+                    <div className={`w-[20px] h-[20px]`}><User /></div>
                 </div>
 
                 <div className={`${styles.svg} + w-[32px] h-[32px] cursor-pointer grid place-items-center rounded-full`}>
-                    <FacebookMessanger />
+                    <div className={`w-[20px] h-[20px]`}><FacebookMessanger /></div>
                 </div>
             </section>
         </nav>
