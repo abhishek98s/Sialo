@@ -1,12 +1,17 @@
 import React from 'react'
-import { Event, Home, Logout, Market, Market2, Search } from '../../../../public/SVG'
-import styles from './sidebar.module.scss'
 import { useRouter } from 'next/router'
 
+import { Event, Home, Logout, Market, Market2, Search } from '../../../../public/SVG'
+import styles from './sidebar.module.scss'
+import { logOut } from '@/redux/counter/loginSlice'
+import { useDispatch } from 'react-redux'
+
 const Sidebar = () => {
+    const dispatch = useDispatch();
     const router = useRouter()
+    
     const ClearSessionStorage = () => {
-        sessionStorage.clear();
+        dispatch(logOut());
         router.push('/login')
     }
 

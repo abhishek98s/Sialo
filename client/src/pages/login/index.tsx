@@ -9,8 +9,35 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../register/Loading';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogin } from '@/redux/counter/loginSlice';
+import Sialo from '@/Components/Sialo';
+
+
+// if already login protect the route
+const loginAuth = (Component: any) => {
+
+  const AuthenticatedComponent = () => {
+    const router = useRouter();
+    const token = useSelector((state: any) => state.login.token)
+
+    useEffect(() => {
+      console.log(token)
+      if (!token) {
+        return
+
+      }
+      router.push('/');
+    }, []);
+
+    return token ? <Sialo /> : <Component />; // Render whatever you want while the authentication occurs
+  };
+
+  return AuthenticatedComponent;
+}
+
+
 
 const Login = () => {
+
   const [loading, setLoading] = useState(false);
 
   const [value, setValue] = useState({
@@ -26,7 +53,6 @@ const Login = () => {
     let val = e.target.value;
     setValue((value) => ({ ...value, [e.target.name]: val }))
   }
-
 
   const submit = async (e: any) => {
     e.preventDefault();
@@ -127,7 +153,7 @@ const Login = () => {
 
           <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`} type='submit'>
             {!loading && "Log in"}
-            {loading && <Loading />}
+            {loading && <div className={'w-[24px] h-[24px] mx-auto'}><Loading /></div>}
           </button>
 
           <p className={`mt-[24px] body_Large text-right`}>Dont have an account?
@@ -139,4 +165,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default loginAuth(Login)
