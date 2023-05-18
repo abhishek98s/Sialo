@@ -248,7 +248,7 @@ const Market = () => {
 
 const Market2 = () => {
   return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
       <rect width="40" height="40" fill="url(#pattern8890)" />
       <defs>
         <pattern id="pattern8890" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -435,15 +435,11 @@ const Work = () => {
 
 const Email = () => {
   return (
-    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-      <rect width="20" height="20" fill="url(#pattern0e)" />
-      <defs>
-        <pattern id="pattern0e" patternContentUnits="objectBoundingBox" width="1" height="1">
-          <use xlinkHref="#image0_209_480" transform="scale(0.0104167)" />
-        </pattern>
-        <image id="image0_209_480" width="96" height="96" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADAklEQVR4nO2csWoVQRiFgwELQTsFA/EFImjlUygW6ivYWlqLFjYGCVrY+gIWt9Vem1xB7FXYB8iNt9LNkTUTGZZN1vnnn/1nZs8HC7e5M/+cMztn7s5yNzYIIYQQQgghhBBCCCGEEEI8AFwB8AzAEsBPkBM6LfYBPAVwOcmkAfAAwOpfl+Q0DgDcSyH+0aldkj5Haia4ZYczX3YnxC9Hbs0nMp5oGPBZ2DkB9jUMOKSSYlYaBtwB8E1ew2xpus1LtAHOhAsAngP4bT2qAmgBvAFwUUX8nhE3AXyyHmHGdD9Qb6kL3zPhHICHbptFjlkDeAxgM6n4PSO2ALx1BcyZBYBrkwk/YMRcQ7pRC9lYZhbSbbKQjWUGIb1MHrIDogatcZWG9Do0ZAFc7TJSLLzXkLSAWkJ6ETMBxcJ7DUbdggWHdBMasgBuAPjoNxIs+ECj0SFUWEi3EeP71W9MLLzX+Fkz5H5lIb0U3OG3z7rDgwUf6GCMGkJ6LQ3ZsYbFwnsdpRrAViYhnXQCiYX3OgyhpJBuNEJ2jGDBBzoNJfeQbqesTyy817mUHEN6qR2yYwQLPlBALDmE9DpVyI4hFt4rRAPLkF5YTgCx8F5BmkwZ0o0wZFWXwGDBB4oqLQTbnDYBYuG94lLRCGboWEhntw0OFnygwNQsFNZos5AdQyy8V+gUrAA8ChRwG8A7d20HfG/T9TXJ+65i4b2CqzlxgsHDQI2ip6Z1IXpJRXXjx+EaxRf91gGOQ/a71SBKNiDqvZtcnrbWYEDQLie384ZaDPivkM7xxK02AwZDOucz5xoNOOEHgLvu6j5nSc0GFAENMIYGGEMDjKEBxtAAY2iAMTTAGBpgDA0whgYYQwOMoQHG0ABjaIAxNKACA/iPWXIONAz4GlHA3PmiYcBL61EUzAsNA67neNhdAJ1mO9EGOBNeW4+mQPZUxHcGnAfwwXpEBfG+00zNAM+EV1yORpedPXXxe0bsANjtEp5b1L8cOi121dZ8QgghhBBCCCGEEEIIIYRs1MQfJGGfRB/DnCMAAAAASUVORK5CYII=" />
-      </defs>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier"> 
+      <path d="M4 9.00005L10.2 13.65C11.2667 14.45 12.7333 14.45 13.8 13.65L20 9" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 9.17681C3 8.45047 3.39378 7.78123 4.02871 7.42849L11.0287 3.5396C11.6328 3.20402 12.3672 3.20402 12.9713 3.5396L19.9713 7.42849C20.6062 7.78123 21 8.45047 21 9.17681V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9.17681Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path> </g></svg>
   )
 }
 
