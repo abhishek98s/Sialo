@@ -26,9 +26,11 @@ const registerAuth = (Component: any) => {
         const token = useSelector((state: any) => state.login.token)
 
         useEffect(() => {
-            if (token) {
-                router.push('/');
+            if (!token) {
+                return
+
             }
+            router.push('/');
         }, []);
 
         return token ? <Sialo /> : <Component />; // Render whatever you want while the authentication occurs

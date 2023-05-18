@@ -20,7 +20,6 @@ const loginAuth = (Component: any) => {
     const token = useSelector((state: any) => state.login.token)
 
     useEffect(() => {
-      console.log(token)
       if (!token) {
         return
 
