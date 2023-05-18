@@ -9,8 +9,12 @@ import UserProfile from './UserProfile'
 import { Email, Phone, Work } from '../../../public/SVG'
 import Post from '@/Components/LandingPage/Feed/Post'
 import UserInfo from './UserInfo'
+import NewsFeed from '@/Components/LandingPage/Feed/NewsFeed'
+import { useSelector } from 'react-redux'
 
 const UserPost = () => {
+  const userPosts = useSelector((state: any) => state.posts.posts);
+
   return (
     <LayoutSidebar>
       <section className={`pt-[60px]`}>
@@ -25,9 +29,18 @@ const UserPost = () => {
 
           <UserInfo styles={styles} />
 
-          <Post />
+          <section className={`grow`}>
+            <Post />
 
-          
+            <article className={`min-h-[500px]`}>
+
+              {userPosts && userPosts.map((data: any, index: number) => (
+                <NewsFeed key={index} {...data} />
+              ))}
+            </article>
+          </section>
+
+
         </section>
 
       </section>

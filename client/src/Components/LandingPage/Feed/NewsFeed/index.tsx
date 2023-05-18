@@ -14,8 +14,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import Comment from './Comment'
 
 import { addComment } from '@/redux/counter/postSlice';
+import { useRouter } from 'next/router';
 
 const NewsFeed = ({ ...postData }: any): JSX.Element => {
+    const router = useRouter();
     const user = useSelector((state: any) => state.login.user)
     const dispatch = useDispatch();
 
@@ -23,7 +25,6 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
         comment: "",
         loading: ""
     })
-
 
     const inputHandler = (e: any) => {
         let val = e.target.value;
@@ -86,20 +87,12 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
             return
         }
 
-
-        // dispatch(addComment({
-        //     comment: {
-        //         updatedComment: {
-        //             comment: "okk",
-        //             firstName: "Abhishek",
-        //             lastName: "Shakya",
-        //             userId: "644a45c59f66a069d05517e2",
-        //             userImg: "https://res.cloudinary.com/dxsqdqnoe/image/upload/v1682589124/jj5vlzpjazxnaoafoz91.png",
-        //         },
-        //         postId: postData._id,
-        //     }
-        // }))
         e.target.reset();
+    }
+
+    const UserPage = () => {
+        const userId = postData.userId
+        router.push(`/${userId}`)
     }
 
     return (
@@ -116,8 +109,8 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
                 </section>
 
                 <section>
-                    <h4 className={`body_LargeBold`}>{`${postData.firstName || "Zoro"} ${postData.lastName || ""}`}</h4>
-                    <p className={`body_Medium grey_light_hover mt-[2px]`}>Brian Cir</p>
+                    <h4 onClick={UserPage} className={`cursor-pointer body_LargeBold`}>{`${postData.firstName || "Zoro"} ${postData.lastName || ""}`}</h4>
+                    <p className={`label_Medium grey_light_hover mt-[2px]`}>Brian Cir</p>
                 </section>
 
             </article>

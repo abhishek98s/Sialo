@@ -10,9 +10,9 @@ const UserInfo = ({ styles }: any) => {
 
                     <div className={`p-[10px] rounded-[10px] mt-[16px]`}>
                         <ul className={`space-y-[16px] label_Medium`}>
-                            <li className={`flex gap-[10px] items-center`}><Phone /> +23 696548962</li>
-                            <li className={`flex gap-[10px] items-center`}><Work /> Frontend Developer</li>
-                            <li className={`flex gap-[10px] items-center`}><Email /> brianjones@gmail.com</li>
+                            <li className={`flex gap-[10px] items-center`}><div className={`w-[22px] h-[22px]`}><Phone /></div> +23 696548962</li>
+                            <li className={`flex gap-[10px] items-center`}><div className={`w-[22px] h-[22px]`}><Work /></div> Frontend Developer</li>
+                            <li className={`flex gap-[10px] items-center`}><div className={`w-[22px] h-[22px]`}><Email /></div> brianjones@gmail.com</li>
                         </ul>
                     </div>
                 </article>
@@ -22,9 +22,9 @@ const UserInfo = ({ styles }: any) => {
 
                     <div className={`p-[10px] rounded-[10px] mt-[16px]`}>
                         <ul className={`space-y-[16px] label_Medium`}>
-                            <li className={`flex gap-[10px] items-center`}><Phone /> +23 696548962</li>
-                            <li className={`flex gap-[10px] items-center`}><Work /> Frontend Developer</li>
-                            <li className={`flex gap-[10px] items-center`}><Email /> brianjones@gmail.com</li>
+                            <li className={`flex gap-[10px] items-center`}> <div className={`w-[22px] h-[22px]`}><Phone /></div> +23 696548962</li>
+                            <li className={`flex gap-[10px] items-center`}> <div className={`w-[22px] h-[22px]`}><Work /></div> Frontend Developer</li>
+                            <li className={`flex gap-[10px] items-center`}> <div className={`w-[22px] h-[22px]`}><Email /></div> brianjones@gmail.com</li>
                         </ul>
                     </div>
                 </article>

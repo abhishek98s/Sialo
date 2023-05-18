@@ -25,24 +25,24 @@ const Sidebar = () => {
 
                 <ul className={`mt-[16px] flex flex-col body_Medium justify-between  grow`}>
                     <div className={`space-y-[8px] `}>
-                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`}><Home /> Home</li>
-                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`}><Market /> Marketplace</li>
-                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`}><Event /> Event</li>
+                        <li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Home /></div> Home</li>
+                        <li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Market /></div> Marketplace</li>
+                        <li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Event /></div> Event</li>
                     </div>
 
                     <div>
-                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`} onClick={ClearSessionStorage}><Logout /> Logout</li>
+                        <li className={`flex items-center gap-[16px] px-[15px] py-[10px]`} onClick={ClearSessionStorage}><div className={`w-[24px] h-[24px]`}><Logout /></div> Logout</li>
                     </div>
-                </ul>
+                </ul >
 
-            </section>
+            </section >
 
             <section className={`${styles.mobile_nav} + fixed bottom-0 left-[50%] translate-x-[-50%] h-[50px] w-[100%]  px-[24px] hidden max-lg:grid`}>
                 <ul className={`flex justify-around  items-center`}>
-                    <li className={`h-[max-content] cursor-pointer`}><Home /> </li>
-                    <li className={`h-[max-content cursor-pointer]`}><Market2 /> </li>
-                    <li className={`h-[max-content] cursor-pointer`}><Event /> </li>
-                    <li className={`h-[max-content] cursor-pointer`} onClick={ClearSessionStorage}><Logout /> </li>
+                    <li className={`h-[24px] w-[24px] cursor-pointer`}><Home /> </li>
+                    <li className={`h-[24px  w-[24px]cursor-pointer]`}><Market2 /> </li>
+                    <li className={`h-[24px] w-[24px] cursor-pointer`}><Event /> </li>
+                    <li className={`h-[24px] w-[24px] cursor-pointer`} onClick={ClearSessionStorage}><Logout /> </li>
                 </ul>
             </section>
         </>

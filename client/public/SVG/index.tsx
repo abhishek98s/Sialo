@@ -190,8 +190,6 @@ const Location = () => {
 const Logout = () => {
   return (
     <svg
-      width="40"
-      height="40"
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -436,7 +434,7 @@ const AddImage = () => {
 
 const Work = () => {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M18 4.21053H14V2.10526C14 0.936842 13.11 0 12 0H8C6.89 0 6 0.936842 6 2.10526V4.21053H2C0.89 4.21053 0.00999999 5.14737 0.00999999 6.31579L0 17.8947C0 19.0632 0.89 20 2 20H18C19.11 20 20 19.0632 20 17.8947V6.31579C20 5.14737 19.11 4.21053 18 4.21053ZM12 4.21053H8V2.10526H12V4.21053Z" fill="white" />
     </svg>
   )
@@ -445,7 +443,7 @@ const Work = () => {
 
 const Email = () => {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
       <rect width="20" height="20" fill="url(#pattern0e)" />
       <defs>
         <pattern id="pattern0e" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -460,7 +458,7 @@ const Email = () => {
 
 const Phone = () => {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
       <rect width="20" height="20" fill="url(#pattern0e1)" />
       <defs>
         <pattern id="pattern0e1" patternContentUnits="objectBoundingBox" width="1" height="1">
