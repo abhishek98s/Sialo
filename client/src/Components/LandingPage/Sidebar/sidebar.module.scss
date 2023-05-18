@@ -8,7 +8,7 @@
 
     form {
         input {
-            border: 2px solid $third;
+            border: 1px solid $third;
             border-right: none;
             border-radius: 10px 0px 0px 10px;
             font-family: "Open Sans";
@@ -32,7 +32,7 @@
         }
 
         button {
-            border: 2px solid $third;
+            border: 1px solid $fourth;
             border-left: none;
             border-radius: 0px 10px 10px 0px;
             background-color: $fourth;

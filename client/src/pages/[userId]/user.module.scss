@@ -1,0 +1,11 @@
+@import "../../styles/colors.module.scss";
+
+.userInfo {
+    background: $secondary;
+    border: 1px solid $third;
+    border-bottom: none;
+
+    button {
+        background: $fourth;
+    }
+}

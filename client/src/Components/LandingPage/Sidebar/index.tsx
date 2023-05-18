@@ -16,11 +16,11 @@ const Sidebar = () => {
 
     return (
         <>
-            <section className={`${styles.sidebar} ${hideNavbar ? "hidden" : "s"} + max-lg:hidden min-w-[300px] w-[300px] h-[100vh] flex flex-col px-[14px] pb-[24px] pt-[56px] sticky left-0 top-0 z-[40]`}>
+            <section className={`${styles.sidebar} ${hideNavbar ? "hidden" : "s"} + max-lg:hidden min-w-[250px] w-[250px] h-[100vh] flex flex-col px-[14px] pb-[24px] pt-[56px] sticky left-0 top-0 z-[40]`}>
 
-                <form className={`w-[100%] h-[45px] flex justify-center items-center mt-[24px]`}>
-                    <input className={`bg-transparent w-[100%] h-[100%] px-[16px] py-[21px]`} placeholder='Search People' />
-                    <button className={`px-[10px] py-[9px] grid place-items-center`}><Search /></button>
+                <form className={`w-[100%] h-[35px] flex justify-center items-center mt-[24px]`}>
+                    <input className={`bg-transparent w-[100%] h-[100%] px-[16px] py-[px]`} placeholder='Search People' />
+                    <button className={`px-[10px] py-[px] h-[100%] grid place-items-center`}><Search /></button>
                 </form>
 
                 <ul className={`mt-[16px] flex flex-col body_Medium justify-between  grow`}>
