@@ -19,10 +19,15 @@ export const counterSlice = createSlice({
             state.user = action.payload.user
             state.token = action.payload.token
         },
+        logOut: (state) => {
+            state.user = null
+            state.token = null
+        },
+
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setLogin } = counterSlice.actions
+export const { setLogin, logOut } = counterSlice.actions
 
 export default counterSlice.reducer

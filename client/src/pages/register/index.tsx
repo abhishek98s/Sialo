@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './register.module.scss';
 import register_illustration from '../../../public/images/register.png'
 import Image from 'next/image';
@@ -6,12 +6,38 @@ import Link from 'next/link';
 import validator from 'validator';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import { AddImage, Plus, User } from '../../../public/SVG';
 import Loading from './Loading';
+import Sialo from '@/Components/Sialo';
+
+
+const registerAuth = (Component: any) => {
+
+
+    // if already login protect the route
+    const AuthenticatedComponent = () => {
+        const router = useRouter();
+        const token = useSelector((state: any) => state.login.token)
+
+        useEffect(() => {
+            if (token) {
+                router.push('/');
+            }
+        }, []);
+
+        return token ? <Sialo /> : <Component />; // Render whatever you want while the authentication occurs
+    };
+
+    return AuthenticatedComponent;
+}
+
+
 
 const Register = () => {
     const [imgs, setImg] = useState();
@@ -243,7 +269,7 @@ const Register = () => {
 
                     <button className={`body_LargeBold w-[100%] rounded-[10px] h-[51px] mt-[24px]`} type='submit'>
                         {!loading && "Submit"}
-                        {loading && <Loading />}
+                        {loading && <div className={'w-[24px] h-[24px] mx-auto'}><Loading /></div>}
                     </button>
 
                     <p className={`mt-[24px] body_Large text-right`}>Already have an account?
@@ -269,4 +295,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default registerAuth(Register)
