@@ -4,35 +4,33 @@
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
 
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: #d8d8d8;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     // border: 1px solid green;
 }
-
 
 body {
     background-color: $bg;
 }
 
-svg{
+svg {
     width: 100% !important;
     height: 100% !important;
 }
 
-img{
+img {
     width: 100%;
     height: 100%;
 }
 
 .heading_Large {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
@@ -40,7 +38,7 @@ img{
 }
 
 .heading_Small {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -48,7 +46,7 @@ img{
 }
 
 .titleLarge {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 120%;
@@ -63,9 +61,8 @@ img{
     }
 }
 
-
 .body_LargeBold {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
@@ -77,7 +74,7 @@ img{
 }
 
 .body_Large {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -94,7 +91,7 @@ img{
 }
 
 .body_Medium {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-style: normal;
     font-weight: 800;
     letter-spacing: 1px;
@@ -108,7 +105,7 @@ img{
 }
 
 .body_Medium_Bold {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -122,7 +119,7 @@ img{
 }
 
 .label_Large {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -135,15 +132,18 @@ img{
 }
 
 .label_Medium {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
+    letter-spacing: 0.5px;
     font-size: 12px;
-    letter-spacing: .5px;
     line-height: 120%;
+    
+    @media only screen and (max-width: 500px) {
+        font-size: 11px;
+        letter-spacing: .6px;
+    }
 }
-
-
 
 // Tostify code
 
@@ -151,17 +151,16 @@ img{
     background-color: none;
 }
 
-
 .Toastify__toast-theme--dark {
     background: $secondary;
     border: 2px solid none;
 }
 
-.Toastify__toast{
+.Toastify__toast {
     min-height: 10px !important;
 }
 
-.Toastify__toast-body{
+.Toastify__toast-body {
     font-size: 14px;
 }
 
@@ -169,8 +168,7 @@ img{
     background-color: transparent !important;
 }
 
-.Toastify__progress-bar{
+.Toastify__progress-bar {
     height: 2px !important;
     background: $fourth !important;
-
 }

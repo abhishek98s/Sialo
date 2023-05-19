@@ -4,7 +4,7 @@ import { Email, Phone, Work } from '../../../../public/SVG'
 const UserInfo = ({ styles }: any) => {
     return (
         <>
-            <section className={`${styles.userInfoFeed} p-[24px] min-w-[250px] rounded-[10px]`}>
+            <section className={`${styles.userInfoFeed} p-[24px] w-[100%] rounded-[10px]`}>
                 <article className={`${styles.Info}`}>
                     <span className={`body_LargeBold`}>Info</span>
 

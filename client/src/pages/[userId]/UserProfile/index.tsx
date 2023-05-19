@@ -4,8 +4,8 @@ import Profile from '../../../../public/images/profile.jpg'
 
 const UserProfile = ({ styles }: any) => {
     return (
-        <section className={`${styles.userInfo} z-10 relative w-[85%] pt-[15px] px-[40px] border mx-auto  mt-[-60px] rounded-[10px] `}>
-            <article className='flex w-[100%] justify-start gap-[5%]'>
+        <section className={`${styles.userInfo} z-10 relative w-[85%] pt-[15px] px-[40px] border mx-auto  mt-[-60px] rounded-[10px] max-sm:px-[20px] max-sm:min-w-[100%] `}>
+            <article className='flex w-[100%] justify-start flex-wrap gap-[5%]'>
 
                 <section className={`${styles.story} + relative bottom-[40px] w-[80px] bg-slate-200 h-[80px] rounded-full grid place-items-center`}>
                     <div className={`w-[70px] h-[70px] rounded-full grid place-items-center overflow-hidden`}>
@@ -14,12 +14,12 @@ const UserProfile = ({ styles }: any) => {
                 </section>
 
 
-                <section className='space-y-2'>
+                <section className='space-y-1'>
                     <h4 className={`body_LargeBold`}>Brian Jones</h4>
-                    <p className={`label_Medium grey_light_hover mt-[2px]`}>Developer At Microsoft</p>
+                    <p className={`label_Medium grey_light_hover`}>Developer At Microsoft</p>
                 </section>
 
-                <button className={`ml-auto label_Medium px-[10px] py-[8px] h-[100%] rounded-[5px] max-sm:hidden `}>Add Friend</button>
+                <button className={`ml-auto label_Medium px-[10px] py-[8px] h-[100%] rounded-[5px]`}>Add Friend</button>
 
             </article>
 
