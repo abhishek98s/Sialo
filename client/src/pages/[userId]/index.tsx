@@ -17,22 +17,22 @@ const UserPost = () => {
 
   return (
     <LayoutSidebar>
-      <section className={`pt-[60px]`}>
+      <section className={`pt-[60px] max-w-[1400px] w-[100%]`}>
 
-        <figure className='z-[-1] max-w-[1400px] h-[250px] overflow-hidden rounded-t-[10px]'>
+        <figure className='z-[-1] w-[100%] h-[250px] overflow-hidden rounded-t-[10px]'>
           <Image src={bg} className={`w-[100%] object-cover object-top`} alt="sialo.vercel.app" width="400" height="400" />
         </figure>
 
         <UserProfile styles={styles} />
 
-        <section className={`w-[85%] mx-auto mt-[24px] flex items-start gap-[24px]`}>
+        <section className={`w-[85%] mx-auto mt-[24px] flex items-start gap-[24px] max-sm:w-[100%]`}>
 
-          <UserInfo styles={styles} />
+          <div className='min-w-[250px] max-md:hidden'><UserInfo styles={styles} /></div>
 
           <section className={`grow`}>
             <Post />
 
-            <article className={`min-h-[500px]`}>
+            <article className={`max-w-[600px] min-h-[500px]`}>
 
               {userPosts && userPosts.map((data: any, index: number) => (
                 <NewsFeed key={index} {...data} />
