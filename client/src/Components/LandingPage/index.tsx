@@ -9,12 +9,10 @@ import LayoutSidebar from '../LayoutSidebar'
 const LandingPage = () => {
 
   return (
-    <main className={`flex gap-[128px] max-w-[1600px] mx-auto justify-between max-md:mx-[2%] `}>
-
-      <LayoutSidebar>
-        <Feeds />
-        <Friendlist />
-      </LayoutSidebar>
+    <main className={`flex max-w-[1600px] w-[100%] mx-auto justify-between pr-[2%]  `}>
+      <Sidebar />
+      <Feeds />
+      <Friendlist />
 
     </main>
   )

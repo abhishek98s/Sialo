@@ -10,7 +10,7 @@ const LayoutSidebar = ({ children }: any) => {
             <section className="flex">
                 <Sidebar />
                 
-                <aside className={`pt-[20px] grow px-[20px] max-w-[1100px] mx-auto`}>
+                <aside className={`pt-[20px] flex grow px-[20px] max-w-[1100px] mx-auto`}>
                     {children}
                 </aside>
             </section>

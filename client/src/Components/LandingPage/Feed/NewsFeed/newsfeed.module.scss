@@ -41,13 +41,17 @@
 
         button {
             background: $fourth;
-            transition: .3s;
-            &:hover{
+            transition: 0.3s;
+
+            &:last-of-type {
+                background: transparent;
+            }
+
+            &:hover {
                 transform: translate(0, -2px);
                 box-shadow: 0 1px 20px $fourth_hover;
                 scale: 1.01;
             }
-
 
             @media screen and (max-width: 639px) {
                 border: none;
