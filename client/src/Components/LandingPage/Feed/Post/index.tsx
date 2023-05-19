@@ -142,7 +142,7 @@ const Post = () => {
 
   return (
 
-    <form onSubmit={submit} className={`${styles.post_box} + rounded-[10px]  p-[16px]`}>
+    <form onSubmit={submit} className={`${styles.post_box} + rounded-[12px]  p-[16px]`}>
 
       <article className={`flex gap-[16px] items-center`}>
 
