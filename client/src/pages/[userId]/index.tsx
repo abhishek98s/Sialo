@@ -40,14 +40,21 @@ const userAuth = (Component: any) => {
 
 const UserPost = () => {
   const userPosts = useSelector((state: any) => state.posts.posts);
-  const [userData, setuserData]:any = useState()
+  const [userData, setuserData]: any = useState()
   const router = useRouter();
 
   let userId = router.query.userId;
 
   useEffect(() => {
-    axios.get(`https://sialo-backend.vercel.app/api/user/${userId}`)
-      .then((data: any) => setuserData(data.data.user))
+
+    const getUser = async () => {
+      await axios.get(`https://sialo-backend.vercel.app/api/user/644a52e7bc4027891197285c`)
+        .then((data: any) => setuserData(data.data.user))
+
+      return;
+    }
+
+    getUser();
   }, [])
 
   return (
@@ -58,11 +65,11 @@ const UserPost = () => {
           <Image src={bg} className={`w-[100%] object-cover object-top`} alt="sialo.vercel.app" width="400" height="400" />
         </figure>
 
-        <UserProfile styles={styles} {...userData}/>
+        <UserProfile styles={styles} {...userData} />
 
         <section className={`w-[85%] mx-auto mt-[24px] flex items-start gap-[24px] max-sm:w-[100%]`}>
 
-          <div className='min-w-[250px] max-md:hidden'><UserInfo styles={styles} {...userData}/></div>
+          <div className='min-w-[250px] max-md:hidden'><UserInfo styles={styles} {...userData} /></div>
 
           <section className={`grow`}>
             <Post />
