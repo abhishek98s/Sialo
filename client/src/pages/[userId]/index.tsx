@@ -48,7 +48,7 @@ const UserPost = () => {
   useEffect(() => {
 
     const getUser = async () => {
-      await axios.get(`https://sialo-backend.vercel.app/api/user/644a52e7bc4027891197285c`)
+      await axios.get(`https://sialo-backend.vercel.app/api/user/${userId}`)
         .then((data: any) => setuserData(data.data.user))
 
       return;
