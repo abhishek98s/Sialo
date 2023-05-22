@@ -10,12 +10,12 @@ import storageSession from 'redux-persist/lib/storage/session';
 
 const persistConfig = {
     key: 'posts',
-    storage: storageSession,
+    storage: storage
 }
 
 const loginPersistConfig = {
     key: 'login',
-    storage: storageSession,
+    storage: storage,
 }
 
 const rootReducer = combineReducers({

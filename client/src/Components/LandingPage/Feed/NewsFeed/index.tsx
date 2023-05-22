@@ -15,11 +15,14 @@ import Comment from './Comment'
 
 import { addComment } from '@/redux/counter/postSlice';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const NewsFeed = ({ ...postData }: any): JSX.Element => {
     const router = useRouter();
     const user = useSelector((state: any) => state.login.user)
     const dispatch = useDispatch();
+
+
 
     const [value, setValue] = useState({
         comment: "",
@@ -90,10 +93,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
         e.target.reset();
     }
 
-    const UserPage = () => {
-        const userId = postData.userId
-        router.push(`/${userId}`)
-    }
+
 
     return (
         <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[10px] py-[23px] mt-[24px]`}>
@@ -109,7 +109,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
                 </section>
 
                 <section>
-                    <h4 onClick={UserPage} className={`cursor-pointer body_LargeBold`}>{`${postData.firstName || "Zoro"} ${postData.lastName || ""}`}</h4>
+                    <Link href={`/${postData.userId}`} className={`cursor-pointer body_LargeBold`}>{`${postData.firstName || "Zoro"} ${postData.lastName || ""}`}</Link>
                     <p className={`label_Medium grey_light_hover mt-[2px]`}>Brian Cir</p>
                 </section>
 
