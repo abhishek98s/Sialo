@@ -96,7 +96,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
     }
 
     return (
-        <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[17px] py-[23px] mt-[24px]`}>
+        <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[10px] py-[23px] mt-[24px]`}>
             <ToastContainer />
             <article className={`flex gap-[16px] items-center`}>
 
@@ -118,16 +118,16 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
             <p className={`body_Large `}>{(postData.caption) || 'Nature is beautiful!'}</p>
 
 
-            <div className='w-  mt-[-5px]'>
+            <div className='w-  mt-[-5px] max-sm:mx-[-8px]'>
                 <Image className={`w-[100%] h-[100%] object-center `} src={!(postData.img) ? mainImg : postData.img} alt='post' width={400} height={30} />
             </div>
 
-            <form onSubmit={submit} className={`${styles.like_comment} + flex items-center gap-[16px] h-[37px] `}>
+            <form onSubmit={submit} className={`${styles.like_comment} + flex items-center gap-[16px] h-[35px] `}>
                 <div className={`${styles.svg} `}><div className={`w-[30px] h-[30px]`}><Heart /></div></div>
 
                 <article className={`flex gap-[8px] w-[100%]  h-[100%] `}>
-                    <input className={`label_Medium bg-transparent grow max-w-[100%]  pl-[11px] px-[21px] rounded-[10px]`} onChange={inputHandler} placeholder='Have something to say?' />
-                    <button type='submit' className={`body_Medium ml-auto px-[24px] py-[10px] h-[100%] rounded-[5px] max-sm:hidden `}>Post</button>
+                    <input className={`label_Medium bg-transparent grow max-w-[100%] h-[100%]  pl-[11px] px-[21px] rounded-[10px]`} onChange={inputHandler} placeholder='Have something to say?' />
+                    <button type='submit' className={`body_Medium ml-[10px] px-[15px] h-[100%] rounded-[5px] max-sm:hidden `}>Post</button>
                     <button className={`${styles.svg} + body_Medium ml-auto h-[100%] rounded-[5px] hidden max-sm:block  `}><Comments /></button>
                 </article>
             </form>

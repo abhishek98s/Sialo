@@ -1,16 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 import LayoutSidebar from '@/Components/LayoutSidebar'
 import bg from '../../../public/images/bg.jpg'
 
 import styles from './user.module.scss'
+
 import UserProfile from './UserProfile'
 import { Email, Phone, Work } from '../../../public/SVG'
 import Post from '@/Components/LandingPage/Feed/Post'
 import UserInfo from './UserInfo'
 import NewsFeed from '@/Components/LandingPage/Feed/NewsFeed'
-import { useSelector } from 'react-redux'
+import Sialo from '@/Components/Sialo'
+
+import { Product } from '@/Model/Product'
+
+
+const userAuth = (Component: any) => {
+  const AuthenticatedComponent = () => {
+    const router = useRouter();
+    const user = useSelector((state: any) => state.login.user)
+
+
+    useEffect(() => {
+      if (!user) {
+        router.push('/login');
+      } else {
+        return;
+      }
+    }, []);
+
+    return !user ? <Sialo /> : <Component />; // Render whatever you want while the authentication occurs
+  };
+
+  return AuthenticatedComponent;
+};
+
+
 
 const UserPost = () => {
   const userPosts = useSelector((state: any) => state.posts.posts);
@@ -48,4 +76,5 @@ const UserPost = () => {
   )
 }
 
-export default UserPost
+
+export default userAuth(UserPost);
