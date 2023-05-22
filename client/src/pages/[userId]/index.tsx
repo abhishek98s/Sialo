@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
 
 import LayoutSidebar from '@/Components/LayoutSidebar'
 import bg from '../../../public/images/bg.jpg'
 
 import styles from './user.module.scss'
-
 import UserProfile from './UserProfile'
 import { Email, Phone, Work } from '../../../public/SVG'
 import Post from '@/Components/LandingPage/Feed/Post'
 import UserInfo from './UserInfo'
 import NewsFeed from '@/Components/LandingPage/Feed/NewsFeed'
+import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 import Sialo from '@/Components/Sialo'
-
-import { Product } from '@/Model/Product'
+import axios from 'axios'
 
 
 const userAuth = (Component: any) => {
@@ -28,7 +26,7 @@ const userAuth = (Component: any) => {
       if (!user) {
         router.push('/login');
       } else {
-        return;
+        return
       }
     }, []);
 
@@ -42,6 +40,15 @@ const userAuth = (Component: any) => {
 
 const UserPost = () => {
   const userPosts = useSelector((state: any) => state.posts.posts);
+  const [userData, setuserData]:any = useState()
+  const router = useRouter();
+
+  let userId = router.query.userId;
+
+  useEffect(() => {
+    axios.get(`https://sialo-backend.vercel.app/api/user/${userId}`)
+      .then((data: any) => setuserData(data.data.user))
+  }, [])
 
   return (
     <LayoutSidebar>
@@ -51,11 +58,11 @@ const UserPost = () => {
           <Image src={bg} className={`w-[100%] object-cover object-top`} alt="sialo.vercel.app" width="400" height="400" />
         </figure>
 
-        <UserProfile styles={styles} />
+        <UserProfile styles={styles} {...userData}/>
 
         <section className={`w-[85%] mx-auto mt-[24px] flex items-start gap-[24px] max-sm:w-[100%]`}>
 
-          <div className='min-w-[250px] max-md:hidden'><UserInfo styles={styles} /></div>
+          <div className='min-w-[250px] max-md:hidden'><UserInfo styles={styles} {...userData}/></div>
 
           <section className={`grow`}>
             <Post />
@@ -75,6 +82,5 @@ const UserPost = () => {
     </LayoutSidebar>
   )
 }
-
 
 export default userAuth(UserPost);
