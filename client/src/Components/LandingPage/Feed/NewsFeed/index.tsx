@@ -122,11 +122,11 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
                 <Image className={`w-[100%] h-[100%] object-center `} src={!(postData.img) ? mainImg : postData.img} alt='post' width={400} height={30} />
             </div>
 
-            <form onSubmit={submit} className={`${styles.like_comment} + flex items-center gap-[16px] h-[35px] `}>
+            <form onSubmit={submit} className={`${styles.like_comment} + flex items-center gap-[16px] h-[40px] `}>
                 <div className={`${styles.svg} `}><div className={`w-[30px] h-[30px]`}><Heart /></div></div>
 
                 <article className={`flex gap-[8px] w-[100%]  h-[100%] `}>
-                    <input className={`label_Medium bg-transparent grow max-w-[100%] h-[100%]  pl-[11px] px-[21px] rounded-[10px]`} onChange={inputHandler} placeholder='Have something to say?' />
+                    <input className={`label_Medium bg-transparent grow max-w-[100%] h-[100%] px-[16px] py-[12px] rounded-[10px]`} onChange={inputHandler} placeholder='Have something to say?' />
                     <button type='submit' className={`body_Medium ml-[10px] px-[15px] h-[100%] rounded-[5px] max-sm:hidden `}>Post</button>
                     <button className={`${styles.svg} + body_Medium ml-auto h-[100%] rounded-[5px] hidden max-sm:block  `}><Comments /></button>
                 </article>

@@ -10,7 +10,7 @@ import storageSession from 'redux-persist/lib/storage/session';
 
 const persistConfig = {
     key: 'posts',
-    storage: storage
+    storage: storageSession,
 }
 
 const loginPersistConfig = {

@@ -1,11 +1,15 @@
-@import '../../../../../styles/colors.module.scss';
-
+@import "../../../../../styles/colors.module.scss";
 
 .storys {
     .story {
-        background-color: $blue_normal;
-        div{
+        background-color: $fourth;
+        div {
             background-color: $violet_Light;
+            transition: 0.4s;
+
+            &:hover {
+                filter: none;
+            }
         }
     }
 }

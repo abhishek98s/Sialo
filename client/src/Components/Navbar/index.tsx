@@ -3,6 +3,7 @@ import styles from './navbar.module.scss'
 import { useRouter } from 'next/router';
 
 import { FacebookMessanger, User } from '../../../public/SVG'
+import Link from 'next/link';
 
 const Navbar = () => {
 
@@ -12,7 +13,7 @@ const Navbar = () => {
 
     return (
         <nav className={`${styles.nav} ${hideNavbar ? "hidden" : "s"} + h-[60px] flex items-center justify-between px-[4%] fixed w-[100%] top-0 z-50`}>
-            <h1 className={`${styles.quickSand} + text-[30px] font-bold leading-[40px]`}>Sialo</h1>
+            <Link href='/' className={`${styles.quickSand} + text-[30px] font-bold leading-[40px]`}>Sialo</Link>
 
             <section className={`flex gap-[18px]`}>
 

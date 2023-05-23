@@ -1,22 +1,44 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const webpack = require("webpack");
 
+const nextConfig = {
+	reactStrictMode: true,
+	webpack(config) {
+		config.module.rules.push({
+			test: /\.svg$/i,
+			issuer: /\.[jt]sx?$/,
+			use: ['@svgr/webpack'],
+		})
+
+		return config
+	},
+
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'res.cloudinary.com',
+				port: '',
+				pathname: '/**/**',
+			},
+		],
+	},
+
+}
 module.exports = nextConfig
 
 
-module.exports = {
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    })
+// module.exports = {
+// 	webpack(config) {
+// 		config.module.rules.push({
+// 			test: /\.svg$/i,
+// 			issuer: /\.[jt]sx?$/,
+// 			use: ['@svgr/webpack'],
+// 		})
 
-    return config
-  },
-}
+// 		return config
+// 	},
+// }
 
 const path = require('path')
 module.exports = {
@@ -35,13 +57,20 @@ module.exports = {
 
 module.exports = {
 	images: {
-	  remotePatterns: [
-		{
-		  protocol: 'https',
-		  hostname: 'res.cloudinary.com',
-		  port: '',
-		  pathname: '/**/**',
-		},
-	  ],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'res.cloudinary.com',
+				port: '',
+				pathname: '/**/**',
+			},
+
+			{
+				protocol: 'https',
+				hostname: '*.unsplash.com',
+				port: '',
+				pathname: '/**/**',
+			},
+		],
 	},
-  }
+}

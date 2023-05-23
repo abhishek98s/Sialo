@@ -5,11 +5,12 @@ import { Event, Home, Logout, Market, Market2, Search } from '../../../../public
 import styles from './sidebar.module.scss'
 import { logOut } from '@/redux/counter/loginSlice'
 import { useDispatch } from 'react-redux'
+import Link from 'next/link'
 
 const Sidebar = () => {
     const dispatch = useDispatch();
     const router = useRouter()
-    
+
     const ClearSessionStorage = () => {
         dispatch(logOut());
         router.push('/login')
@@ -30,7 +31,7 @@ const Sidebar = () => {
 
                 <ul className={`mt-[16px] flex flex-col body_Medium justify-between  grow`}>
                     <div className={`space-y-[8px] `}>
-                        <li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Home /></div> Home</li>
+                        <Link href='/'><li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Home /></div> Home</li></Link>
                         <li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Market /></div> Marketplace</li>
                         <li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Event /></div> Event</li>
                     </div>

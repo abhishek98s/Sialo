@@ -15,8 +15,8 @@ export default class Stories extends Component {
             // swipeToSlide: true,
             infinite: false,
             speed: 500,
-            slidesToShow: 6,
-            slidesToScroll: 2,
+            slidesToShow: 5,
+            slidesToScroll: 1,
             variableWidth: true,
             centerPadding: "5px",
             responsive: [
@@ -49,6 +49,22 @@ export default class Stories extends Component {
             ]
         };
 
+        const story = [
+            { img: "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fHww&w=1000&q=80" },
+            { img: "https://images.unsplash.com/photo-1542290425-b5d02738ef3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJhbmRvbSUyMGNsaWNrc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" },
+            { img: "https://plus.unsplash.com/premium_photo-1661700093968-b538c5a9f539?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmFuZG9tfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
+            { img: "https://images.unsplash.com/photo-1550686041-366ad85a1355?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" },
+            { img: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" },
+            { img: "https://plus.unsplash.com/premium_photo-1663051160162-e004fc97891e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" },
+            { img: "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fHww&w=1000&q=80" },
+            { img: "https://images.unsplash.com/photo-1542290425-b5d02738ef3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJhbmRvbSUyMGNsaWNrc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" },
+            { img: "https://plus.unsplash.com/premium_photo-1661700093968-b538c5a9f539?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmFuZG9tfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" },
+            { img: "https://images.unsplash.com/photo-1550686041-366ad85a1355?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" },
+            { img: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" },
+            { img: "https://plus.unsplash.com/premium_photo-1663051160162-e004fc97891e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" },
+            { img: "https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" },
+        ]
+
         return (
             <section className={`w-[100%] mt-[56px]`}>
 
@@ -57,32 +73,16 @@ export default class Stories extends Component {
                     <Slider {...settings}>
 
 
-                        <section className={`${styles.storys} + mx-[5px]`}>
+                        {/* <section className={`${styles.storys} + mx-[5px]`}>
                             <div className={`${styles.story} + w-[68px] bg-slate-200 h-[68px] rounded-full grid place-items-center`}>
                                 <div className={`w-[58px] h-[58px] rounded-full`}>
 
                                 </div>
                             </div>
-                        </section>
-
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
-                        <Story />
+                        </section> */}
+                        {story.map((story: any) => (
+                            <Story {...story} />
+                        ))}
                     </Slider>
 
 

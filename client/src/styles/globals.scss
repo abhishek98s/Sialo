@@ -138,10 +138,10 @@ img {
     letter-spacing: 0.5px;
     font-size: 12px;
     line-height: 120%;
-    
+
     @media only screen and (max-width: 500px) {
         font-size: 11px;
-        letter-spacing: .6px;
+        letter-spacing: 0.6px;
     }
 }
 
@@ -171,4 +171,11 @@ img {
 .Toastify__progress-bar {
     height: 2px !important;
     background: $fourth !important;
+}
+
+.Toastify__close-button {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    justify-self: center;
 }

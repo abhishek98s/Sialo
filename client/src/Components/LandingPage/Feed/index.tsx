@@ -49,8 +49,7 @@ const Feeds = () => {
                     ))}
                 </article>
 
-
-                {!userPosts.length && <Loading />}
+                {!userPosts.length && <div className='w-[24px] h-[24px]'><Loading /></div>}
             </section>
         </>
     )
