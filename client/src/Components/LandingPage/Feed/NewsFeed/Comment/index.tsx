@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 const Comment = ({ styles, comment }: any): JSX.Element => {
     return (
-        <section className={`p-[8px] mt-[8px]`}>
+        <section className={`p-[8px] mt-[8px] `}>
             <article className={`flex gap-[8px] items-center`}>
 
                 <section className={`${styles.storys} + mx-[5px]`}>
@@ -14,11 +14,9 @@ const Comment = ({ styles, comment }: any): JSX.Element => {
                     </div>
                 </section>
 
-                <h4 className={`label_Large`}>{comment.firstName} {comment.lastName}</h4>
-            </article>
-
-            <article className={` ${styles.comment} + mt-[8px] rounded-[10px] p-[16px]`}>
-                <p className={`label_Large`}>{comment.comment}</p>
+                <h4 className={`body_Medium_Bold w-[max-content]`}>{`${comment.firstName} ${comment.lastName}:`}
+                    <span className={`body_Medium ml-[8px]`}>{comment.comment}</span>
+                </h4>
             </article>
         </section>
     )
