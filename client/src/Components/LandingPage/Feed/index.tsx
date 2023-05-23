@@ -34,7 +34,7 @@ const Feeds = () => {
 
     return (
         <>
-            <section className={`py-[24px] max-w-[600px] w-[100%] min-h-[100vh] m-auto `}>
+            <section className={`py-[24px] max-w-[600px] w-[100%] min-h-[100vh] m-auto max-md:pb-[40px]`}>
 
                 <Stories />
 
