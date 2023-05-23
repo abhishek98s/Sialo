@@ -96,9 +96,9 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
 
 
     return (
-        <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[16px] py-[20px] mt-[24px]`}>
+        <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[12px] w-[100%] rounded-[15px] px-[16px] py-[20px] mt-[24px]`}>
             <div className={`hidden`}><ToastContainer /></div>
-            <article className={`flex gap-[16px] items-center`}>
+            <article className={`flex gap-[12px] items-center`}>
 
                 <section className={`${styles.storys} + mx-[5px]`}>
                     <div className={`${styles.story} + w-[40px] bg-slate-200 h-[40px] rounded-full grid place-items-center`}>
@@ -109,7 +109,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
                 </section>
 
                 <section>
-                    <Link href={`/${postData.userId}`} className={`cursor-pointer body_LargeBold`}>{`${postData.firstName || "Zoro"} ${postData.lastName || ""}`}</Link>
+                    <Link href={`/${postData.userId}`} className={`cursor-pointer body_Medium_Bold`}>{`${postData.firstName || "Zoro"} ${postData.lastName || ""}`}</Link>
                     <p className={`label_Medium grey_light_hover mt-[2px]`}>Brian Cir</p>
                 </section>
 
@@ -118,7 +118,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
             <p className={`body_Large `}>{(postData.caption) || 'Nature is beautiful!'}</p>
 
 
-            <div className='w-  mt-[-4px] max-sm:mx-[-8px]'>
+            <div className='max-sm:mx-[-8px]'>
                 <Image className={`w-[100%] h-[100%] object-center `} src={!(postData.img) ? mainImg : postData.img} alt='post' width={400} height={30} />
             </div>
 
