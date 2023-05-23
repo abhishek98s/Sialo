@@ -12,7 +12,7 @@ const Friend = ({ styles, ...friend }: any,) => {
                 </div>
             </section>
 
-            <div className={`w-[180px] flex items-center justify-between`}>
+            <div className={`w-[170px] flex items-center justify-between`}>
 
                 <div className={`flex flex-col`}>
                     <p className={`body_Medium`}>{friend.name}</p>

@@ -9,7 +9,7 @@ import LayoutSidebar from '../LayoutSidebar'
 const LandingPage = () => {
 
   return (
-    <main className={`flex max-w-[1600px] w-[100%] mx-auto justify-between pr-[2%]  `}>
+    <main className={`flex max-w-[1600px] w-[100%] mx-auto justify-between md:pr-[2%]  `}>
       <Sidebar />
       <Feeds />
       <Friendlist />
