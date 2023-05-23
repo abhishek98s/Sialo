@@ -96,8 +96,8 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
 
 
     return (
-        <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[10px] py-[23px] mt-[24px]`}>
-            <ToastContainer />
+        <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[16px] w-[100%] rounded-[15px] px-[16px] py-[20px] mt-[24px]`}>
+            <div className={`hidden`}><ToastContainer /></div>
             <article className={`flex gap-[16px] items-center`}>
 
                 <section className={`${styles.storys} + mx-[5px]`}>
@@ -118,11 +118,11 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
             <p className={`body_Large `}>{(postData.caption) || 'Nature is beautiful!'}</p>
 
 
-            <div className='w-  mt-[-5px] max-sm:mx-[-8px]'>
+            <div className='w-  mt-[-4px] max-sm:mx-[-8px]'>
                 <Image className={`w-[100%] h-[100%] object-center `} src={!(postData.img) ? mainImg : postData.img} alt='post' width={400} height={30} />
             </div>
 
-            <form onSubmit={submit} className={`${styles.like_comment} + flex items-center gap-[16px] h-[40px] `}>
+            <form onSubmit={submit} className={`${styles.like_comment} + flex items-center gap-[16px] h-[38px] `}>
                 <div className={`${styles.svg} `}><div className={`w-[30px] h-[30px]`}><Heart /></div></div>
 
                 <article className={`flex gap-[8px] w-[100%]  h-[100%] `}>

@@ -243,7 +243,7 @@ const Register = () => {
 
 
 
-                    <ToastContainer />
+                    <div className={`hidden`}><ToastContainer /></div>
                     <div className={`flex flex-col gap-[8px]`}>
                         <label className={`titleLarge`}>Email *</label>
                         <input placeholder="Exapmle@gmail.com" onChange={inputHandler} name='email' value={value.email} className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} />
