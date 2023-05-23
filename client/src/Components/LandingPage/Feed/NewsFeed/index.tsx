@@ -134,7 +134,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
 
 
             <section>
-                <h3 className={`body_LargeBold`}>Comments:</h3>
+                <h3 className={`body_LargeBold my-[16px] mb-[8px]`}>Comments:</h3>
 
                 {postData.comments && postData.comments.map((comment: any, index: number) => (
                     <Comment key={index} styles={styles} comment={comment} />

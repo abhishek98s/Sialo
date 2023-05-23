@@ -88,38 +88,11 @@ export default class Stories extends Component {
 
                 </div>
 
-                <div className={`${styles.mobile_story} hidden max-lg:flex overflow-x-scroll`}>
-
-
-
-                    <section className={`${styles.storys} + mx-[5px]`}>
-                        <div className={`${styles.story} + w-[68px] bg-slate-200 h-[68px] rounded-full grid place-items-center`}>
-                            <div className={`w-[58px] h-[58px] rounded-full`}>
-
-                            </div>
-                        </div>
-                    </section>
-
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-                    <Story />
-
-                </div>
+                <section className={`${styles.mobile_story} hidden max-lg:flex overflow-x-scroll`}>
+                    {story.map((story: any) => (
+                        <Story {...story} />
+                    ))}
+                </section>
 
                 {/* </section> */}
 

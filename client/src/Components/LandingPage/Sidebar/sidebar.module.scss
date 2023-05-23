@@ -50,6 +50,10 @@
         }
     }
 
+    .line {
+        background: $third;
+    }
+
     ul {
         @layer li {
             li {
