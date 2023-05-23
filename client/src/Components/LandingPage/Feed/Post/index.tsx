@@ -200,7 +200,7 @@ const Post = () => {
           {!loading && "Post"}
           {loading &&
 
-            <div className='flex items-center'>
+            <div className='flex items-center w-[18px] h-[18px]'>
               <Loading />
             </div>
           }
