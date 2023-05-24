@@ -12,13 +12,13 @@ export default class Stories extends Component {
             dots: false,
             arrows: false,
 
-            // swipeToSlide: true,
+            swipeToSlide: true,
             infinite: false,
             speed: 500,
             slidesToShow: 5,
             slidesToScroll: 1,
             variableWidth: true,
-            centerPadding: "5px",
+            centerPadding: "4px",
             responsive: [
                 {
                     breakpoint: 1024,
@@ -88,7 +88,7 @@ export default class Stories extends Component {
 
                 </div>
 
-                <section className={`${styles.mobile_story} hidden max-lg:flex overflow-x-scroll`}>
+                <section className={`${styles.mobile_story} hidden max-lg:flex overflow-hidden`}>
                     {story.map((story: any) => (
                         <Story {...story} />
                     ))}

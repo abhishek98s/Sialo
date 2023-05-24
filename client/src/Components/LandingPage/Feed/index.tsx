@@ -40,7 +40,7 @@ const Feeds = () => {
 
                 <section className={`mt-[24px]`}><Post /></section>
 
-                <NewsFeed />
+                {/* <NewsFeed /> */}
 
                 <article className={`min-h-[500px]`}>
 
