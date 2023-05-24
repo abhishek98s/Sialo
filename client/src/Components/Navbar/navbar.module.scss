@@ -5,7 +5,8 @@
     box-shadow: 0 10px 30px $third;
     
     .svg {
-        background-color: $fourth;
+        background-color: $third;
+        border: 2px solid $blue_normal;
         svg {
             width: 20px;
             height: 20px;

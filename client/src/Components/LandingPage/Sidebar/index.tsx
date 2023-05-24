@@ -22,7 +22,7 @@ const Sidebar = () => {
 
     return (
         <>
-            <section className={`${styles.sidebar} ${hideNavbar ? "hidden" : "s"} + max-lg:hidden min-w-[250px] w-[250px] h-[100vh] flex flex-col px-[12px] pt-[56px] sticky left-0 top-0 z-[40]`}>
+            <section className={`${styles.sidebar} ${hideNavbar ? "hidden" : "s"} + max-lg:hidden w-[18%] h-[100vh] flex flex-col px-[12px] pt-[56px] sticky left-0 top-0 z-[40]`}>
                 <form className={`w-[100%] h-[40px] flex justify-center items-center mt-[28px]`}>
                     <input className={`bg-transparent w-[100%] h-[100%] px-[16px] py-[px]`} placeholder='Search People' />
                     <button className={`px-[10px] py-[px] h-[100%] grid place-items-center`}><div className={`w-[20px] h-[20px]`}><Search /></div></button>
