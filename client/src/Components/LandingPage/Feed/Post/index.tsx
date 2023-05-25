@@ -149,7 +149,7 @@ const Post = () => {
         <section className={`${styles.storys}`}>
           <div className={`${styles.story} + w-[50px] h-[50px] rounded-full grid place-items-center`}>
             <div className={`w-[43px] h-[43px] rounded-full overflow-hidden`}>
-              <Image className={`w-[100%] h-[100%] object-cover `} src={user.img} alt='profileImg' width={500} height={500} />
+              <Image className={`w-[100%] h-[100%] object-cover `} src={user ? user.img : ""} alt='profileImg' width={500} height={500} />
             </div>
           </div>
         </section>

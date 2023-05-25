@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import axios from 'axios'
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 
 import LayoutSidebar from '@/Components/LayoutSidebar'
 import bg from '../../../public/images/bg.jpg'
@@ -10,52 +14,42 @@ import { Email, Phone, Work } from '../../../public/SVG'
 import Post from '@/Components/LandingPage/Feed/Post'
 import UserInfo from './UserInfo'
 import NewsFeed from '@/Components/LandingPage/Feed/NewsFeed'
-import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
-import Sialo from '@/Components/Sialo'
-import axios from 'axios'
 
 
-const userAuth = (Component: any) => {
-  const AuthenticatedComponent = () => {
-    const router = useRouter();
-    const user = useSelector((state: any) => state.login.user)
 
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch(`https://sialo-backend.vercel.app/api/user`);
+  const users = await res.json();
 
-    useEffect(() => {
-      if (!user) {
-        router.push('/login');
-      } else {
-        return
-      }
-    }, []);
+  const paths = users.users.map((user: any) => ({
+    params: { userId: user._id },
+  }));
 
-    return !user ? <Sialo /> : <Component />; // Render whatever you want while the authentication occurs
+  return {
+    paths,
+    fallback: true, // false or "blocking"
   };
-
-  return AuthenticatedComponent;
 };
 
 
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+  const res = await fetch(`https://sialo-backend.vercel.app/api/user/${params.userId}`);
+  const json = await res.json();
+  const userData = json.user
+  return { props: { userData } };
+}
 
-const UserPost = () => {
+
+const UserPost = ({ userData }: any) => {
   const userPosts = useSelector((state: any) => state.posts.posts);
-  const [userData, setuserData]: any = useState()
+  const user = useSelector((state: any) => state.login.user)
+
   const router = useRouter();
 
-  let userId = router.query.userId;
-
-  useEffect(() => {
-
-    const getUser = async () => {
-      await axios.get(`https://sialo-backend.vercel.app/api/user/${userId}`)
-        .then((data: any) => setuserData(data.data.user))
-
-      return;
-    }
-
-    getUser();
-  }, [])
+  if (!user) {
+    router.push('/login')
+    return;
+  }
 
   return (
     <LayoutSidebar>
@@ -90,4 +84,4 @@ const UserPost = () => {
   )
 }
 
-export default userAuth(UserPost);
+export default (UserPost);

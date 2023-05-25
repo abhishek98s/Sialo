@@ -33,8 +33,8 @@ export const Friendlist = () => {
 
             <article className={`flex flex-col gap-[10px]`}>
 
-                {friends.map((friend: any) => (
-                    <Friend styles={styles} {...friend} />
+                {friends.map((friend: any, index: number) => (
+                    <Friend key={index} styles={styles} {...friend} />
                 ))}
 
 
