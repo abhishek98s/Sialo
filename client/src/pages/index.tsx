@@ -7,6 +7,9 @@ import { useRouter } from 'next/router';
 import Sialo from '@/Components/Sialo';
 import withAuth from '@/Auth';
 
+import Layout from '@/Components/Layout';
+
+
 const Home = () => {
   const token = useSelector((state: any) => state.login.token);
   const userPosts = useSelector((state: any) => state.posts.posts);
@@ -31,10 +34,12 @@ const Home = () => {
       </Head>
 
       {(!token || !userPosts) && <Sialo />}
-{/* 
+      {/* 
       <Navbar /> */}
+      <Layout >
+        <LandingPage />
+      </Layout>
 
-      <LandingPage />
     </>
   );
 }
