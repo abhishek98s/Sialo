@@ -25,7 +25,7 @@ const Navbar = () => {
                 </div>
 
                 <div className={`${styles.svg}  w-[32px] h-[32px] cursor-pointer grid place-items-center rounded-full `}>
-                    <div className={`overflow-hidden justify-self-center w-[28px] h-[28px] rounded-full`}><Image src={user.img || ""}  width={200} height={200} alt="profile" /></div>
+                    <div className={`overflow-hidden justify-self-center w-[28px] h-[28px] rounded-full`}><Image src={user ? user.img : ""} width={200} height={200} alt="profile" /></div>
                     <div className='w-[15px] h-[15px] relative translate-x-[10px] translate-y-[-10px] rounded-full bg-black'><Plus /></div>
                 </div>
             </section>
