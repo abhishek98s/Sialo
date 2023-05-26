@@ -4,9 +4,11 @@ export const getUser = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const user = await User.findOne({ _id: id })
+        let user = await User.findOne({ _id: id })
 
         if (!user) return res.status(400).json({ msg: "User doen't exist" });
+
+        user.password = null;
 
         res.status(200).json({ user });
 
@@ -24,7 +26,6 @@ export const getAllUser = async (req, res) => {
             return d;
         })
 
-        console.log(users)
         res.status(200).json({ users })
     } catch (err) {
         console.log(err)
