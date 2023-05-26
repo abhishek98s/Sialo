@@ -33,14 +33,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const res = await fetch(`https://sialo-backend.vercel.app/api/user/${params.userId}`);
+  const res = await fetch(`https://sialo-backend.vercel.app/api/user/${params.userId}`);  // get the data of the user
   const json = await res.json();
   const userData = json.user
-  return { props: { userData } };
+
+  const resPosts = await fetch(`http://localhost:8000/api/post/${params.userId}`);  // get the posts of the user aqccording to the userId
+  const jsonPosts = await resPosts.json();
+  const randUserPosts = jsonPosts.data
+
+  return { props: { userData, randUserPosts } };
 }
 
 
-const UserPost = ({ userData }: any) => {
+const UserPost = ({ userData, randUserPosts }: any) => {
+  console.log(randUserPosts)
   const userPosts = useSelector((state: any) => state.posts.posts);
   const user = useSelector((state: any) => state.login.user)
 
@@ -70,7 +76,7 @@ const UserPost = ({ userData }: any) => {
 
             <article className={`max-w-[600px] min-h-[500px]`}>
 
-              {userPosts && userPosts.map((data: any, index: number) => (
+              {randUserPosts && randUserPosts.map((data: any, index: number) => (
                 <NewsFeed key={index} {...data} />
               ))}
             </article>
