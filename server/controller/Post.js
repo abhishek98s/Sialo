@@ -54,6 +54,19 @@ export const createPost = async (req, res) => {
     }
 }
 
+export const getUserPosts = async (req, res) => {
+    try {
+
+        const { userId } = req.params;
+
+        const userPosts = await Post.find({ userId: userId })
+
+        res.status(200).json({ data: userPosts })
+
+    } catch (err) {
+        res.status(500).json({ msg: err.message })
+    }
+}
 
 export const addComment = async (req, res) => {
     try {

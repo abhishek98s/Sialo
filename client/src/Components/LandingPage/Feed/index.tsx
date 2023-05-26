@@ -42,7 +42,7 @@ const Feeds = () => {
 
                 {/* <NewsFeed /> */}
 
-                <article className={`min-h-[500px]`}>
+                <article className={`min-h-[50px]`}>
 
                     {userPosts && userPosts.map((data: any, index: number) => (
                         <NewsFeed key={index} {...data} />
