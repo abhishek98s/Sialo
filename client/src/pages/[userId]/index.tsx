@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const json = await res.json();
   const userData = json.user
 
-  const resPosts = await fetch(`http://localhost:8000/api/post/${params.userId}`);  // get the posts of the user aqccording to the userId
+  const resPosts = await fetch(`https://sialo-backend.vercel.app/api/post/${params.userId}`);  // get the posts of the user aqccording to the userId
   const jsonPosts = await resPosts.json();
   const randUserPosts = jsonPosts.data
 
