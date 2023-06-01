@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import postReducer from './counter/postSlice'
 import loginReducer from './counter/loginSlice'
+import themeReducer from './counter/themeSlice'
 
 
 import storage from 'redux-persist/lib/storage';
@@ -13,14 +14,15 @@ const persistConfig = {
     storage: storageSession,
 }
 
-const loginPersistConfig = {
+const localPersistConfig = {
     key: 'login',
     storage: storage,
 }
 
 const rootReducer = combineReducers({
-    posts: postReducer,
-    login: persistReducer(loginPersistConfig, loginReducer),
+    posts: persistReducer(persistConfig, postReducer),
+    login: persistReducer(localPersistConfig, loginReducer),
+    theme: themeReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -28,7 +30,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
 export const store = configureStore({
-    reducer: persistedReducer,
+    reducer: rootReducer,
     middleware: [thunk]
 })
 
