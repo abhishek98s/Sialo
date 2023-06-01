@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './friendlist.module.scss'
 import { Plus } from '../../../../public/SVG'
 import Friend from './Friend'
 
+import themeSetting from "../../theme"
+import { useSelector } from 'react-redux'
+
 export const Friendlist = () => {
+    const mode = useSelector((state: any) => state.theme.mode)
+    const theme = themeSetting(mode)
+
+    const color = {
+        color: theme.theme.bg,
+    };
+
     const friends = [
         {
             name: "Olive Yew",
@@ -36,7 +46,6 @@ export const Friendlist = () => {
                 {friends.map((friend: any, index: number) => (
                     <Friend key={index} styles={styles} {...friend} />
                 ))}
-
 
             </article>
         </section>
