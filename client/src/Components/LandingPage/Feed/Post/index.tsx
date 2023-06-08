@@ -93,17 +93,11 @@ const Post = () => {
     formData.append("userPicturePath", user.img!)
     formData.append("caption", caption);
     formData.append("image", imgFile!)
-    formData.append('Origin','https://sialo.vercel.app/');
 
     try {
       const response = await fetch("https://sialo-backend.vercel.app/api/post", {
         method: "POST",
-        mode: "cors",
-        credentials: "include",
         body: formData,
-        headers: {
-          'Content-Type': 'application/json',
-        },
       });
       const posts = await response.json();
 

@@ -8,31 +8,16 @@ dotenv.config();
 
 const app = express();
 app.use(express.json())
+app.use(cors({
+    origin: '*'
+}));
 
-const corsOptions = {
-    // origin: 'http://localhost:3000',
-    origin: 'https://sialo.vercel.app',
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",      //access-control-allow-credentials:true
-    optionSuccessStatus: 200,
-}
-
-app.use(cors(corsOptions))
-
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://sialo.vercel.app'); // Replace with the allowed origin(s)
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Origin');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
     next();
-});
-
-// app.use(function (req, res, next) {
-//     // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-//     res.header('Access-Control-Allow-Origin', 'https://sialo.vercel.app');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Origin');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-//     next();
-// })
-
-app.use(express.json({ limit: '50mb' }));
+})
 
 const PORT = process.env.PORT || 3000;
 
