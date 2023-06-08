@@ -46,7 +46,6 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
 
 const UserPost = ({ userData, randUserPosts }: any) => {
-  console.log(randUserPosts)
   const userPosts = useSelector((state: any) => state.posts.posts);
   const user = useSelector((state: any) => state.login.user)
 
@@ -81,10 +80,7 @@ const UserPost = ({ userData, randUserPosts }: any) => {
               ))}
             </article>
           </section>
-
-
         </section>
-
       </section>
     </LayoutSidebar>
   )
