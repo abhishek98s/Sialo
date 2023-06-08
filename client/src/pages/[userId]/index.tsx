@@ -33,6 +33,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+
+  const id = params.userId;
   const res = await fetch(`https://sialo-backend.vercel.app/api/user/${params.userId}`);  // get the data of the user
   const json = await res.json();
   const userData = json.user
@@ -41,15 +43,17 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const jsonPosts = await resPosts.json();
   const randUserPosts = jsonPosts.data
 
-  return { props: { userData, randUserPosts } };
+  return { props: { userData, randUserPosts, id } };
 }
 
 
-const UserPost = ({ userData, randUserPosts }: any) => {
+const UserPost = ({ userData, randUserPosts, id }: any) => {
   const userPosts = useSelector((state: any) => state.posts.posts);
   const user = useSelector((state: any) => state.login.user)
 
   const router = useRouter();
+
+  const showPost = user._id === id ? true : false;
 
   if (!user) {
     router.push('/login')
@@ -71,14 +75,14 @@ const UserPost = ({ userData, randUserPosts }: any) => {
           <div className='min-w-[250px] max-md:hidden'><UserInfo styles={styles} {...userData} /></div>
 
           <section className={`grow`}>
-            <Post />
+            {showPost && <Post />}
 
-            <article className={`max-w-[600px] min-h-[500px]`}>
-
+            <article className={`max-w-[600px] min-h-[500px] mt-[-24px]`}>
               {randUserPosts && randUserPosts.map((data: any, index: number) => (
                 <NewsFeed key={index} {...data} />
               ))}
             </article>
+
           </section>
         </section>
       </section>

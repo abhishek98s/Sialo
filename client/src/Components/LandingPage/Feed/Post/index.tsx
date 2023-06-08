@@ -97,7 +97,12 @@ const Post = () => {
     try {
       const response = await fetch("https://sialo-backend.vercel.app/api/post", {
         method: "POST",
+        mode: "cors",
+        credentials: "include",
         body: formData,
+        headers: {
+          "Content-Type": "application/json"
+        },
       });
       const posts = await response.json();
 
