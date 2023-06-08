@@ -19,6 +19,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://sialo.vercel.app'); // Replace with the allowed origin(s)
+    next();
+});
+
 // app.use(function (req, res, next) {
 //     // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
 //     res.header('Access-Control-Allow-Origin', 'https://sialo.vercel.app');
@@ -27,7 +32,7 @@ app.use(cors(corsOptions))
 //     next();
 // })
 
-app.use(express.json({limit: '50mb'}));
+app.use(express.json({ limit: '50mb' }));
 
 const PORT = process.env.PORT || 3000;
 
