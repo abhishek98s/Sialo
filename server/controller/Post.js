@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import cloudinary from '../utils/cloudinary.js'
 import User from '../model/User.js'
+import sharp from 'sharp'
 
 
 // Get all the post
@@ -31,22 +32,39 @@ export const createPost = async (req, res) => {
 
             caption,
         } = req.body
+        
+        const imagePath = req.file.path;
 
-        const uploadCloudinary = await cloudinary.uploader.upload(req.file.path, { folder: 'Sialo' });
 
-        let post = new Post({
-            userId: userId,
-            firstName: firstName,
-            lastName: lastName,
-            userPicturePath: userPicturePath,
+        sharp(imagePath)
+            .jpeg({ quality: 80 })
+            .toFile(imagePath + '.compressed.jpg')
+            .then(async () => {
+                const folder = 'Sialo'; // Replace 'your-folder' with the desired folder name in Cloudinary
 
-            caption: caption,
-            img: uploadCloudinary.secure_url
-        })
+                let uploadCloudinary = await cloudinary.uploader.upload(imagePath + '.compressed.jpg', {
+                    resource_type: 'image',
+                    folder: folder
+                })
 
-        let userPost = await post.save();
+                let post = new Post({
+                    userId: userId,
+                    firstName: firstName,
+                    lastName: lastName,
+                    userPicturePath: userPicturePath,
+                    caption: caption,
+                    img: uploadCloudinary.secure_url
+                })
 
-        res.status(200).json({ data: userPost })
+                let userPost = await post.save();
+                console.log(userPost)
+
+                res.status(200).json({ data: userPost })
+            })
+            .catch(err => {
+                console.error('Error compressing image:', err);
+                res.sendStatus(500);
+            });
 
     } catch (err) {
         console.log(err)
