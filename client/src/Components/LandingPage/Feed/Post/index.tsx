@@ -95,7 +95,7 @@ const Post = () => {
     formData.append("image", imgFile!)
 
     try {
-      const response = await fetch("http://localhost:8000/api/post", {
+      const response = await fetch("https://sialo-backend.vercel.app/api/post", {
         method: "POST",
         body: formData,
         mode: 'cors',
@@ -128,6 +128,8 @@ const Post = () => {
 
         return;
       } else {
+        setValue((value: any) => ({ ...value, loading: false }));
+
         toast("Posted failed", {
           position: "top-right",
           autoClose: 3000,
@@ -141,6 +143,18 @@ const Post = () => {
       }
     } catch (err) {
       console.log(err)
+      setValue((value: any) => ({ ...value, loading: false }));
+
+      toast("Posted failed", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      })
     }
   }
 
