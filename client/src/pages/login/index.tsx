@@ -102,12 +102,21 @@ const Login = () => {
         })
 
         router.push('/');
+      } else {
+        toast.error("Invalid crediantials.", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })
       }
 
     } catch (err) {
-      setLoading(false)
-
-      toast.error("Invalid crediantials.", {
+      toast.error("Please Try again", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -117,6 +126,8 @@ const Login = () => {
         progress: undefined,
         theme: "dark",
       })
+      setLoading(false)
+
       console.log(err)
     }
   }
@@ -132,7 +143,7 @@ const Login = () => {
           <p className={`${styles.quickSand} + ${styles.subHeadLine} text-[32px] leading-[40px] font-medium max-w-[537px] max-lg:text-[28px] max-lg:leading-6`}>Experience a New Way of Connecting</p>
         </article>
 
-        <div className={`hidden`}><ToastContainer /></div>
+        <div className={``}><ToastContainer /></div>
 
 
         <form onSubmit={submit} className={`${styles.login} + max-w-[32.25em] min-w-[25em] px-[32px] py-[42px] rounded-[33px] border-[#34353E] border-[3px]`}>
