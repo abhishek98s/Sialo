@@ -20,10 +20,11 @@ const Post = () => {
     imgs: "",
     thumbnail: "",
     imgFile: "",
-    loading: ""
+    loading: "",
+    imgSize: 0
   })
 
-  const { caption, imgs, thumbnail, imgFile, loading } = value;
+  const { caption, imgs, thumbnail, imgFile, loading, imgSize } = value;
 
   function inputHandler(e: any) {
     switch (e.target.name) {
@@ -35,6 +36,9 @@ const Post = () => {
           return;
         }
 
+        let fileSize = (file.size) / 1000000;
+
+        setValue((value) => ({ ...value, imgSize: fileSize }));
         //if there is file
         if (file.type && !file.type.startsWith('image/')) {
           console.log('File is not an image.', file.type, file);
@@ -94,14 +98,15 @@ const Post = () => {
     formData.append("caption", caption);
     formData.append("image", imgFile!)
 
+
+    console.log(imgSize)
     try {
-      const response = await fetch("https://sialo-backend.vercel.app/api/post", {
+
+      const apiEndpoint = imgSize > 4 ? "sialo-backend.onrender.com" : "sialo-backend.vercel.app"
+      const response = await fetch(`https://${apiEndpoint}/api/post`, {
         method: "POST",
         body: formData,
         mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
       });
       const posts = await response.json();
 

@@ -57,7 +57,6 @@ export const createPost = async (req, res) => {
                 })
 
                 let userPost = await post.save();
-                console.log(userPost)
 
                 res.status(200).json({ data: userPost })
             })
