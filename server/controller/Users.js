@@ -1,34 +1,29 @@
+import asyncWrapper from "../middleware/async.js";
 import User from "../model/User.js";
 
-export const getUser = async (req, res) => {
-    try {
-        const { id } = req.params;
+export const getUser = asyncWrapper(async (req, res) => {
 
-        let user = await User.findOne({ _id: id })
+    const { id } = req.params;
 
-        if (!user) return res.status(400).json({ msg: "User doen't exist" });
+    let user = await User.findOne({ _id: id })
 
-        user.password = null;
+    if (!user) return res.status(400).json({ msg: "User doen't exist" });
 
-        res.status(200).json({ user });
+    user.password = null;
 
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-}
+    res.status(200).json({ user });
 
-export const getAllUser = async (req, res) => {
-    try {
-        let data = await User.find();
+})
 
-        let users = data.map((d) => {
-            d.password = null;
-            return d;
-        })
+export const getAllUser = asyncWrapper(async (req, res) => {
 
-        res.status(200).json({ users })
-    } catch (err) {
-        console.log(err)
-        res.status(500).json({ error: err.message })
-    }
-}
+    let data = await User.find();
+
+    let users = data.map((d) => {
+        d.password = null;
+        return d;
+    })
+
+    res.status(200).json({ users })
+    
+})

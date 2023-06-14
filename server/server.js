@@ -1,23 +1,20 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
 import cors from 'cors'
+
+import notFound from './middleware/not-found.js';
+import errorHandlerMiddleware from './middleware/error-handler.js';
+import connectDB from './db/connect.js';
+import userRoute from './routes/User.js';
+import postRoute from './routes/Post.js';
 
 dotenv.config();
 
-
 const app = express();
-app.use(bodyParser.json({ limit: '100mb' }));
 app.use(express.json())
-// app.use(cors({
-//     origin: '*'
-// }));
-
-app.use(express.json({ limit: '100mb' }));
-app.use(express.urlencoded({ limit: '100mb', extended: true }));
-
-app.use(bodyParser.json({ limit: '50mb' }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'https://sialo.vercel.app');
@@ -25,22 +22,6 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
     next();
 })
-
-const PORT = process.env.PORT || 3000;
-
-// Configuring the database
-const connectDB = async () => {
-    try {
-        const conn = await mongoose.connect(process.env.MONGO_URI);
-
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-import userRoute from './routes/User.js';
-import postRoute from './routes/Post.js';
 
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -50,8 +31,18 @@ app.get('/', (req, res) => {
 
 app.use('/api', userRoute);
 app.use('/api', postRoute);
+app.use(notFound)
+app.use(errorHandlerMiddleware)
 
-connectDB().then(() => {
-    app.listen(PORT, console.log(`Server running and listning on PORT:${PORT}`))
+const PORT = process.env.PORT || 3000;
 
-})
+const start = async () => {
+    try {
+        await connectDB(process.env.MONGO_URI);
+        app.listen(PORT, console.log(`Server running and listning on PORT:${PORT}`))
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+start();
