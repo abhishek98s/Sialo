@@ -116,7 +116,7 @@ const Login = () => {
       }
 
     } catch (err) {
-      toast.error("Please Try again", {
+      toast.error("Invalid crediantials.", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -161,7 +161,7 @@ const Login = () => {
 
           </div>
 
-          <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`} type='submit'>
+          <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`} type='submit' disabled={loading}>
             {!loading && "Log in"}
             {loading && <div className={'w-[24px] h-[24px] mx-auto'}><Loading /></div>}
           </button>
