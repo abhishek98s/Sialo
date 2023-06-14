@@ -1,11 +1,11 @@
 {
-    "theme_color": "#f69435",
-    "background_color": "#f69435",
+    "theme_color": "#1d1d1d",
+    "background_color": "#1d1d1d",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Jotex",
-    "short_name": "Jotex",
+    "name": "Sialo",
+    "short_name": "Sialo",
     "description": "Experience a New Way of Connecting",
     "icons": [
         {
