@@ -14,6 +14,7 @@ import { Email, Phone, Work } from '../../../public/SVG'
 import Post from '@/Components/LandingPage/Feed/Post'
 import UserInfo from './UserInfo'
 import NewsFeed from '@/Components/LandingPage/Feed/NewsFeed'
+import Head from 'next/head'
 
 
 
@@ -62,6 +63,9 @@ const UserPost = ({ userData, randUserPosts, id }: any) => {
 
   return (
     <LayoutSidebar>
+      <Head>
+        <title>{userData.firstName} {userData.lastName}</title>
+      </Head>
       <section className={`pt-[60px] max-w-[1400px] w-[100%]`}>
 
         <figure className='z-[-1] w-[100%] h-[250px] overflow-hidden rounded-t-[10px]'>
