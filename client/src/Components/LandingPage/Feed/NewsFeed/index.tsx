@@ -33,6 +33,21 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
         let val = e.target.value;
         setValue((value: any) => ({ ...value, comment: val }))
     }
+
+    const dateStringToDate = (dateString: string) => {
+        const date = new Date(dateString);
+
+        // Get the month, day, and year from the date
+        const month = date.toLocaleString('en-US', { month: 'long' });
+        const day = date.getDate();
+        const year = date.getFullYear();
+
+        // Format the date as "Month Day, Year"
+        const formattedDate = `${year}, ${month} ${day}`;
+
+        return formattedDate;
+    }
+
     const submit = async (e: any) => {
         e.preventDefault();
 
@@ -110,7 +125,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
 
                 <section>
                     <Link href={`/${postData.userId}`} className={`cursor-pointer body_Medium_Bold`}>{`${postData.firstName || "Zoro"} ${postData.lastName || ""}`}</Link>
-                    <p className={`label_Medium grey_light_hover mt-[2px]`}>Brian Cir</p>
+                    <p className={`label_Medium grey_light_hover mt-[2px]`}>{dateStringToDate(postData.createdAt)}</p>
                 </section>
 
             </article>
