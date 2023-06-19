@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
-import { Event, Home, Logout, Market, Market2, Search } from '../../../../public/SVG'
+import { Event, Home, Logout, Market, Market2, Search, Settings } from '../../../../public/SVG'
 import styles from './sidebar.module.scss'
 import { logOut } from '@/redux/counter/loginSlice'
 import { useDispatch } from 'react-redux'
@@ -33,6 +33,7 @@ const Sidebar = () => {
                         <Link href='/'><li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Home /></div> Home</li></Link>
                         <li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Market /></div> Marketplace</li>
                         <li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Event /></div> Event</li>
+                        <Link href='/setting'><li className={`flex items-center gap-[16px] px-[15px] py-[8px]`}><div className={`w-[24px] h-[24px]`}><Settings /></div> Setting</li></Link>
                     </div>
 
                     <div>
