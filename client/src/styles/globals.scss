@@ -94,12 +94,13 @@ img {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: .5px;
     font-size: 14px;
-    line-height: 120%;
-
+    line-height: 140%;
+    
     @media screen and (max-width: 500px) {
         font-size: 12px;
+        letter-spacing: .8px;
         line-height: 140%;
     }
 }

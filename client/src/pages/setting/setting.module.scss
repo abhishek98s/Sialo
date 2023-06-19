@@ -1,0 +1,47 @@
+@import "../../styles/colors.module.scss";
+
+.password_box {
+    border: 1px solid $third;
+
+    input {
+        background: transparent;
+        border: 1px solid $third;
+        max-width: 280px;
+        width: 100%;
+        height: 36px;
+        padding: 8px 10px;
+
+        &:focus {
+            outline: 1px solid $fourth;
+            border: nonw;
+        }
+    }
+
+    button {
+        padding: 8px 20px;
+        border-radius: 4px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: max-content;
+    }
+
+    .saveBtn {
+        background: $fourth;
+    }
+
+    .resetBtn {
+        border: 1px solid $third;
+    }
+}
+
+.delete_box {
+    border: 1px solid $third;
+
+    button {
+        border: 2px solid $third;
+        color: $red;
+        padding: 8px 16px;
+        border-radius: 8px;
+    }
+}
