@@ -11,7 +11,7 @@ const LayoutSidebar = ({ children }: any) => {
             <section className="flex">
                 <Sidebar />
 
-                <aside className={`pt-[20px] flex grow px-[20px] max-md:px-0`}>
+                <aside className={`pt-[20px] flex grow px-[20px] mb-[80px] max-md:px-0`}>
                     {children}
                 </aside>
             </section>
