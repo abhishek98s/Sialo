@@ -72,25 +72,28 @@ const UserPost = ({ userData, randUserPosts, id }: any) => {
           <Image src={bg} className={`w-[100%] object-cover object-top`} alt="sialo.vercel.app" width="400" height="400" />
         </figure>
 
-        <UserProfile styles={styles} {...userData} />
+        <div className='max-w-[1000px] mx-auto'>
 
-        <section className={`w-[85%] mx-auto mt-[24px] flex items-start gap-[24px] max-sm:w-[100%]`}>
+          <UserProfile styles={styles} {...userData} />
 
-          <div className='min-w-[250px] max-md:hidden'><UserInfo styles={styles} {...userData} /></div>
+          <section className={`w-[85%] mx-auto mt-[24px] flex items-start gap-[24px] max-sm:w-[100%]`}>
 
-          <section className={`grow`}>
-            {showPost && <Post />}
+            <div className='min-w-[250px] max-md:hidden'><UserInfo styles={styles} {...userData} /></div>
 
-            <article className={`max-w-[600px] min-h-[500px] mt-[-24px]`}>
-              {randUserPosts && randUserPosts.map((data: any, index: number) => (
-                <NewsFeed key={index} {...data} />
-              ))}
-            </article>
+            <section className={`grow`}>
+              {showPost && <Post />}
 
+              <article className={`max-w-[600px] min-h-[500px] `}>
+                {randUserPosts && randUserPosts.map((data: any, index: number) => (
+                  <NewsFeed key={index} {...data} />
+                ))}
+              </article>
+
+            </section>
           </section>
-        </section>
+        </div>
       </section>
-    </LayoutSidebar>
+    </LayoutSidebar >
   )
 }
 

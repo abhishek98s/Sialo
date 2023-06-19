@@ -150,12 +150,12 @@ const Login = () => {
           <div className={`flex flex-col gap-[16px]`}>
 
             <div className={`flex flex-col gap-[8px]`}>
-              <label className={`titleLarge`}>Email *</label>
+              <label className={`title_Large`}>Email *</label>
               <input placeholder="exapmle@gmail.com" className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} name='email' onChange={inputHandler} />
             </div>
 
             <div className={`flex flex-col gap-[8px]`}>
-              <label className={`titleLarge`}>Password *</label>
+              <label className={`title_Large`}>Password *</label>
               <input placeholder="Password" className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} name='password' onChange={inputHandler} />
             </div>
 

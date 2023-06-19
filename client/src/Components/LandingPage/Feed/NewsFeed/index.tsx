@@ -111,7 +111,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
 
 
     return (
-        <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[12px] w-[100%] rounded-[15px] px-[16px] py-[20px] mt-[24px]`}>
+        <section key={postData._id || 1} className={`${styles.newsFeed_box} + flex flex-col gap-[12px] w-[100%] rounded-[15px] px-[16px] py-[20px] mb-[24px]`}>
             <div className={`hidden`}><ToastContainer /></div>
             <article className={`flex gap-[12px] items-center`}>
 

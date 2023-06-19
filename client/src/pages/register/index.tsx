@@ -217,12 +217,12 @@ const Register = () => {
                 <section className='space-y-[32px]'>
                     <section className={`inputs flex gap-[16px] mt-[32px]`}>
                         <div className={`flex flex-col gap-[8px]`}>
-                            <label className={`titleLarge`}>First Name *</label>
+                            <label className={`title_Large`}>First Name *</label>
                             <input className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.firstName} name='firstName' />
                         </div>
 
                         <div className={`flex flex-col gap-[8px]`}>
-                            <label className={`titleLarge`}>Last Name *</label>
+                            <label className={`title_Large`}>Last Name *</label>
                             <input className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.lastName} name='lastName' />
                         </div>
                     </section>
@@ -230,12 +230,12 @@ const Register = () => {
 
                     <section className={`inputs flex gap-[16px]`}>
                         <div className={`flex flex-col gap-[8px]`}>
-                            <label className={`titleLarge`}>Phone Number *</label>
+                            <label className={`title_Large`}>Phone Number *</label>
                             <input className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.phoneNo} name='phoneNo' />
                         </div>
 
                         <div className={`flex flex-col gap-[8px]`}>
-                            <label className={`titleLarge`}>Gender *</label>
+                            <label className={`title_Large`}>Gender *</label>
                             <input className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.gender} name='gender' />
                         </div>
                     </section>
@@ -245,21 +245,21 @@ const Register = () => {
 
                     <div className={`hidden`}><ToastContainer /></div>
                     <div className={`flex flex-col gap-[8px]`}>
-                        <label className={`titleLarge`}>Email *</label>
+                        <label className={`title_Large`}>Email *</label>
                         <input placeholder="Exapmle@gmail.com" onChange={inputHandler} name='email' value={value.email} className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} />
                         <span className={`${styles.error}`}>{error.email}</span>
                     </div>
 
 
                     <div className={`flex flex-col gap-[8px]`}>
-                        <label className={`titleLarge`}>Password *</label>
+                        <label className={`title_Large`}>Password *</label>
                         <input placeholder="Password" onChange={inputHandler} name='password' value={value.password} className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} />
                         <span className={`${styles.error}`}>{error.password}</span>
 
                     </div>
 
                     {!imgs && <div className={`flex flex-col gap-[8px]`}>
-                        <label className={`titleLarge`}>Select Photo</label>
+                        <label className={`title_Large`}>Select Photo</label>
                         <input onChange={inputHandler} name='image' id='chooseImg' accept=".jpg, .jpeg, .png" className='hidden' type='file' />
                         <label htmlFor='chooseImg' className={`${styles.label} + cursor-pointer flex justify-center items-center gap-[10px] rounded-[5px] w-[100%]  p-[16px] py-[40px] bg-transparent`} >
                             <AddImage />
