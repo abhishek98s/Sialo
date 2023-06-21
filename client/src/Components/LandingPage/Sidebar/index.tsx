@@ -48,6 +48,7 @@ const Sidebar = () => {
                     <li className={`h-[24px] w-[24px] cursor-pointer]`}><Market2 /> </li>
                     <li className={`h-[24px] w-[24px] cursor-pointer`}><Event /> </li>
                     <li className={`h-[24px] w-[24px] cursor-pointer`} onClick={ClearSessionStorage}><Logout /> </li>
+                    <Link href='/setting'><li className={`h-[24px] w-[24px] cursor-pointer`} ><Settings /> </li></Link>
                 </ul>
             </section>
         </>
