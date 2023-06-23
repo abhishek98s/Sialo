@@ -98,8 +98,6 @@ const Post = () => {
     formData.append("caption", caption);
     formData.append("image", imgFile!)
 
-
-    console.log(imgSize)
     try {
 
       const apiEndpoint = imgSize > 4 ? "sialo-backend.onrender.com" : "sialo-backend.vercel.app"
@@ -113,7 +111,7 @@ const Post = () => {
 
       if (response) {
         setValue((value: any) => ({ ...value, loading: false }));
-        dispatch(addPosts({ post: posts.data }));
+        dispatch(addPosts({ post: [posts.data] }));
 
         e.target.reset();
 

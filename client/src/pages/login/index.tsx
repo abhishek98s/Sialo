@@ -78,7 +78,6 @@ const Login = () => {
       }
 
       const response = await axios.post('https://sialo-backend.vercel.app/api/login', credentials)
-      // .then(response => console.log(response.data));
 
       if (response.data.token) {
         setLoading(false)
@@ -128,7 +127,6 @@ const Login = () => {
       })
       setLoading(false)
 
-      console.log(err)
     }
   }
 

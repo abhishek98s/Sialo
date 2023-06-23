@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useInView } from 'react-intersection-observer';
 
 import styles from './feed.module.scss';
 import Story from './Stories/Story'
@@ -7,11 +8,16 @@ import Stories from './Stories';
 import Post from './Post';
 import NewsFeed from './NewsFeed';
 import Loading from './Loading2';
-import { setPosts } from '@/redux/counter/postSlice';
+import { addPosts, setPosts } from '@/redux/counter/postSlice';
 
 const Feeds = () => {
     const dispatch = useDispatch();
     const userPosts = useSelector((state: any) => state.posts.posts);
+
+    const { ref, inView } = useInView({
+        threshold: 0.1, // Intersection ratio threshold for triggering the callback
+        rootMargin: "2000px"
+    });
 
     useEffect(() => {
 
@@ -23,6 +29,17 @@ const Feeds = () => {
 
         getUserPosts();
     }, [])
+
+    const fetchData = () => {
+        dispatch(addPosts({ post: userPosts }))
+        return
+    }
+
+    useEffect(() => {
+        if (inView) {
+            fetchData();
+        }
+    }, [inView])
 
     return (
         <>
@@ -42,6 +59,7 @@ const Feeds = () => {
                 </article>
 
                 {!userPosts.length && <div className='w-[24px] h-[24px] mx-auto'><Loading /></div>}
+                {userPosts && <div ref={ref}></div>}
             </section>
         </>
     )

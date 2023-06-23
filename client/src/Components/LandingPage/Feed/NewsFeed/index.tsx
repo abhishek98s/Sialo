@@ -78,9 +78,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
                     let commentPostData = data.data.data;
                     let updatedComment = commentPostData.comments[commentPostData.comments.length - 1];
 
-                    console.log(commentPostData)
-                    console.log(commentPostData.comments.length)
-                    console.log(commentPostData.comments[commentPostData.comments.length - 1])
+                   
 
                     dispatch(addComment({
                         comment: {
