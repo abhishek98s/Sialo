@@ -19,11 +19,15 @@ export const getAllUser = asyncWrapper(async (req, res) => {
 
     let data = await User.find();
 
-    let users = data.map((d) => {
+    if (!data) {
+        res.status(500).json({ msg: "No user available" });
+    }
+
+    let users = data.map((user) => {
         d.password = null;
-        return d;
+        return user;
     })
 
     res.status(200).json({ users })
-    
+
 })
