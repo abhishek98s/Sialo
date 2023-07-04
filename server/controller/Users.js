@@ -24,7 +24,7 @@ export const getAllUser = asyncWrapper(async (req, res) => {
     }
 
     let users = data.map((user) => {
-        d.password = null;
+        user.password = null;
         return user;
     })
 
