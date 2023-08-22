@@ -144,12 +144,12 @@ const Login = () => {
         <div className={``}><ToastContainer /></div>
 
 
-        <form onSubmit={submit} className={`${styles.login} + max-w-[32.25em] min-w-[25em] px-[32px] py-[42px] rounded-[33px] border-[#34353E] border-[3px]`}>
+        <form onSubmit={submit} className={`${styles.login} + max-w-[32.25em] min-w-[25em] px-[20px] py-[40px] pb-[24px] rounded-[15px]`}>
           <div className={`flex flex-col gap-[16px]`}>
 
             <div className={`flex flex-col gap-[8px]`}>
               <label className={`title_Large`}>Email *</label>
-              <input placeholder="exapmle@gmail.com" className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} name='email' onChange={inputHandler} />
+              <input placeholder="Exapmle@gmail.com" className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} name='email' onChange={inputHandler} />
             </div>
 
             <div className={`flex flex-col gap-[8px]`}>
