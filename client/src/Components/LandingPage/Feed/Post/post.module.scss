@@ -6,7 +6,7 @@
 
     .storys {
         .story {
-            background-color: $fourth;
+            background-color: $violet-400;
 
             div {
                 background-color: $third;
@@ -25,6 +25,7 @@
         border: 2px solid $third;
         font-size: 12px;
         outline: none;
+        color: $purple-100;
 
         &:focus {
             border: 2px solid $fourth;
@@ -33,6 +34,7 @@
         &::placeholder {
             font-family: "Open Sans";
             font-style: normal;
+            color: $purple-100;
             font-weight: 400;
             font-size: 12px;
             line-height: 120%;
@@ -50,12 +52,13 @@
 
     .bottom {
         button {
-            background-color: $fourth;
+            color: $purple-100;
+            background-color: $violet-300;
             transition: 0.4s;
             border: 3px solid transparent;
 
             &:hover {
-                box-shadow: 0 5px 20px $fourth;
+                box-shadow: 0 2px 8px $violet-400;
             }
         }
     }

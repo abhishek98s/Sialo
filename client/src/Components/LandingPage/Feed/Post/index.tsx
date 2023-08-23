@@ -175,7 +175,7 @@ const Post = () => {
           </div>
         </section>
 
-        <input className={` ${styles.input} + grow rounded-[15px] px-[16px] py-[10px] body_Medium bg-transparent h-[38px]`} placeholder='Mind writing something' name='caption' onChange={inputHandler} />
+        <input className={` ${styles.input} + grow rounded-[8px] px-[16px] py-[10px] body_Medium bg-transparent h-[38px]`} placeholder='Mind writing something' name='caption' onChange={inputHandler} />
 
       </article>
 
@@ -217,7 +217,7 @@ const Post = () => {
 
         <input className={`hidden`} type='file' id='thumbImg' onChange={inputHandler} name="imgFile" accept=".jpg, .jpeg, .png" />
 
-        <button type='submit' className={`body_Medium grid place-items-center px-[15px] h-[30px] rounded-[5px] `}>
+        <button type='submit' className={`label_Medium_Bold grid place-items-center px-[15px] h-[30px] rounded-[5px] `}>
           {!loading && "Post"}
           {loading &&
 
