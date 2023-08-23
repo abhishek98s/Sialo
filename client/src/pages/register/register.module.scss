@@ -1,14 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 @import "../../styles/colors.module.scss";
 
 .quickSand {
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
 }
 
-
-
 .register {
-
     .slogen {
         h2 {
             color: $violet_Light;
@@ -21,10 +18,9 @@
         }
 
         p {
-            color: $violet_Light;
+            color: $purple-100;
         }
     }
-
 
     .register_inputs {
         background-color: $secondary;
@@ -34,33 +30,44 @@
             color: $violet_Light;
         }
 
-        input, .label {
+        input {
+            outline: 2px solid transparent;
+            transition: 0.4s;
+        }
+        input,
+        .label {
             border: 2px solid $third;
 
+            outline: 2px solid transparent;
+            transition: 0.4s;
+
             &::placeholder {
-                font-family: 'Open Sans';
-                font-style: normal;
                 font-weight: 400;
-                font-size: 14px;
-                line-height: 120%;
+                font-size: 12px;
+                color: $violet-200;
             }
 
             &:focus {
-                outline: 2px solid $fourth;
+                outline: 1px solid $violet-300;
             }
         }
 
         button {
-            background-color: $fourth;
-            transition: .3s;
-            
-            &:hover{
-                background-color: $fourth_hover;
+            background-color: $violet-300;
+            transition: 0.3s;
+
+            &:hover {
+                background-color: $violet-400;
             }
         }
 
         .login {
-            color: $fourth;
+            color: $violet-normal;
+            transition: 0.2s;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
@@ -70,17 +77,16 @@
 
     .storys {
         .story {
-            background-color: $third;
+            background-color: $violet-300;
 
             div {
-                background-color: #7b7b7b;
+                background-color: $purple-100;
             }
         }
     }
 }
 
-
-.error{
-    color: #FF7B72;
-    font-size: 15px;
+.error {
+    color: #ff7b72;
+    font-size: 13px;
 }

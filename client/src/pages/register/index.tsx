@@ -207,69 +207,66 @@ const Register = () => {
             </article>
 
 
-            <article className={`${styles.register_inputs} + relative self-center sm:mt-[80px]  max-w-[32em] min-w-[25em] mt-[6%] px-[24px] pt-[80px] pb-[24px] rounded-[33px] border-[3px]`}>
+            <article className={`${styles.register_inputs} + relative self-center sm:mt-[80px]  max-w-[420px] mt-[6%] px-[24px] pt-[80px] pb-[24px] rounded-[33px] border-[3px]`}>
 
                 <section className={`${styles.headline} + pb-[16px]`}>
                     <h3 className={`heading_Large mb-[16px]`}>Create your Account</h3>
                     <p className={`body_Large`}>Its's quicker than you think</p>
                 </section>
 
-                <section className='space-y-[32px]'>
+                <section className='space-y-[16px]'>
                     <section className={`inputs flex gap-[16px] mt-[32px]`}>
                         <div className={`flex flex-col gap-[8px]`}>
-                            <label className={`title_Large`}>First Name *</label>
-                            <input className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.firstName} name='firstName' />
+                            <label className={`label_Large`}>First Name *</label>
+                            <input className={`rounded-[5px] w-[100%] h-[44px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.firstName} name='firstName' />
                         </div>
 
                         <div className={`flex flex-col gap-[8px]`}>
-                            <label className={`title_Large`}>Last Name *</label>
-                            <input className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.lastName} name='lastName' />
+                            <label className={`label_Large`}>Last Name *</label>
+                            <input className={`rounded-[5px] w-[100%] h-[44px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.lastName} name='lastName' />
                         </div>
                     </section>
 
 
                     <section className={`inputs flex gap-[16px]`}>
                         <div className={`flex flex-col gap-[8px]`}>
-                            <label className={`title_Large`}>Phone Number *</label>
-                            <input className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.phoneNo} name='phoneNo' />
+                            <label className={`label_Large`}>Phone Number *</label>
+                            <input className={`rounded-[5px] w-[100%] h-[44px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.phoneNo} name='phoneNo' />
                         </div>
 
                         <div className={`flex flex-col gap-[8px]`}>
-                            <label className={`title_Large`}>Gender *</label>
-                            <input className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.gender} name='gender' />
+                            <label className={`label_Large`}>Gender *</label>
+                            <input className={`rounded-[5px] w-[100%] h-[44px] p-[16px] bg-transparent`} onChange={inputHandler} value={value.gender} name='gender' />
                         </div>
                     </section>
 
-
-
-
                     <div className={`hidden`}><ToastContainer /></div>
                     <div className={`flex flex-col gap-[8px]`}>
-                        <label className={`title_Large`}>Email *</label>
-                        <input placeholder="Exapmle@gmail.com" onChange={inputHandler} name='email' value={value.email} className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} />
+                        <label className={`label_Large`}>Email *</label>
+                        <input placeholder="Exapmle@gmail.com" onChange={inputHandler} name='email' value={value.email} className={`rounded-[5px] w-[100%] h-[44px] p-[16px] bg-transparent`} />
                         <span className={`${styles.error}`}>{error.email}</span>
                     </div>
 
 
                     <div className={`flex flex-col gap-[8px]`}>
-                        <label className={`title_Large`}>Password *</label>
-                        <input placeholder="Password" onChange={inputHandler} name='password' value={value.password} className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} />
+                        <label className={`label_Large`}>Password *</label>
+                        <input placeholder="Password" onChange={inputHandler} name='password' value={value.password} className={`rounded-[5px] w-[100%] h-[44px] p-[16px] bg-transparent`} />
                         <span className={`${styles.error}`}>{error.password}</span>
 
                     </div>
 
                     {!imgs && <div className={`flex flex-col gap-[8px]`}>
-                        <label className={`title_Large`}>Select Photo</label>
+                        <label className={`label_Large`}>Select Photo</label>
                         <input onChange={inputHandler} name='image' id='chooseImg' accept=".jpg, .jpeg, .png" className='hidden' type='file' />
                         <label htmlFor='chooseImg' className={`${styles.label} + cursor-pointer flex justify-center items-center gap-[10px] rounded-[5px] w-[100%]  p-[16px] py-[40px] bg-transparent`} >
-                            <AddImage />
+                            <div className='w-[48px]'><AddImage /></div>
                             <p className={`body_LargeBold`}>Add Image</p>
                         </label>
 
                     </div>}
 
 
-                    <button className={`body_LargeBold w-[100%] rounded-[10px] h-[51px] mt-[24px]`} type='submit'>
+                    <button className={`body_LargeBold w-[100%] rounded-[10px] h-[44px] mt-[24px]`} type='submit'>
                         {!loading && "Submit"}
                         {loading && <div className={'w-[24px] h-[24px] mx-auto'}><Loading /></div>}
                     </button>
@@ -280,10 +277,10 @@ const Register = () => {
                 </section>
 
                 <section className={`${styles.storys} + absolute top-0 left-[50%] translate-x-[-50%] translate-y-[-50%]`}>
-                    <div className={`${styles.story} + relative w-[126px] bg-slate-200  h-[126px] rounded-full grid place-items-center`}>
+                    <div className={`${styles.story} + relative w-[126px] h-[126px] rounded-full grid place-items-center`}>
                         <div className={`w-[115px] h-[115px] rounded-full  grid place-items-center`}>
                             {imgs && <Image src={imgs!} alt='profile' width={400} height={400} className='object-cover rounded-full w-[100%] h-[100%]' />}
-                            {!imgs && <User />}
+                            <figure className={`w-[48px]`}>{!imgs && <User />}</figure>
                         </div>
 
                         {imgs && <span onClick={() => setImg(null!)} className=' absolute cursor-pointer bottom-[0px] right-[0px] w-[30px] h-[30px] text-center pt-[3px] text-[15px] rounded-full text-white bg-[#6E3CBC]'>x</span>}
