@@ -8,13 +8,15 @@
         background: $third;
     }
 
+    .showmore{
+        text-decoration: underline;
+        color: $purple-100;
+    }
+
     .friend {
-        &:hover{
-            background: $third;
-        }
 
         .story {
-            background-color: none;
+            background-color: $violet_300;
 
             div {
                 background-color: $violet_Light;

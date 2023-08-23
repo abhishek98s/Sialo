@@ -37,16 +37,19 @@ export const Friendlist = () => {
         },
     ]
     return (
-        <section className={`${styles.friend_list} max-w-[300px] h-[max-content] mt-[80px] rounded-[15px] px-[12px] py-[24px] pb-[12px] max-xl:hidden`}>
-            <h2 className={`heading_Small text-center`}>Friend List</h2>
+        <section className={`${styles.friend_list} max-w-[300px] h-[max-content] mt-[80px] rounded-[15px] px-[16px] py-[24px] pb-[12px] max-xl:hidden`}>
+            <h2 className={`title_Large`}>Friend List</h2>
             <div className={`${styles.heading} + w-[100%] h-[2px] my-[12px] rounded-[5px]`} />
 
             <article className={`flex flex-col gap-[10px]`}>
 
-                {friends.map((friend: any, index: number) => (
-                    <Friend key={index} styles={styles} {...friend} />
-                ))}
-
+                {friends.map((friend: any, index: number) => {
+                    if(index > 3){
+                        return;
+                    }
+                    return <Friend key={index} styles={styles} {...friend} />
+                })}
+                <div className={`${styles.showmore} + label_Small text-center mt-1`}>Show More</div>
             </article>
         </section>
     )

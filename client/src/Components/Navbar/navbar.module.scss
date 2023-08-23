@@ -1,7 +1,7 @@
 @import "../../styles/colors.module.scss";
 
 .nav {
-    background: linear-gradient(#000000, #000000), $fourth;
+    background: $violet-300;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.386);
     
     .svg {
