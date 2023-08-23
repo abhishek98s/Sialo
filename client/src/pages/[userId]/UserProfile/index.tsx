@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Profile from '../../../../public/images/profile.jpg'
+import { Plus } from '../../../../public/SVG'
 
 const UserProfile = ({ styles, ...userData }: any) => {
 
@@ -20,7 +21,7 @@ const UserProfile = ({ styles, ...userData }: any) => {
                     <p className={`label_Medium grey_light_hover`}>Developer At Microsoft</p>
                 </section>
 
-                <button className={`ml-auto label_Medium px-[10px] py-[8px] h-[100%] rounded-[5px]`}>Add Friend</button>
+                <button className={`ml-auto label_Medium_Bold px-[10px] py-[8px] h-[100%] rounded-[5px] flex items-center gap-[8px] text-base`}>Add Friend <div className={`w-[18px]`}><Plus/></div></button>
 
             </article>
 

@@ -6,7 +6,7 @@ const UserInfo = ({ styles, ...userData }: any) => {
         <>
             <section className={`${styles.userInfoFeed} p-[24px] w-[100%] rounded-[10px]`}>
                 <article className={`${styles.Info}`}>
-                    <span className={`body_LargeBold`}>Info</span>
+                    <span className={`${styles.title} body_LargeBold`}>Info</span>
 
                     <div className={`p-[10px] rounded-[10px] mt-[16px]`}>
                         <ul className={`space-y-[20px] label_Medium`}>
@@ -18,7 +18,7 @@ const UserInfo = ({ styles, ...userData }: any) => {
                 </article>
 
                 <article className={`${styles.Info} mt-[34px] rounded-[10px]`}>
-                    <span className={`body_LargeBold`}>Friend List</span>
+                    <span className={`${styles.title} + body_LargeBold`}>Friend List</span>
 
                     <div className={`p-[10px] rounded-[10px] mt-[16px]`}>
                         <ul className={`space-y-[20px] label_Medium`}>

@@ -128,7 +128,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
 
             </article>
 
-            <p className={`body_Large `}>{(postData.caption) || 'Nature is beautiful!'}</p>
+            <p className={`body_Large mt-2`}>{(postData.caption) || 'Nature is beautiful!'}</p>
 
 
             <div className='max-sm:mx-[-8px]'>
@@ -139,8 +139,8 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
                 <div className={`${styles.svg} `}><div className={`w-[30px] h-[30px]`}><Heart /></div></div>
 
                 <article className={`flex gap-[8px] w-[100%]  h-[100%] `}>
-                    <input className={`label_Medium bg-transparent grow max-w-[100%] h-[100%] px-[16px] py-[12px] rounded-[10px]`} onChange={inputHandler} placeholder='Have something to say?' />
-                    <button type='submit' className={`body_Medium ml-[10px] px-[15px] h-[100%] rounded-[5px] max-sm:hidden `}>Post</button>
+                    <input className={`label_Medium bg-transparent grow max-w-[100%] h-[100%] px-[16px] py-[12px] rounded-[8px]`} onChange={inputHandler} placeholder='Have something to say?' />
+                    <button type='submit' className={`+ label_Medium_Bold ml-[10px] px-[15px] h-[100%] rounded-[5px] max-sm:hidden `}>Post</button>
                     <button className={`${styles.svg} + body_Medium ml-auto h-[100%] rounded-[5px] hidden max-sm:block  `}><Comments /></button>
                 </article>
             </form>

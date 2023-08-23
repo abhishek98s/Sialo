@@ -1,12 +1,12 @@
 @import "../../styles/colors.module.scss";
 
 .nav {
-    background: $violet-300;
+    background: $violet-500;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.386);
     
     .svg {
-        background-color: $third;
-        border: 2px solid $violet-400;
+        background-color: $violet-800;
+        border: 2px solid $violet-100;
         svg {
             width: 20px;
             height: 20px;

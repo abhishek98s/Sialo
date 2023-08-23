@@ -2,7 +2,7 @@
 
 .post_box {
     background-color: $secondary;
-    border: 2px solid $third;
+    border: 1px solid $third;
 
     .storys {
         .story {
@@ -26,9 +26,9 @@
         font-size: 12px;
         outline: none;
         color: $purple-100;
-
+        transition: .4s;
         &:focus {
-            border: 2px solid $fourth;
+            border: 2px solid $violet-300;
         }
 
         &::placeholder {
