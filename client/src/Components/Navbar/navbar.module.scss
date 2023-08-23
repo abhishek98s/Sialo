@@ -2,11 +2,11 @@
 
 .nav {
     background: linear-gradient(#000000, #000000), $fourth;
-    box-shadow: 0 12px 24px $third;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.386);
     
     .svg {
         background-color: $third;
-        border: 2px solid $blue_normal;
+        border: 2px solid $violet-400;
         svg {
             width: 20px;
             height: 20px;
