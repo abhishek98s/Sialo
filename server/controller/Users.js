@@ -29,5 +29,4 @@ export const getAllUser = asyncWrapper(async (req, res) => {
     })
 
     res.status(200).json({ users })
-
 })

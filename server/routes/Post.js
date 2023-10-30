@@ -10,7 +10,7 @@ let app = express();
 
 app.post('/post', upload.single('image'), createPost); // create a post
 
-app.get('/post', upload.single('image'), getPost);  // get ALl the Posts
+app.get('/post', getPost);  // get ALl the Posts
 
 app.get('/post/:userId', getUserPosts);  // get posts of a specific user
 
