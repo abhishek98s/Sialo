@@ -30,8 +30,8 @@ export const registerUser = asyncWrapper(async (userData, imgPath) => {
 })
 
 
-export const loginUser = async (req, res) => {
-    const { email, password } = req.body;
+export const loginUser = async (loginCredientials) => {
+    const { email, password } = loginCredientials;
     
     const user = await findUser(email);
 

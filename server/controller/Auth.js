@@ -9,7 +9,7 @@ export const register = asyncWrapper(async (req, res, next) => {
 })
 
 export const login = asyncWrapper(async (req, res) => {
-    const userToken = await loginUser(req, res);
+    const userToken = await loginUser(req.body);
     const { token, user } = userToken;
 
     res.status(200).json({ token, user });
