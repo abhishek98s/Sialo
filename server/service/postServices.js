@@ -41,6 +41,8 @@ export const createPost = async (postDetails) => {
     })
 
     let userPost = await post.save();
+
+    return userPost;
 }
 
 export const addPostComments = async (postId, commentInfo) => {

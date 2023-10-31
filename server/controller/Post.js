@@ -13,8 +13,7 @@ export const getAllPostHandler = asyncWrapper(async (req, res) => {
 export const createPostHandler = asyncWrapper(async (req, res) => {
     let userPost = await createPost(req.body);
 
-    res.status(200).json({ data: userPost });
-   
+    res.status(200).json({ data: userPost });   
 })
 
 export const getUserPostsHandler = asyncWrapper(async (req, res) => {
