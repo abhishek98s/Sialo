@@ -28,7 +28,7 @@ export const isMatchingPassword = async (password, user) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) throw Error("Invalid crediantials.");
 
-    return
+    return;
 }
 
 export const generateToken = async (firstName, secret) => {

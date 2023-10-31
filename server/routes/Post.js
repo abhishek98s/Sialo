@@ -2,15 +2,14 @@ import express from 'express'
 // import upload from '../uploads/upload.js';
 import upload from '../utils/multer.js';
 // Controllers
-import { createPost, addCommentHandler, getPost, getUserPostsHandler } from '../controller/Post.js'
+import { createPostHandler, addCommentHandler, getAllPostHandler, getUserPostsHandler } from '../controller/Post.js'
 
 
 let app = express();
 
+app.post('/post', upload.single('image'), createPostHandler); // create a post
 
-app.post('/post', upload.single('image'), createPost); // create a post
-
-app.get('/post', getPost);  // get ALl the Posts
+app.get('/post', getAllPostHandler);  // get ALl the Posts
 
 app.get('/post/:userId', getUserPostsHandler);  // get posts of a specific user
 
