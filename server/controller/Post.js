@@ -11,7 +11,9 @@ export const getAllPostHandler = asyncWrapper(async (req, res) => {
 
 // Save the post
 export const createPostHandler = asyncWrapper(async (req, res) => {
-    let userPost = await createPost(req.body);
+    const imagePath = req.file.path;
+
+    let userPost = await createPost(req.body, imagePath);
 
     res.status(200).json({ data: userPost });   
 })

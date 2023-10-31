@@ -1,5 +1,6 @@
 import Post from "../model/Post.js";
 import sharp from 'sharp'
+import cloudinary from '../utils/cloudinary.js'
 
 
 
@@ -9,7 +10,7 @@ export const getAllPost = async (req, res) => {
     return posts;
 }
 
-export const createPost = async (postDetails) => {
+export const createPost = async (postDetails, imagePath) => {
     const {
         userId,
         firstName,
@@ -18,12 +19,9 @@ export const createPost = async (postDetails) => {
         caption,
     } = postDetails
 
-    const imagePath = req.file.path;
-
     //Compres the image
     const compressedImagePath = imagePath + '.compressed.jpg';
     await sharp(imagePath).jpeg({ quality: 80 }).toFile(compressedImagePath);
-
 
     const folder = 'Sialo';
     let imgUrl = await cloudinary.uploader.upload(compressedImagePath, {
