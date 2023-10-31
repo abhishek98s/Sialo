@@ -5,14 +5,15 @@ import User from '../model/User.js'
 
 import cloudinary from '../utils/cloudinary.js'
 import asyncWrapper from '../middleware/async.js'
+import { addPostComments, getAllPost, getUserPosts } from '../service/postServices.js'
 
 
 // Get all the post
 export const getPost = asyncWrapper(async (req, res) => {
-    let posts = await Post.find({});
+    let posts = await getAllPost();
+    
     res.status(200).json({ data: posts })
 })
-
 
 // Save the post
 export const createPost = asyncWrapper(async (req, res) => {
@@ -26,7 +27,6 @@ export const createPost = asyncWrapper(async (req, res) => {
     } = req.body
 
     const imagePath = req.file.path;
-
 
     sharp(imagePath)
         .jpeg({ quality: 80 })
@@ -58,45 +58,18 @@ export const createPost = asyncWrapper(async (req, res) => {
         });
 })
 
-export const getUserPosts = asyncWrapper(async (req, res) => {
+export const getUserPostsHandler = asyncWrapper(async (req, res) => {
     const { userId } = req.params;
-
-    const userPosts = await Post.find({ userId: userId })
+    
+    const userPosts = await getUserPosts(userId);
 
     res.status(200).json({ data: userPosts })
 })
 
-export const addComment = asyncWrapper(async (req, res) => {
-
+export const addCommentHandler = asyncWrapper(async (req, res) => {
     const { postId } = req.params;
 
-    const {
-        userId,
-        firstName,
-        lastName,
-        userPicturePath,
-
-        comment,
-    } = req.body
-
-    const post = await Post.findOne({ _id: postId });
-    
-    await post.comments.push(
-        {
-            userId: userId,
-            firstName: firstName,
-            lastName: lastName,
-            userImg: userPicturePath,
-            comment: comment
-        })
-
-
-    await Post.updateOne({ _id: postId },
-        {
-            $set: {
-                comments: post.comments
-            }
-        })
+    const post = await addPostComments(postId, req.body);
 
     res.status(200).json({ data: post })
 })
