@@ -31,8 +31,10 @@ export const isMatchingPassword = async (password, user) => {
     return;
 }
 
-export const generateToken = async (firstName, secret) => {
-    const token = jwt.sign({ id: firstName }, secret);
+export const generateToken = async (firstName, secret, lifeTime) => {
+    const token = jwt.sign({ id: firstName }, secret, {
+        expiresIn: lifeTime
+    });
 
     return token;
 }

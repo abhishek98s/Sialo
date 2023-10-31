@@ -38,7 +38,7 @@ export const loginUser = async (loginCredientials) => {
     await isMatchingPassword(password, user);
 
     const firstName = user.firstName;
-    const token = await generateToken(firstName, process.env.JWT_SECRET);
+    const token = await generateToken(firstName, process.env.JWT_SECRET, process.env.JWT_LIFETIME);
     user.password = null;
 
     return { token, user };
