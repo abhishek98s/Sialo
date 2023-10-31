@@ -1,32 +1,17 @@
 import asyncWrapper from "../middleware/async.js";
-import User from "../model/User.js";
+import { getAllUser, getUser } from "../service/userServices.js";
 
-export const getUser = asyncWrapper(async (req, res) => {
-
+export const getUserHandler = asyncWrapper(async (req, res) => {
     const { id } = req.params;
 
-    let user = await User.findOne({ _id: id })
-
-    if (!user) return res.status(400).json({ msg: "User doen't exist" });
-
-    user.password = null;
+    let user = await getUser(id);
 
     res.status(200).json({ user });
 
 })
 
-export const getAllUser = asyncWrapper(async (req, res) => {
-
-    let data = await User.find();
-
-    if (!data) {
-        res.status(500).json({ msg: "No user available" });
-    }
-
-    let users = data.map((user) => {
-        user.password = null;
-        return user;
-    })
+export const getAllUserHandler = asyncWrapper(async (req, res) => {
+    let users = await getAllUser();
 
     res.status(200).json({ users })
 })
