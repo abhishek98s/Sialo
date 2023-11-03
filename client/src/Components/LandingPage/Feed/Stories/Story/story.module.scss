@@ -1,15 +1,10 @@
 @import "../../../../../styles/colors.module.scss";
 
 .storys {
-    .story {
-        background-color: $violet-600;
-        div {
-            background-color: $purple-100;
-            transition: 0.4s;
+    border: 1px solid $violet-600;
+    transition: 0.4s;
 
-            &:hover {
-                filter: none;
-            }
-        }
+    &:hover {
+        filter: none;
     }
 }
