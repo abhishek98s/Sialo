@@ -15,14 +15,14 @@ import Post from '@/Components/LandingPage/Feed/Post'
 import UserInfo from './UserInfo'
 import NewsFeed from '@/Components/LandingPage/Feed/NewsFeed'
 import Head from 'next/head'
+import { fetchData } from '@/service/fetch'
 
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`https://sialo-backend.vercel.app/api/user`);
-  const users = await res.json();
+  const users = await fetchData(`http://localhost:8000/api/user`);
 
-  const paths = users.users.map((user: any) => ({
+  const paths = users.map((user: any) => ({
     params: { userId: user._id },
   }));
 
@@ -32,26 +32,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+  const userData = await fetchData('http://localhost:8000/api/user', params.userId)
+  const randUserPosts = await fetchData('https://sialo-backend.vercel.app/api/post', params.userId)
 
-  const id = params.userId;
-  const res = await fetch(`https://sialo-backend.vercel.app/api/user/${params.userId}`);  // get the data of the user
-  const json = await res.json();
-  const userData = json.user
-
-  const resPosts = await fetch(`https://sialo-backend.vercel.app/api/post/${params.userId}`);  // get the posts of the user aqccording to the userId
-  const jsonPosts = await resPosts.json();
-  const randUserPosts = jsonPosts.data
-
-  return { props: { userData, randUserPosts, id } };
+  return { props: { userData, randUserPosts, id: params.userId } };
 }
 
-
 const UserPost = ({ userData, randUserPosts, id }: any) => {
-  const userPosts = useSelector((state: any) => state.posts.posts);
   const user = useSelector((state: any) => state.login.user)
-
   const router = useRouter();
 
   const showPost = user._id === id ? true : false;

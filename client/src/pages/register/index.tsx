@@ -1,45 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import styles from './register.module.scss';
-import register_illustration from '../../../public/images/register.png'
 import Image from 'next/image';
 import Link from 'next/link';
-import validator from 'validator';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
-
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import styles from './register.module.scss';
+import register_illustration from '../../../public/images/register.png'
 import { AddImage, Plus, User } from '../../../public/SVG';
 import Loading from './Loading';
-import Sialo from '@/Components/Sialo';
-
-
-const registerAuth = (Component: any) => {
-
-
-    // if already login protect the route
-    const AuthenticatedComponent = () => {
-        const router = useRouter();
-        const token = useSelector((state: any) => state.login.token)
-
-        useEffect(() => {
-            if (!token) {
-                return
-
-            }
-            router.push('/');
-        }, []);
-
-        return token ? <Sialo /> : <Component />; // Render whatever you want while the authentication occurs
-    };
-
-    return AuthenticatedComponent;
-}
-
-
+import { loggedInAuth } from '@/Auth/loginedUser';
 
 const Register = () => {
     const [imgs, setImg] = useState();
@@ -63,7 +34,6 @@ const Register = () => {
     const { firstName, lastName, phoneNo, gender, email, password } = value;
 
     const router = useRouter();
-
 
     const inputHandler = (e: any) => {
         let val = e.target.value;
@@ -116,8 +86,6 @@ const Register = () => {
         }
     }
 
-
-
     const submit = async (e: any) => {
         e.preventDefault();
         let isEmptyValues = Object.values(value).every((value) => value === '');
@@ -150,10 +118,7 @@ const Register = () => {
             return
         }
 
-
         if (isEmptyErrors && !isEmptyValues) {
-
-
             setLoading(true);
             const formData = new FormData();
             formData.append("firstName", firstName)
@@ -178,7 +143,6 @@ const Register = () => {
                 }
                 router.push('/login');
 
-
                 toast("Registered", {
                     position: "top-right",
                     autoClose: 3000,
@@ -193,8 +157,6 @@ const Register = () => {
                 console.log(err)
             }
         }
-
-
     }
 
     return (
@@ -205,7 +167,6 @@ const Register = () => {
                 <h2 className={`${styles.quickSand} + max-w-[100%] text-[57px] leading-[120%] font-bold max-lg:text-[20px] max-lg:font-medium`}>Connect with the World and Share Your Story</h2>
                 <Image className={`self-end relative bottom-[60px] max-lg:hidden`} src={register_illustration} alt="illustration" width={355} height={355} />
             </article>
-
 
             <article className={`${styles.register_inputs} + relative self-center sm:mt-[80px]  max-w-[420px] mt-[6%] px-[24px] pt-[80px] pb-[24px] rounded-[33px] border-[3px]`}>
 
@@ -227,7 +188,6 @@ const Register = () => {
                         </div>
                     </section>
 
-
                     <section className={`inputs flex gap-[16px]`}>
                         <div className={`flex flex-col gap-[8px]`}>
                             <label className={`label_Large`}>Phone Number *</label>
@@ -247,7 +207,6 @@ const Register = () => {
                         <span className={`${styles.error}`}>{error.email}</span>
                     </div>
 
-
                     <div className={`flex flex-col gap-[8px]`}>
                         <label className={`label_Large`}>Password *</label>
                         <input placeholder="Password" onChange={inputHandler} name='password' value={value.password} className={`rounded-[5px] w-[100%] h-[44px] p-[16px] bg-transparent`} />
@@ -264,7 +223,6 @@ const Register = () => {
                         </label>
 
                     </div>}
-
 
                     <button className={`body_LargeBold w-[100%] rounded-[10px] h-[44px] mt-[24px]`} type='submit'>
                         {!loading && "Submit"}
@@ -286,12 +244,9 @@ const Register = () => {
                         {imgs && <span onClick={() => setImg(null!)} className=' absolute cursor-pointer bottom-[0px] right-[0px] w-[30px] h-[30px] text-center pt-[3px] text-[15px] rounded-full text-white bg-[#6E3CBC]'>x</span>}
                     </div>
                 </section>
-
             </article>
-
-
         </form>
     )
 }
 
-export default registerAuth(Register)
+export default loggedInAuth(Register)

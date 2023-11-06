@@ -6,12 +6,12 @@ export const getUserHandler = asyncWrapper(async (req, res) => {
 
     let user = await getUser(id);
 
-    res.status(200).json({ user });
+    res.status(200).json({ data: {...user} });
 
 })
 
 export const getAllUserHandler = asyncWrapper(async (req, res) => {
     let users = await getAllUser();
 
-    res.status(200).json({ users })
+    res.status(200).json({ data: users })
 })

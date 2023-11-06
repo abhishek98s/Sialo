@@ -1,39 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import styles from './login.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import axios from 'axios'
-
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Loading from '../register/Loading';
 import { useDispatch, useSelector } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.css';
+
+import styles from './login.module.scss';
+import Loading from '../register/Loading';
 import { setLogin } from '@/redux/counter/loginSlice';
-import Sialo from '@/Components/Sialo';
-
-
-// if already login protect the route
-const loginAuth = (Component: any) => {
-
-  const AuthenticatedComponent = () => {
-    const router = useRouter();
-    const token = useSelector((state: any) => state.login.token)
-
-    useEffect(() => {
-      if (!token) {
-        return
-
-      }
-      router.push('/');
-    }, []);
-
-    return token ? <Sialo /> : <Component />; // Render whatever you want while the authentication occurs
-  };
-
-  return AuthenticatedComponent;
-}
-
-
+import { loggedInAuth } from '@/Auth/loginedUser';
 
 const Login = () => {
 
@@ -69,7 +45,6 @@ const Login = () => {
       return;
     }
 
-
     try {
       setLoading(true)
       const credentials = {
@@ -79,6 +54,19 @@ const Login = () => {
 
       const response = await axios.post('https://sialo-backend.vercel.app/api/login', credentials)
 
+      if (!response.data.token) {
+        toast.error("Invalid crediantials.", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })
+        return;
+      }
       if (response.data.token) {
         setLoading(false)
 
@@ -101,19 +89,7 @@ const Login = () => {
         })
 
         router.push('/');
-      } else {
-        toast.error("Invalid crediantials.", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        })
       }
-
     } catch (err) {
       toast.error("Invalid crediantials.", {
         position: "top-right",
@@ -126,23 +102,18 @@ const Login = () => {
         theme: "dark",
       })
       setLoading(false)
-
     }
   }
-
-
 
   return (
     <>
       <section className={`${styles.login_box} + h-[100vh] max-w-[100%] flex justify-center items-center mx-auto px-[4%] max-lg:mx-[4%]`}>
-
         <article className={`flex flex-col gap-[16px] max-lg:text-center max-lg:gap-[16px]`}>
           <h2 className={`${styles.quickSand} + text-[60px] leading-[40px] font-bold max-lg:text-[50px]`}>Sialo</h2>
           <p className={`${styles.quickSand} + ${styles.subHeadLine} text-[32px] leading-[40px] font-medium max-w-[537px] max-lg:text-[28px] max-lg:leading-6`}>Experience a New Way of Connecting</p>
         </article>
 
-        <div className={``}><ToastContainer /></div>
-
+        <ToastContainer />
 
         <form onSubmit={submit} className={`${styles.login} + max-w-[32.25em] min-w-[25em] px-[20px] py-[40px] pb-[24px] rounded-[15px]`}>
           <div className={`flex flex-col gap-[16px]`}>
@@ -156,7 +127,6 @@ const Login = () => {
               <label className={`title_Large`}>Password *</label>
               <input placeholder="Password" className={`rounded-[5px] w-[100%] h-[51px] p-[16px] bg-transparent`} name='password' onChange={inputHandler} />
             </div>
-
           </div>
 
           <button className={`body_LargeBold w-[100%] h-[51px] mt-[24px]`} type='submit' disabled={loading}>
@@ -173,4 +143,4 @@ const Login = () => {
   )
 }
 
-export default loginAuth(Login)
+export default loggedInAuth(Login)

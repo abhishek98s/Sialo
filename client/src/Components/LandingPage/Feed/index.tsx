@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
 
-import styles from './feed.module.scss';
-import Story from './Stories/Story'
 import Stories from './Stories';
 import Post from './Post';
 import NewsFeed from './NewsFeed';
@@ -13,42 +11,30 @@ import { addPosts, setPosts } from '@/redux/counter/postSlice';
 const Feeds = () => {
     const dispatch = useDispatch();
     const userPosts = useSelector((state: any) => state.posts.posts);
-    let page = 1;
+    let [page, setPage] = useState(1);
 
     const { ref, inView } = useInView({
         threshold: 0.1, // Intersection ratio threshold for triggering the callback
         rootMargin: "2000px"
     });
 
-    useEffect(() => {
-
-        const getUserPosts = async () => {
-            // const response = await fetch("https://sialo-backend.vercel.app/api/post");
-            // const jsonData = await response.json();
-            // dispatch(setPosts({ posts: jsonData.data }));
-            const response = await fetch(`http://localhost:8000/api/reqPost/${page}`);
-            const jsonData = await response.json();
-            dispatch(setPosts({ posts: jsonData.data }));
-            page++;
-        }
-
-        getUserPosts();
-    }, [])
-
-    const fetchData = async () => {
-        // const getRequestedPosts = async () => {
-        const response = await fetch(`http://localhost:8000/api/reqPost/${page}`);
+    const fetchData = async (num: number) => {
+        const response = await fetch(`http://localhost:8000/api/reqPost/${num}`);
         const jsonData = await response.json();
-        dispatch(setPosts({ posts: jsonData.data }));
-        page++;
-        // }
-        // dispatch(addPosts({ post: userPosts }))
+        setPage(page + 1)
+        console.log(jsonData.data)
+        dispatch(addPosts({ post: jsonData.data }))
         return
     }
 
     useEffect(() => {
+        fetchData(page);
+    }, [])
+
+
+    useEffect(() => {
         if (inView) {
-            fetchData();
+            fetchData(page);
         }
     }, [inView])
 
