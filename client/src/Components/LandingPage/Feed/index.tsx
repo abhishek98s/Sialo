@@ -20,7 +20,7 @@ const Feeds = () => {
     });
 
     const fetchPostData = async (num: number) => {
-        const jsonData = await fetchData(`https://sialo-backend.vercel.app/api/reqPost`, num);
+        const jsonData = await fetchData(`https://sialo-backend.vercel.app/api/reqPost`, num.toString());
         setPage(page + 1);
         dispatch(addPosts({ post: jsonData }))
         return
@@ -29,7 +29,6 @@ const Feeds = () => {
     useEffect(() => {
         fetchPostData(page);
     }, [])
-
 
     useEffect(() => {
         if (inView) {
@@ -44,8 +43,6 @@ const Feeds = () => {
                 <Stories />
 
                 <section className={`mt-[24px]`}><Post /></section>
-
-                {/* <NewsFeed /> */}
 
                 <article className={`min-h-[50px]`}>
 
