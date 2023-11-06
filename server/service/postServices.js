@@ -76,7 +76,24 @@ export const addPostComments = async (postId, commentInfo) => {
 export const getUserPosts = async (userId) => {
     const userPosts = await Post.find({ userId: userId });
 
-    if(!userPosts) throw Error("User doesnot exits")
+    if (!userPosts) throw Error("User doesnot exits")
 
     return userPosts;
+}
+
+export const getRequestedPosts = async (noofItems) => {
+    const itemsToRequest = 5
+    const result = await Post.find({}).limit(noofItems * itemsToRequest);
+
+    let resultLength = noofItems * itemsToRequest;
+    let requestItem = result.length;
+    const itemLeft = resultLength - requestItem;
+
+    if (!result) throw Error("Something wrong");
+
+    if ((resultLength !== requestItem) && (itemLeft > itemsToRequest)) {
+        return [];
+    }
+
+    return result.slice(-5);
 }

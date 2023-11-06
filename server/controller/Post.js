@@ -1,5 +1,5 @@
 import asyncWrapper from '../middleware/async.js'
-import { addPostComments, createPost, getAllPost, getUserPosts } from '../service/postServices.js'
+import { addPostComments, createPost, getAllPost, getRequestedPosts, getUserPosts } from '../service/postServices.js'
 
 
 // Get all the post
@@ -15,7 +15,7 @@ export const createPostHandler = asyncWrapper(async (req, res) => {
 
     let userPost = await createPost(req.body, imagePath);
 
-    res.status(200).json({ data: userPost });   
+    res.status(200).json({ data: userPost });
 })
 
 export const getUserPostsHandler = asyncWrapper(async (req, res) => {
@@ -32,4 +32,12 @@ export const addCommentHandler = asyncWrapper(async (req, res) => {
     const post = await addPostComments(postId, req.body);
 
     res.status(200).json({ data: post })
+})
+
+export const getRequestedPostsHandler = asyncWrapper(async (req, res) => {
+    const { noofItems } = req.params;
+
+    let posts = await getRequestedPosts(noofItems);
+
+    res.status(200).json({ data: posts });
 })
