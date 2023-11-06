@@ -12,5 +12,5 @@ export const loginHandler = asyncWrapper(async (req, res) => {
     const userToken = await loginUser(req.body);
     const { token, user } = userToken;
 
-    res.status(200).json({ data: { token, user } });
+    res.status(200).json({ token, user });
 })
