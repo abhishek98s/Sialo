@@ -7,6 +7,7 @@ import Post from './Post';
 import NewsFeed from './NewsFeed';
 import Loading from './Loading2';
 import { addPosts, setPosts } from '@/redux/counter/postSlice';
+import { fetchData } from '@/service/fetch';
 
 const Feeds = () => {
     const dispatch = useDispatch();
@@ -18,23 +19,21 @@ const Feeds = () => {
         rootMargin: "2000px"
     });
 
-    const fetchData = async (num: number) => {
-        const response = await fetch(`http://localhost:8000/api/reqPost/${num}`);
-        const jsonData = await response.json();
-        setPage(page + 1)
-        console.log(jsonData.data)
-        dispatch(addPosts({ post: jsonData.data }))
+    const fetchPostData = async (num: number) => {
+        const jsonData = await fetchData(`https://sialo-backend.vercel.app/api/reqPost`, num);
+        setPage(page + 1);
+        dispatch(addPosts({ post: jsonData }))
         return
     }
 
     useEffect(() => {
-        fetchData(page);
+        fetchPostData(page);
     }, [])
 
 
     useEffect(() => {
         if (inView) {
-            fetchData(page);
+            fetchPostData(page);
         }
     }, [inView])
 

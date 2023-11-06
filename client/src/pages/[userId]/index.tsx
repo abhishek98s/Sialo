@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import axios from 'axios'
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
+import Head from 'next/head'
 
 import LayoutSidebar from '@/Components/LayoutSidebar'
 import bg from '../../../public/images/bg.jpg'
 
 import styles from './user.module.scss'
 import UserProfile from './UserProfile'
-import { Email, Phone, Work } from '../../../public/SVG'
 import Post from '@/Components/LandingPage/Feed/Post'
 import UserInfo from './UserInfo'
 import NewsFeed from '@/Components/LandingPage/Feed/NewsFeed'
-import Head from 'next/head'
 import { fetchData } from '@/service/fetch'
 
-
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const users = await fetchData(`http://localhost:8000/api/user`);
+  const users = await fetchData(`https://sialo-backend.vercel.app/api/user`);
 
   const paths = users.map((user: any) => ({
     params: { userId: user._id },
@@ -33,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const userData = await fetchData('http://localhost:8000/api/user', params.userId)
+  const userData = await fetchData('https://sialo-backend.vercel.app/api/user', params.userId)
   const randUserPosts = await fetchData('https://sialo-backend.vercel.app/api/post', params.userId)
 
   return { props: { userData, randUserPosts, id: params.userId } };
@@ -77,7 +73,6 @@ const UserPost = ({ userData, randUserPosts, id }: any) => {
                   <NewsFeed key={index} {...data} />
                 ))}
               </article>
-
             </section>
           </section>
         </div>
