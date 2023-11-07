@@ -8,7 +8,6 @@ const withAuth = (Component: any) => {
         const router = useRouter();
         const user = useSelector((state: any) => state.login.user)
 
-
         useEffect(() => {
             if (!user) {
                 router.push('/login');
