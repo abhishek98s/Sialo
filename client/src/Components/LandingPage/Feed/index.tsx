@@ -22,8 +22,10 @@ const Feeds = () => {
     const fetchPostData = async (num: number) => {
         const jsonData = await fetchData(`https://sialo-backend.vercel.app/api/reqPost`, num.toString());
         setPage(page + 1);
+        if (jsonData.length == 0) {
+            return;
+        }
         dispatch(addPosts({ post: jsonData }))
-        return
     }
 
     useEffect(() => {

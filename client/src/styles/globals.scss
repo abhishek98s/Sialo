@@ -94,13 +94,13 @@ img {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 500;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     font-size: 14px;
     line-height: 140%;
-    
+
     @media screen and (max-width: 500px) {
         font-size: 12px;
-        letter-spacing: .8px;
+        letter-spacing: 0.8px;
         line-height: 140%;
     }
 }
@@ -123,7 +123,7 @@ img {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     font-size: 14px;
     line-height: 120%;
 
@@ -133,10 +133,10 @@ img {
     }
 }
 
-.label_Medium_Bold{
+.label_Medium_Bold {
     font-weight: 800;
     letter-spacing: 0.5px;
-    font-size: 13px;    
+    font-size: 13px;
 }
 
 .label_Medium {
@@ -146,17 +146,16 @@ img {
     letter-spacing: 0.5px;
     font-size: 12px;
     line-height: 120%;
-    
+
     @media only screen and (max-width: 500px) {
         font-size: 11px;
         letter-spacing: 0.6px;
     }
 }
 
-.label_Small{
+.label_Small {
     font-size: 12px;
     font-weight: 500;
-
 }
 
 // Tostify code
@@ -192,4 +191,11 @@ img {
     height: 24px;
     align-self: center;
     justify-self: center;
+}
+
+// swiper
+.swiper-slide,
+.swiper-slide {
+    width: max-content !important;
+    margin-right: 10px !important;
 }

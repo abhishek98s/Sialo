@@ -7,4 +7,10 @@
     &:hover {
         filter: none;
     }
+    & img {
+        transition: 0.4s;
+        &:hover {
+            scale: 1.1;
+        }
+    }
 }
