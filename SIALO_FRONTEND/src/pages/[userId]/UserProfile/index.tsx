@@ -17,11 +17,11 @@ const UserProfile = ({ styles, ...userData }: any) => {
 
 
                 <section className='space-y-1'>
-                    <h4 className={`body_LargeBold`}>{`${userData.firstName} ${userData.lastName}`}</h4>
+                    <h4 className={`body_LargeBold`}>{`${userData.name}`}</h4>
                     <p className={`label_Medium grey_light_hover`}>Developer At Microsoft</p>
                 </section>
 
-                <button className={`ml-auto label_Medium_Bold px-[10px] py-[8px] h-[100%] rounded-[5px] flex items-center gap-[8px] text-base`}>Add Friend <div className={`w-[18px]`}><Plus/></div></button>
+                <button className={`ml-auto label_Medium_Bold px-[10px] py-[8px] h-[100%] rounded-[5px] flex items-center gap-[8px] text-base`}>Add Friend <div className={`w-[18px]`}><Plus /></div></button>
 
             </article>
 
