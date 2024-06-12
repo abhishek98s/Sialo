@@ -22,9 +22,6 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
     const user = useSelector((state: any) => state.login.user)
     const dispatch = useDispatch();
 
-
-    console.log(postData.post_image)
-
     const [value, setValue] = useState({
         comment: "",
         loading: ""

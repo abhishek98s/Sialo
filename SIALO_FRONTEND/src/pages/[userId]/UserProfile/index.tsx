@@ -11,13 +11,13 @@ const UserProfile = ({ styles, ...userData }: any) => {
 
                 <section className={`${styles.story} + relative bottom-[40px] w-[80px] bg-slate-200 h-[80px] rounded-full grid place-items-center`}>
                     <div className={`w-[70px] h-[70px] rounded-full grid place-items-center overflow-hidden`}>
-                        <Image className={`w-[100%] h-[100%] object-cover`} src={userData.img || Profile} alt="sialo.vercel.app" width={500} height={500} />
+                        <Image className={`w-[100%] h-[100%] object-cover`} src={userData._doc.img || Profile} alt="sialo.vercel.app" width={500} height={500} />
                     </div>
                 </section>
 
 
                 <section className='space-y-1'>
-                    <h4 className={`body_LargeBold`}>{`${userData.name}`}</h4>
+                    <h4 className={`body_LargeBold`}>{`${userData._doc.name}`}</h4>
                     <p className={`label_Medium grey_light_hover`}>Developer At Microsoft</p>
                 </section>
 
