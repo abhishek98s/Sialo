@@ -23,6 +23,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
     const dispatch = useDispatch();
 
 
+    console.log(postData.post_image)
 
     const [value, setValue] = useState({
         comment: "",
@@ -132,7 +133,7 @@ const NewsFeed = ({ ...postData }: any): JSX.Element => {
 
 
             <div className='max-sm:mx-[-8px]'>
-                <Image className={`w-[100%] h-[100%] object-center `} src={!(postData.img) ? mainImg : postData.post_data} alt='post' width={400} height={30} />
+                <Image className={`w-[100%] h-[100%] object-center `} src={!(postData.post_image) ? mainImg : postData.post_image} alt='post' width={400} height={30} />
             </div>
 
             <form onSubmit={submit} className={`${styles.like_comment} + flex items-center gap-[16px] h-[38px] `}>

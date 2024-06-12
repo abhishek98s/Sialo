@@ -17,7 +17,6 @@ import { fetchData } from '@/service/fetch'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const users = await fetchData(`https://sialo-backend.vercel.app/api/user`);
-
   const paths = users.map((user: any) => ({
     params: { userId: user._id },
   }));

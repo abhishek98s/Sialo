@@ -13,5 +13,5 @@ export const getUserHandler = asyncWrapper(async (req, res) => {
 export const getAllUserHandler = asyncWrapper(async (req, res) => {
     let users = await getAllUser();
 
-    res.status(200).json({ data: {...users} })
+    res.status(200).json({ data: users })
 })
